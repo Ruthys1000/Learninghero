@@ -470,41 +470,22 @@ function loadGlobalNavbar() {
 ============================================ */
 
 const GLOBAL_FOOTER_HTML = `
-<footer class="footer" id="about" style="
-    text-align: center; 
-    padding: 60px 20px; 
-    color: white; 
-    background: rgba(15, 15, 35, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(102, 126, 234, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    width: 100%;
-">
-    <div class="footer-ai-links" style="
-        background: rgba(255, 255, 255, 0.05);
-        padding: 20px 40px;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        max-width: 500px;
-        width: 100%;
-    ">
-        <strong style="display: block; margin-bottom: 15px; color: #4facfe; font-size: 1.2em;">קישורים מהירים לכלי AI:</strong>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="https://chat.openai.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">ChatGPT</a>
-            <span style="color: rgba(255,255,255,0.3)">|</span>
-            <a href="https://claude.ai/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Claude</a>
-            <span style="color: rgba(255,255,255,0.3)">|</span>
-            <a href="https://gemini.google.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Gemini</a>
+<footer class="footer" id="about">
+    <div class="footer-ai-links">
+        <strong class="footer-title">קישורים מהירים לכלי AI:</strong>
+        <div class="footer-links-wrapper">
+            <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+            <span class="footer-sep">|</span>
+            <a href="https://claude.ai/" target="_blank">Claude</a>
+            <span class="footer-sep">|</span>
+            <a href="https://gemini.google.com/" target="_blank">Gemini</a>
         </div>
     </div>
     
-    <div style="line-height: 1.8;">
-        <strong style="font-size: 1.3em;">Learning Hero © 2025</strong><br>
-        <span style="color: rgba(255,255,255,0.7);">Created with ❤️ by Ruthy Salomon</span><br>
-        <span style="color: rgba(255,255,255,0.7);">פותח עבור שיפור תהליכי למידה והדרכה</span>
+    <div class="footer-bottom-text">
+        <strong class="footer-brand">Learning Hero © 2025</strong><br>
+        <span class="footer-author">Created with ❤️ by Ruthy Salomon</span><br>
+        <span class="footer-mission">פותח עבור שיפור תהליכי למידה והדרכה</span>
     </div>
 </footer>
 `;
