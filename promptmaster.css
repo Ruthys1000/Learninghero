@@ -2592,3 +2592,38 @@ input[type="checkbox"]:checked + * {
     z-index: 9999;
 }
 
+/* תיקון סופי להסתרת קודי HEX במובייל בלבד */
+@media (max-width: 768px) {
+    /* הסתרה מוחלטת של הטקסט */
+    .color-display-base {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        position: absolute !important;
+    }
+
+    /* הגדלת ריבועי הצבע שיהיה קל ללחוץ עליהם */
+    .color-preview-small {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 12px !important;
+    }
+
+    /* סידור מרכזי של אזור הבחירה */
+    .color-preview-and-hex {
+        justify-content: center !important;
+        gap: 0 !important;
+        background: transparent !important;
+    }
+
+    /* כיווץ הפלטה האוטומטית לשורה אחת */
+    .color-palette-display {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 5px !important;
+    }
+
+    .color-swatch {
+        height: 50px !important;
+    }
+}
