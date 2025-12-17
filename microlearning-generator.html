@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל Microlearning | PromptMaster</title>
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+  
+</head>
+<body>
+    <div id="global-navbar-container"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>⚡ מחולל Microlearning</h1>
+                <p>צור פרומפט שמנחה AI לבנות תוכן למידה קצר ואפקטיבי</p>
+            </div>
+        </div>
+
+        <!-- תיבת הסבר ייחודית למחולל הזה -->
+        <div class="generator-info-box">
+            <h3>💡 מהו Microlearning?</h3>
+            <p>
+            <strong>Microlearning</strong> זה תוכן למידה קצר, ממוקד ונגיש שניתן לצרוך ב-1-5 דקות.  
+            מחולל זה יוצר עבורך פרומפט שמפיק <strong>תוכן microlearning מקצועי</strong> - טיפים יומיים, תסריטי וידאו קצרים, סיכומים מהירים ועוד.<br>
+            <strong>לאחר הדבקת הפרומפט</strong>, תתבקש/י להעלות את התוכן המקורי, וה-AI יהפוך אותו לפורמט microlearning אפקטיבי.
+            </p>
+        </div>
+
+        <div class="form-content">
+            <form id="microlearningForm">
+                <!-- חלק א': פורמט הפלט -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">1</span>
+                        פורמט ה-Microlearning
+                    </h2>
+                    
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>איזה סוג תוכן לייצר?</strong>
+                            <span class="label-subtitle">כל פורמט מותאם לשימוש ולצריכה שונים</span>
+                        </label>
+                        <div class="radio-group-2col">
+                            <div class="radio-option">
+                                <input type="radio" id="format1" name="format" value="טיפ יומי/שבועי (1-2 דקות קריאה)" required>
+                                <label for="format1"><span>📱 טיפ יומי/שבועי</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="format2" name="format" value="תסריט לוידאו קצר (2-3 דקות)">
+                                <label for="format2"><span>🎬 תסריט לוידאו קצר</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="format3" name="format" value="אינפוגרפיקה טקסטואלית (נקודות עיקריות)">
+                                <label for="format3"><span>📊 אינפוגרפיקה טקסטואלית</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="format4" name="format" value="קוויז מהיר (5 שאלות + הסברים)">
+                                <label for="format4"><span>✅ קוויז מהיר</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="format5" name="format" value="סיכום מהיר One-pager">
+                                <label for="format5"><span>📝 סיכום מהיר</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="format6" name="format" value="אתגר/משימה יומית">
+                                <label for="format6"><span>🎯 אתגר/משימה יומית</span></label>
+                            </div>
+                        </div>
+                        <div class="helper-text">
+                            💡 טיפ: טיפים יומיים מושלמים למיילים, וידאו לפלטפורמות למידה, קוויז לבדיקת ידע
+                        </div>
+                    </div>
+                </div>
+
+                <!-- חלק ב': מאפייני התוכן -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">2</span>
+                        מאפייני התוכן
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>אורך/משך התוכן</strong>
+                            <span class="label-subtitle">כמה זמן ייקח לצרוך את התוכן?</span>
+                        </label>
+                        <div class="radio-group-3col">
+                            <div class="radio-option">
+                                <input type="radio" id="length1" name="length" value="קצר מאוד (1 דקה)" required>
+                                <label for="length1"><span>⚡ קצר מאוד (1 דקה)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="length2" name="length" value="קצר (2-3 דקות)">
+                                <label for="length2"><span>📱 קצר (2-3 דקות)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="length3" name="length" value="בינוני (4-5 דקות)">
+                                <label for="length3"><span>⏱️ בינוני (4-5 דקות)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>קהל יעד</strong>
+                            <span class="label-subtitle">רמת הידע של הלומדים</span>
+                        </label>
+                        <div class="radio-group-3col">
+                            <div class="radio-option">
+                                <input type="radio" id="audience1" name="audience" value="מתחילים - ללא ידע קודם" required>
+                                <label for="audience1"><span>🌱 מתחילים</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="audience2" name="audience" value="בינוניים - יש בסיס">
+                                <label for="audience2"><span>📚 בינוניים</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="audience3" name="audience" value="מתקדמים - מומחים בתחום">
+                                <label for="audience3"><span>🎓 מתקדמים</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>טון ותחושה</strong>
+                            <span class="label-subtitle">איך התוכן צריך להישמע?</span>
+                        </label>
+                        <div class="radio-group-2col">
+                            <div class="radio-option">
+                                <input type="radio" id="tone1" name="tone" value="פורמלי ומקצועי" required>
+                                <label for="tone1"><span>💼 פורמלי ומקצועי</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="tone2" name="tone" value="ידידותי ונגיש">
+                                <label for="tone2"><span>😊 ידידותי ונגיש</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="tone3" name="tone" value="מעורר השראה ומוטיבציה">
+                                <label for="tone3"><span>✨ מעורר השראה</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="tone4" name="tone" value="קליל והומוריסטי">
+                                <label for="tone4"><span>😄 קליל והומוריסטי</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- חלק ג': מטרת הלמידה -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">3</span>
+                        מטרת הלמידה
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>מה המטרה העיקרית של התוכן?</strong>
+                            <span class="label-subtitle">למה הלומד צריך את זה?</span>
+                        </label>
+                        <div class="radio-group-2col">
+                            <div class="radio-option">
+                                <input type="radio" id="goal1" name="goal" value="העברת ידע חדש - מושג/עיקרון/מידע" required>
+                                <label for="goal1"><span>🧠 העברת ידע חדש</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="goal2" name="goal" value="הדגמת כישור מעשי - איך לעשות משהו">
+                                <label for="goal2"><span>🔧 הדגמת כישור מעשי</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="goal3" name="goal" value="טיפ לשיפור ביצועים - best practice">
+                                <label for="goal3"><span>💡 טיפ לשיפור ביצועים</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="goal4" name="goal" value="עדכון/חדשות בתחום - מה חדש">
+                                <label for="goal4"><span>📊 עדכון/חדשות</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="goal5" name="goal" value="השראה ומוטיבציה - עידוד והנעה">
+                                <label for="goal5"><span>✨ השראה ומוטיבציה</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="goal6" name="goal" value="פתרון בעיה ספציפית">
+                                <label for="goal6"><span>🎯 פתרון בעיה ספציפית</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- חלק ד': תוספות -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">4</span>
+                        תוספות והעשרה (אופציונלי)
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>אילו אלמנטים להוסיף?</strong> (ניתן לבחור כמה שרוצים)
+                            <span class="label-subtitle">תוספות אלו יעשירו את התוכן</span>
+                        </label>
+                        <div class="checkbox-group-2col">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="extra1" name="extras" value="Call to Action - פעולה מיידית">
+                                <label for="extra1">🎬 Call to Action</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="extra2" name="extras" value="שאלת רפלקציה בסוף">
+                                <label for="extra2">🤔 שאלת רפלקציה</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="extra3" name="extras" value="קישורים למשאבים נוספים">
+                                <label for="extra3">🔗 קישורים למשאבים</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="extra4" name="extras" value="הצעה לפעילות מעשית">
+                                <label for="extra4">✍️ פעילות מעשית</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="extra5" name="extras" value="תזכורת/המלצה להמשך">
+                                <label for="extra5">💭 תזכורת להמשך</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="extra6" name="extras" value="דוגמה/סיפור קצר">
+                                <label for="extra6">📖 דוגמה/סיפור</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label" for="additionalNotes">
+                            <strong>הערות נוספות</strong>
+                            <span class="label-subtitle">כל דבר אחר שחשוב לציין</span>
+                        </label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="3" placeholder="למשל: דגש על דוגמאות מעשיות, שימוש בשפה פשוטה, קשר לתעשייה ספציפית..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    ✨ צור פרומפט
+                </button>
+            </form>
+        </div>
+
+        <!-- תוצאה -->
+        <div id="result" class="result">
+            <div class="result-header">
+                <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+                <p>העתיקי את הפרומפט והדביקי אותו בכלי AI</p>
+                <button onclick="copyPrompt()" class="copy-button">📋 העתק פרומפט</button>
+            </div>
+            <pre id="promptOutput" class="prompt-output"></pre>
+        </div>
+        </div>
+    </div>
+
+  <div id="global-footer"></div>
+    <script src="promptmasterjs.js"></script>
+
+    <!-- הגיון ייחודי למחולל הזה -->
+    <script>
+        // פונקציה לאיסוף נתונים מהטופס
+        function collectData() {
+            return {
+                format: getRadioValue('format'),
+                length: getRadioValue('length'),
+                audience: getRadioValue('audience'),
+                tone: getRadioValue('tone'),
+                goal: getRadioValue('goal'),
+                extras: getCheckedValues('input[name="extras"]'),
+                additionalNotes: getFieldValue('additionalNotes')
+            };
+        }
+
+        // פונקציה לבניית הפרומפט
+        function buildPrompt(data) {
+            // בניית טקסט התוספות
+            const extrasText = data.extras.length > 0 
+                ? `\n   • ${data.extras.join('\n   • ')}`
+                : ' (ללא תוספות מיוחדות)';
+
+            // בניית טקסט ההערות
+            const notesText = data.additionalNotes
+                ? `\n\n הערות והנחיות נוספות:\n${data.additionalNotes}`
+                : '';
+
+            // בניית טקסט ספציפי לפורמט
+            let formatSpecifics = '';
+            
+            if (data.format.includes('תסריט לוידאו')) {
+                formatSpecifics = `
+
+###  מבנה תסריט וידאו:
+1. **פתיחה (10 שניות)** - הוק חזק שתופס את תשומת הלב
+2. **גוף (60-90 שניות)** - התוכן המרכזי, מחולק לנקודות ברורות
+3. **סגירה (20 שניות)** - סיכום + קריאה לפעולה
+4. **הערות למפיק:** הנחיות לויזואליות, B-roll, טקסטים על המסך`;
+            } else if (data.format.includes('קוויז')) {
+                formatSpecifics = `
+
+###  מבנה קוויז:
+לכל שאלה כלול:
+- שאלה ברורה ומדויקת
+- 4 אפשרויות תשובה (אחת נכונה)
+- הסבר קצר מדוע התשובה נכונה
+- טיפ או תובנה נוספת`;
+            } else if (data.format.includes('אינפוגרפיקה')) {
+                formatSpecifics = `
+
+###  מבנה אינפוגרפיקה טקסטואלית:
+- כותרת מושכת ותמציתית
+- 3-5 נקודות עיקריות
+- כל נקודה: אייקון מוצע + משפט קצר + הרחבה של 1-2 שורות
+- תיבת "לזכור" בתחתית`;
+            } else if (data.format.includes('טיפ יומי')) {
+                formatSpecifics = `
+
+###  מבנה טיפ יומי:
+- כותרת תפוסה (5-8 מילים)
+- פתיחה מעניינת (למה זה חשוב?)
+- הטיפ עצמו (ברור ויישומי)
+- דוגמה מהירה
+- סיום מעודד`;
+            } else if (data.format.includes('אתגר')) {
+                formatSpecifics = `
+
+###  מבנה אתגר/משימה:
+- שם האתגר (יצירתי ומעורר עניין)
+- המטרה (מה ירוויח המשתמש)
+- ההוראות (צעדים ברורים)
+- זמן משוער לביצוע
+- איך למדוד הצלחה`;
+            } else if (data.format.includes('סיכום מהיר')) {
+                formatSpecifics = `
+
+###  מבנה One-pager:
+- כותרת + תת-כותרת
+- "במה מדובר?" (2-3 משפטים)
+- הנקודות העיקריות (3-5 bullet points)
+- "מה לעשות איתה?" (יישום מעשי)
+- "לסיכום" (משפט אחד חזק)`;
+            }
+
+            // בניית הפרומפט המלא
+            return `# בקשה ליצירת תוכן Microlearning
+
+##  מפרט התוכן
+- **פורמט:** ${data.format}
+- **אורך:** ${data.length}
+- **קהל יעד:** ${data.audience}
+- **טון:** ${data.tone}
+
+##  מטרת הלמידה
+${data.goal}
+
+##  תוספות והעשרה:${extrasText}${notesText}
+
+---
+
+## שלב ראשון - העלאת תוכן מקור:
+
+**לפני שאתחיל ליצור את ה-Microlearning, אני זקוק לחומר המקורי.**
+
+ **אנא העלה את החומר שרוצה להפוך ל-Microlearning:**
+- מצגות / מסמכים / מאמרים
+- חומרי הדרכה ארוכים
+- תקצירים / סיכומים
+- כל תוכן לימודי שרוצה לתמצת ולהפוך לפורמט קצר וממוקד
+
+**אחרי שתעלה את החומר, אני:**
+1. אקרא ואנתח את התוכן המלא
+2. אזהה את הנקודות המרכזיות והחשובות ביותר
+3. אתאים את התוכן למפרט ה-Microlearning שהוגדר
+4. אצור תוכן ממוקד, קצר ואפקטיבי
+
+ **המתן להעלאת החומר לפני שתמשיך...**
+
+---
+
+## הנחיות ליצירת Microlearning איכותי (יופעל לאחר העלאת התוכן):
+
+אתה מומחה ליצירת תכני Microlearning - תכנים לימודיים קצרים, ממוקדים ואפקטיביים.
+
+### עקרונות Microlearning מצוינים:
+
+ **ממוקד ותמציתי:**
+- נושא אחד ברור למידה
+- ללא מידע עודף או סטיות
+- כל משפט משרת את המטרה
+
+ **יישומי ומעשי:**
+- התמקד במה שניתן להשתמש בו מיד
+- דוגמאות קונקרטיות מהחיים
+- "מה לעשות" ולא רק "מה לדעת"
+
+ **קל לזיכרון:**
+- מסרים ברורים וחדים
+- שימוש במטאפורות או דימויים
+- מבנה לוגי וזורם
+
+ **מעניין ומושך:**
+- פתיחה חזקה שתופסת את תשומת הלב
+- שפה חיה ולא מפותלת
+- קול אנושי ואותנטי (בהתאם לטון)
+
+ **מותאם לצריכה מהירה:**
+- פסקאות קצרות
+- כותרות משנה ברורות
+- ויזואליות במילים (תיאור מה לראות)
+${formatSpecifics}
+
+---
+
+## מבנה הפלט הסופי:
+
+צור את תוכן ה-Microlearning בפורמט הבא:
+
+###  כותרת ראשית
+[כותרת מושכת ותמציתית שמסכמת את הערך]
+
+###  למה זה חשוב?
+[משפט או שניים שמסבירים למה הלומד צריך את זה עכשיו]
+
+###  התוכן המרכזי
+[התוכן עצמו לפי המבנה של הפורמט שנבחר]
+
+${data.extras.includes('דוגמה/סיפור קצר') ? `###  דוגמה/סיפור:\n[דוגמה קצרה או סיפור שממחיש את הנקודה]\n\n` : ''}${data.extras.includes('Call to Action - פעולה מיידית') ? `###  מה לעשות עכשיו?\n[פעולה ספציפית ומיידית שהלומד יכול לעשות]\n\n` : ''}${data.extras.includes('שאלת רפלקציה בסוף') ? `###  שאלה למחשבה:\n[שאלה שמעודדת הרהור והפנמה]\n\n` : ''}${data.extras.includes('הצעה לפעילות מעשית') ? `###  פעילות מעשית:\n[תרגיל קצר או משימה ליישום]\n\n` : ''}${data.extras.includes('קישורים למשאבים נוספים') ? `###  רוצה ללמוד עוד?\n[הצעות למשאבים נוספים - ללא לינקים אמיתיים, רק תיאורים]\n\n` : ''}${data.extras.includes('תזכורת/המלצה להמשך') ? `###  לזכור:\n[נקודת מפתח אחת חזקה לסיום]\n\n` : ''}
+---
+
+###  לסיכום - checklist להצלחה:
+- [ ] התוכן ממוקד ונושא אחד ברור? ✓
+- [ ] ניתן לצרוך ב-${data.length}? ✓
+- [ ] מתאים ל-${data.audience}? ✓
+- [ ] הטון ${data.tone}? ✓
+- [ ] יש ערך מעשי שניתן ליישם? ✓
+
+**אני ממתין להעלאת התוכן שלך... **`;
+        }
+
+        // אתחול המחולל בטעינת הדף
+        document.addEventListener('DOMContentLoaded', function() {
+            initPromptGenerator({
+                formId: 'microlearningForm',
+                collectData: collectData,
+                buildPrompt: buildPrompt
+            });
+        });
+    </script>
+
+</body>
+</html>

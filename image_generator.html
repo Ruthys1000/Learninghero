@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 מחולל פרומפטים לתמונות | PromptMaster</title>
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    
+</head>
+
+<body>
+    <div id="global-navbar-container"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>📸 מחולל פרומפטים לתמונות</h1>
+                <p>צור פרומפט ממוקד ומקצועי ליצירת תמונות ויזואליות מדויקות</p>
+            </div>
+        </div>
+
+        <div class="generator-info-box">
+            <h3>💡 איך זה עובד?</h3>
+המחולל יוצר פרומפט שמפיק <strong>תמונות עקביות ובעלות שפה עיצובית אחידה</strong> לפי ההגדרות שתבחרו: תיאור, סגנון, צבעים ורכיבים ויזואליים.
+לאחר הדבקת הפרומפט בכלי ה-AI, תוכלו להפיק <strong>סדרה של תמונות</strong> — פשוט מחליפים את הנושא המרכזי בכל הפעלה ושומרים על אותו סגנון.
+<strong>מוכנים ליצור ויזואליים מקצועיים ואחידים?</strong>            </p>
+        </div>
+
+        <div class="form-content">
+            <form id="imageForm">
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">1</span>
+                        תיאור וסגנון ויזואלי
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label" for="description">
+                            <strong>📝 תיאור התמונה המרכזי</strong>
+                            <span class="label-subtitle">מה הנושא? מה קורה בתמונה?</span>
+                        </label>
+                        <textarea id="description" rows="4" required placeholder="למשל: אישה עומדת על צוק מול שקיעה בצבעים עזים..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label" for="style-select">
+                            <strong>🎨 סגנון אומנותי</strong>
+                        </label>
+                        <select id="style-select" required>
+ <option value="ריאליסטי (תמונת דמוי צילום עם פרטים מדויקים)">ריאליסטי (תמונת דמוי צילום עם פרטים מדויקים)</option>
+                        <option value="מצויר (איור) (קווים רכים ומראה אומנותי)">מצויר (איור) (קווים רכים ומראה אומנותי)</option>
+                        <option value="אנימה/מנגה (סגנון יפני עם עיניים גדולות וצבעים עזים)">אנימה/מנגה (סגנון יפני עם עיניים גדולות וצבעים עזים)</option>
+                        <option value="סוריאליסטי (חלומי ובלתי שגרתי)">סוריאליסטי (חלומי ובלתי שגרתי)</option>
+                        <option value="פופ ארט (צבעוני ובוהק בהשראת תרבות הפופ)">פופ ארט (צבעוני ובוהק בהשראת תרבות הפופ)</option>
+                        <option value="וינטז' (מראה ישן עם צבעים דהויים)">וינטז' (מראה ישן עם צבעים דהויים)</option>
+                        <option value="פנטזיה (קסום עם אלמנטים מיתולוגיים)">פנטזיה (קסום עם אלמנטים מיתולוגיים)</option>
+                        <option value="מינימליסטי (פשוט ונקי עם מעט אלמנטים)">מינימליסטי (פשוט ונקי עם מעט אלמנטים)</option>
+                        <option value="סייברפאנק (עתידני ואפל עם ניאון)">סייברפאנק (עתידני ואפל עם ניאון)</option>
+                        <option value="אימפרסיוניסטי (משיכות מכחול רכות וצבעים עדינים)">אימפרסיוניסטי (משיכות מכחול רכות וצבעים עדינים)</option>
+                        <option value="גותי (אפל ומסתוריי עם צבעים כהים)">גותי (אפל ומסתוריי עם צבעים כהים)</option>
+                        <option value="קומיקס (קווים ברורים ובועות טקסט)">קומיקס (קווים ברורים ובועות טקסט)</option>
+                        <option value="אבסטרקטי (ללא צורות מוגדרות, צורות וצבעים לא שגרתיים)">אבסטרקטי (ללא צורות מוגדרות, צורות וצבעים לא שגרתיים)</option>
+                        <option value="רטרו (נוסטלגי בהשראת שנות ה-50 עד ה-80)">רטרו (נוסטלגי בהשראת שנות ה-50 עד ה-80)</option>
+                        <option value="היפר-ריאליסטי (פרטים קיצוניים ודיוק מושלם)">היפר-ריאליסטי (פרטים קיצוניים ודיוק מושלם)</option>
+                        <option value="ארט נובו (קווים זורמים ודפוסים צמחיים)">ארט נובו (קווים זורמים ודפוסים צמחיים)</option>
+                        <option value="פיקסל ארט (מראה דמוי משחקים ישנים)">פיקסל ארט (מראה דמוי משחקים ישנים)</option>
+                        <option value="ברברי (פראי עם אלמנטים טבעיים)">ברברי (פראי עם אלמנטים טבעיים)</option>
+                        <option value="פורטרט קלאסי (דמוי ציורי פורטרט קלאסיים)">פורטרט קלאסי (דמוי ציורי פורטרט קלאסיים)</option>
+                        <option value="פיקאסו (קוביסטי) (צורות גיאומטריות ופרספקטיבות שבורות)">פיקאסו (קוביסטי) (צורות גיאומטריות ופרספקטיבות שבורות)</option>
+                        </select>
+                    </div>
+
+                   <div class="input-group"> 
+    <label class="label" for="elements-select">
+        <strong>✨ אלמנטים מקיפים</strong> (אופציונלי)
+    </label>
+                          <select id="elements-select">
+                        <option value="">ללא (אופציונלי)</option>
+                        <option value="מוקף בצורות גיאומטריות (עיגולים, משולשים, קווים)">מוקף בצורות גיאומטריות</option>
+                        <option value="מוקף באיורים אורגניים (עלים, גלים, פרחים)">מוקף באיורים אורגניים</option>
+                        <option value="עם מסגרת מינימליסטית (קו דק, ריבוע שקוף)">מסגרת מינימליסטית</option>
+                        <option value="עם מסגרת דקורטיבית ומעוטרת">מסגרת דקורטיבית</option>
+                        <option value="עם אפקט אור וצל עדין (הילה, צל רך)">אפקט אור וצל עדין</option>
+                        <option value="עם דפוס חוזר ברקע (פסים, נקודות, צורות קטנות)">דפוס חוזר ברקע</option>
+                        <option value="מוקף באייקונים או סמלים קטנים">מוקף באייקונים קטנים</option>
+                        <option value="עם אפקט זוהר או הדגשה צבעונית">אפקט זוהר והדגשה</option>
+                    </select>
+
+                    </div>
+
+<div class="input-group">
+   <label class="label" for="description-select">
+        <strong>💡 תאורה ואווירה</strong> (אופציונלי)
+    </label>
+    <select id="description-select">
+        <option value="">ללא (אופציונלי)</option> <option value="ללא צללים">ללא צללים</option>
+        <option value="עם צל עדין">עם צל עדין</option>
+        <option value="עם תאורה דרמטית">עם תאורה דרמטית</option>
+        <option value="עם רקע מטושטש (בוקה)">עם רקע מטושטש (בוקה)</option>
+        <option value="עם אווירה חמה">עם אווירה חמה</option>
+        <option value="עם אווירה קרה">עם אווירה קרה</option>
+        <option value="עם עומק שדה">עם עומק שדה</option>
+        <option value="עם אלמנטים טכנולוגיים (נקודות, קווים דיגיטליים)">עם אלמנטים טכנולוגיים (נקודות, קווים דיגיטליים)</option>
+    </select>
+<p class="helper-text">הוסף אווירה לתמונה (אופציונלי)</p>
+</div>
+                </div>
+
+<div class="section">
+    <h2 class="section-title">
+        <span class="section-number">2</span>
+        🎨 יצירת פלטה אוטומטית
+    </h2>
+
+    <div class="single-color-group">
+        
+        <div class="label-and-hex">
+            <label for="baseColor"><strong>בחר צבעים לתמונה:</strong></label>
+            
+            <div class="color-preview-and-hex">
+                <div class="color-preview-small" id="baseColorSwatch" style="background-color: #3A8898;"></div> 
+                <span class="color-display-base" id="baseColorDisplay">#3A8898</span>
+                <input type="color" id="baseColor" name="baseColor" value="#3A8898" class="color-picker-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="palette-preview-container" style="margin-top: 25px;">
+        <h4 class="label">פלטה הרמונית שנוצרה אוטומטית (5 צבעים):</h4>
+        <div class="color-palette-display" id="palettePreview">
+            <div id="swatch1" class="color-swatch"></div>
+            <div id="swatch2" class="color-swatch"></div>
+            <div id="swatch3" class="color-swatch"></div>
+            <div id="swatch4" class="color-swatch"></div>
+            <div id="swatch5" class="color-swatch"></div>
+        </div>
+        <p class="helper-text" style="margin-top: 15px;">
+            פלטה מקצועית הכוללת: <strong>צבע הבסיס</strong> + <strong>צבעים סמוכים</strong> (analogous) + <strong>צבע משלים</strong> (complementary) + <strong>צבע מבטא</strong> (accent). הצבעים נבחרו לעבוד יחד בהרמוניה ויזואלית.
+        </p>
+    </div>
+
+    <div class="single-color-group" style="margin-top: 35px; border-top: 1px dashed var(--color-border); padding-top: 25px;">
+        
+        <div class="label-and-hex">
+            <label for="backgroundColor"><strong>צבע רקע:</strong></label>
+            
+            <div class="color-preview-and-hex">
+                <div class="color-preview-small" id="backgroundColorSwatch" style="background-color: #F0F0F0;"></div>
+                <span class="color-display-base" id="backgroundColorDisplay">#F0F0F0</span>
+                <input type="color" id="backgroundColor" name="backgroundColor" value="#F0F0F0" class="color-picker-input">
+            </div>
+        </div>
+        <p class="helper-text">
+            זהו צבע נייטרלי/בסיסי שייצבע את השטח הגדול ביותר או הרקע המטושטש של התמונה.
+        </p>
+    </div>
+</div>
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">3</span>
+                        פורמט ושימוש מיועד
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>פורמט / צורה</strong>
+                        </label>
+                        <div class="radio-group-2col">
+                            <div class="radio-option">
+                                <input type="radio" id="s1" name="shape" value="Landscape (16:9)" required>
+                                <label for="s1"><span>🖥️ לרוחב (16:9)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="s2" name="shape" value="Square (1:1)">
+                                <label for="s2"><span>◼️ ריבוע (1:1)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>שימוש מיועד (Quality Filter)</strong>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="u1" name="usage" value="מתאים לחומרים שיווקיים" required>
+                                <label for="u1"><span>📈 מתאים לחומרים שיווקיים</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="u2" name="usage" value="מתאים למצגת">
+                                <label for="u2"><span>📊 מתאים למצגת</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="u3" name="usage" value="מתאים לחומרי הדרכה">
+                                <label for="u3"><span>⚙️ מתאים לחומרי הדרכה</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="submit-button">✨ צור פרומפט לתמונה</button>
+            </form>
+
+            <div id="result" class="result">
+                <div class="result-header">
+                    <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+                    <button type="button" class="copy-button" onclick="copyPrompt()">📋 העתק פרומפט</button>
+                </div>
+
+                <pre id="promptOutput" class="prompt-output"></pre>
+            </div>
+
+        </div>
+    </div>
+
+       <div id="global-footer"></div>
+<script src="promptmasterjs.js"></script>
+    
+<script>
+        let currentPalette = []; // מערך גלובלי לשמירת הפלטה הנוכחית
+
+        // 🎨 פונקציה ליצירת פלטת צבעים הרמונית מצבע בסיס
+        function generatePalette(baseColor) {
+            // המרת HEX ל-HSL (Hue, Saturation, Lightness)
+            function hexToHsl(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                if (!result) return null;
+                
+                let r = parseInt(result[1], 16) / 255;
+                let g = parseInt(result[2], 16) / 255;
+                let b = parseInt(result[3], 16) / 255;
+                
+                const max = Math.max(r, g, b);
+                const min = Math.min(r, g, b);
+                let h, s, l = (max + min) / 2;
+                
+                if (max === min) {
+                    h = s = 0;
+                } else {
+                    const d = max - min;
+                    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                    
+                    switch (max) {
+                        case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                        case g: h = ((b - r) / d + 2) / 6; break;
+                        case b: h = ((r - g) / d + 4) / 6; break;
+                    }
+                }
+                
+                return { h: h * 360, s: s * 100, l: l * 100 };
+            }
+            
+            // המרת HSL ל-HEX
+            function hslToHex(h, s, l) {
+                h = h / 360;
+                s = s / 100;
+                l = l / 100;
+                
+                let r, g, b;
+                
+                if (s === 0) {
+                    r = g = b = l;
+                } else {
+                    const hue2rgb = (p, q, t) => {
+                        if (t < 0) t += 1;
+                        if (t > 1) t -= 1;
+                        if (t < 1/6) return p + (q - p) * 6 * t;
+                        if (t < 1/2) return q;
+                        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                        return p;
+                    };
+                    
+                    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                    const p = 2 * l - q;
+                    
+                    r = hue2rgb(p, q, h + 1/3);
+                    g = hue2rgb(p, q, h);
+                    b = hue2rgb(p, q, h - 1/3);
+                }
+                
+                const toHex = x => {
+                    const hex = Math.round(x * 255).toString(16);
+                    return hex.length === 1 ? '0' + hex : hex;
+                };
+                
+                return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+            }
+            
+            const baseHsl = hexToHsl(baseColor);
+            if (!baseHsl) return [baseColor];
+            
+            // יצירת פלטה הרמונית מקצועית (Split Complementary + Analogous)
+            const palette = [
+                baseColor.toUpperCase(), // 1. צבע הבסיס
+                
+                // 2. Analogous - צבע סמוך (30 מעלות)
+                hslToHex(
+                    (baseHsl.h + 30) % 360,
+                    Math.min(baseHsl.s, 85),
+                    baseHsl.l
+                ).toUpperCase(),
+                
+                // 3. Analogous - צבע סמוך שני (-30 מעלות)
+                hslToHex(
+                    (baseHsl.h - 30 + 360) % 360,
+                    Math.min(baseHsl.s, 85),
+                    baseHsl.l
+                ).toUpperCase(),
+                
+                // 4. Complementary - צבע משלים (180 מעלות) - גרסה רכה יותר
+                hslToHex(
+                    (baseHsl.h + 180) % 360,
+                    Math.max(baseHsl.s * 0.7, 40),
+                    Math.min(baseHsl.l * 1.1, 75)
+                ).toUpperCase(),
+                
+                // 5. Accent - צבע מבטא (150 מעלות) - אנרגטי ושונה
+                hslToHex(
+                    (baseHsl.h + 150) % 360,
+                    Math.min(baseHsl.s * 1.2, 90),
+                    Math.max(baseHsl.l * 0.85, 45)
+                ).toUpperCase()
+            ];
+            
+            return palette;
+        }
+        
+        // 🎨 עדכון התצוגה של הפלטה
+        function updatePaletteUI(paletteArray) {
+            const baseColor = document.getElementById('baseColor').value;
+            const newPalette = generatePalette(baseColor);
+            
+            // עדכון המערך הגלובלי
+            paletteArray.length = 0;
+            paletteArray.push(...newPalette);
+            
+            // עדכון התצוגה הויזואלית
+            newPalette.forEach((color, index) => {
+                const swatch = document.getElementById(`swatch${index + 1}`);
+                if (swatch) {
+                    swatch.style.backgroundColor = color;
+                    swatch.setAttribute('title', color);
+                }
+            });
+        }
+
+        // 🛠️ פונקציה לקבלת הטקסט המוצג של אופציה נבחרת ב-select
+        function getSelectedLabel(selectId) {
+            const select = document.getElementById(selectId);
+            if (!select) return '';
+            const selectedOption = select.options[select.selectedIndex];
+            return selectedOption ? selectedOption.text : '';
+        }
+
+        // 🛠️ פונקציה לאיסוף נתונים (מעודכן: כולל lighting)
+        function collectData() {
+            return {
+                description: getFieldValue('description'), 
+                style: getFieldValue('style-select'), 
+                styleLabel: getSelectedLabel('style-select'),
+                elements: getFieldValue('elements-select'), 
+                lighting: getFieldValue('description-select'),
+                shape: getRadioValue('shape'),
+                usage: getRadioValue('usage'), 
+                
+                palette: currentPalette, 
+                backgroundColor: document.getElementById('backgroundColor').value 
+            };
+        }
+
+        // 🛠️ פונקציה לבניית הפרומפט (מעודכן: כולל lightingText)
+        function buildPrompt(d) {
+            const paletteText = d.palette.join(', '); 
+            const styleText = d.styleLabel ? `${d.styleLabel}` : 'אין סגנון מוגדר';
+            const elementsText = d.elements ? `\n**אלמנטים מקיפים:** ${d.elements}` : '';
+            const lightingText = d.lighting ? `\n**תאורה ואווירה:** ${d.lighting}` : '';
+            
+            return `צור תמונה בודדת ובעלת השפעה חזקה שפועלת באופן מחמיר לפי מפרט הצבעים והסגנון הוויזואלי המצוינים.
+
+##  מפרט ויזואלי
+
+**סגנון ופלטה (חובה עליונה):**
+**סגנון אומנותי:** ${styleText}
+**פלטת צבעים מלאה (5 צבעים, חובה לעשות בהם שימוש):** (${paletteText})
+**צבע רקע דומיננטי (Background/Primary Tone):** ${d.backgroundColor}
+
+**יחס גובה/רוחב:** ${d.shape}
+**שימוש מיועד:** ${d.usage}
+
+---
+
+##  תיאור התמונה
+
+**נושא ליבה:** ${d.description}${elementsText}${lightingText}
+
+### עקרונות מנחים ל-AI:
+1.  **נאמנות צבע:** השתמש בקודי HEX המדויקים שצוינו ב'פלטת צבעים מלאה' ו'צבע רקע דומיננטי'. זה קריטי.
+2.  **מקצועיות:** שמור על אסתטיקה נקייה וברזולוציה גבוהה המתאימה לשימוש ארגוני/מקצועי.
+3.  **מיקוד:** ודא שנושא הליבה (${d.description}) הוא המוקד העיקרי של התמונה.
+
+**התחל ביצירת התמונה כעת, תוך התמקדות בדרישות הצבע הקפדניות.**`;
+        }
+        
+        //  זוהי הפונקציה הקריטית! היא מעדכנת את הצבע של ריבוע ה-Swatch!
+        function updateColorDisplays(input, hexDisplayId, swatchId) {
+            const color = input.value.toUpperCase();
+            
+            // 1. עדכון קוד HEX
+            const hexDisplay = document.getElementById(hexDisplayId);
+            if (hexDisplay) hexDisplay.textContent = color;
+            
+            // 2. עדכון ריבוע הצבע הקטן (ה-Swatch)
+            const swatch = document.getElementById(swatchId);
+            if (swatch) swatch.style.backgroundColor = color;
+        }
+
+
+        // אתחול המחולל בטעינת הדף
+        document.addEventListener('DOMContentLoaded', function() {
+            // אתחול הפונקציות הגלובליות (כמו getFieldValue)
+            initPromptGenerator({
+                formId: 'imageForm',
+                collectData: collectData,
+                buildPrompt: buildPrompt
+            });
+            
+            // --- לוגיקת עדכון צבעים ---
+            const baseColorInput = document.getElementById('baseColor');
+            const backgroundColorInput = document.getElementById('backgroundColor');
+
+            // 1. הפעלה ראשונית של יצירת הפלטה ועדכון התצוגה
+            updatePaletteUI(currentPalette); 
+            updateColorDisplays(baseColorInput, 'baseColorDisplay', 'baseColorSwatch');
+            updateColorDisplays(backgroundColorInput, 'backgroundColorDisplay', 'backgroundColorSwatch');
+
+            // 2. הוספת Event Listeners לצבע בסיס
+            baseColorInput.addEventListener('input', () => {
+                updatePaletteUI(currentPalette);
+                updateColorDisplays(baseColorInput, 'baseColorDisplay', 'baseColorSwatch');
+            });
+
+            // 3. הוספת Event Listener לצבע רקע
+            backgroundColorInput.addEventListener('input', () => {
+                updateColorDisplays(backgroundColorInput, 'backgroundColorDisplay', 'backgroundColorSwatch');
+            });
+
+            // 4. הפיכת המלבנים הצבעוניים לקליקאביליים
+            const baseColorSwatch = document.getElementById('baseColorSwatch');
+            const backgroundColorSwatch = document.getElementById('backgroundColorSwatch');
+            
+            if (baseColorSwatch) {
+                baseColorSwatch.addEventListener('click', () => {
+                    baseColorInput.click();
+                });
+            }
+            
+            if (backgroundColorSwatch) {
+                backgroundColorSwatch.addEventListener('click', () => {
+                    backgroundColorInput.click();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

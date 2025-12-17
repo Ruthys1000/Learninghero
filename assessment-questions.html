@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל שאלות הערכה | PromptMaster</title>
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="global-navbar-container"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>📝 מחולל שאלות הערכה</h1>
+                <p>צור פרומפט שמנחה AI לבנות שאלות הערכה מבוססות תוכן</p>
+            </div>
+        </div>
+
+        <div class="generator-info-box">
+            <h3>💡 איך זה עובד?</h3>
+            <p>
+           המחולל יוצר פרומפט שמפיק <strong>סט שאלות הערכה מקצועי</strong> לפי ההגדרות שתבחרו: רמות חשיבה, סוגי שאלות ורמת קושי.
+לאחר הדבקת הפרומפט בכלי ה-AI, תתבקשו להעלות את התוכן הרלוונטי — והמערכת תיצור עבורכם <strong>מבחן מלא</strong> הכולל שאלות, תשובות והסברים לפי הצורך.
+<strong>בואו נבנה יחד הערכה חכמה ומדויקת.</strong>
+            </p>
+        </div>
+
+        <div class="form-content">
+            <form id="assessmentForm">
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">1</span>
+                        רמות למידה (טקסונומיה של בלום)
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>אילו רמות קוגניטיביות לכלול?</strong>
+                            <span class="label-subtitle">ניתן לבחור כמה שרוצים</span>
+                        </label>
+
+                        <div class="checkbox-group-3col">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="b1" name="bloomLevels" value="זכירה (Remember)">
+                                <label for="b1">🧠 <strong>זכירה</strong> (Remember)</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="b2" name="bloomLevels" value="הבנה (Understand)">
+                                <label for="b2">💡 <strong>הבנה</strong> (Understand)</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="b3" name="bloomLevels" value="יישום (Apply)">
+                                <label for="b3">🔧 <strong>יישום</strong> (Apply)</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="b4" name="bloomLevels" value="ניתוח (Analyze)">
+                                <label for="b4">🔬 <strong>ניתוח</strong> (Analyze)</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="b5" name="bloomLevels" value="הערכה (Evaluate)">
+                                <label for="b5">⚖️ <strong>הערכה</strong> (Evaluate)</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="b6" name="bloomLevels" value="יצירה (Create)">
+                                <label for="b6">✨ <strong>יצירה</strong> (Create)</label>
+                            </div>
+                        </div>
+                        <div class="helper-text">💡 רמות גבוהות יותר (ניתוח, הערכה, יצירה) יוצרות שאלות מאתגרות יותר</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">2</span>
+                        סוג ומבנה השאלות
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>כמה שאלות בסך הכל?</strong>
+                        </label>
+                        <div class="radio-group-2col">
+                            <div class="radio-option">
+                                <input type="radio" id="q1" name="totalQuestions" value="5-8 שאלות" required>
+                                <label for="q1"><span>📄 5–8 שאלות</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="q2" name="totalQuestions" value="10-15 שאלות">
+                                <label for="q2"><span>📋 10–15 שאלות</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="q3" name="totalQuestions" value="20-25 שאלות">
+                                <label for="q3"><span>📚 20–25 שאלות</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="q4" name="totalQuestions" value="30+ שאלות">
+                                <label for="q4"><span>📖 30+ שאלות</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>סוגי השאלות</strong> (ניתן לבחור כמה שרוצים)
+                        </label>
+
+                        <div class="checkbox-group-3col">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="t1" name="questionTypes" value="אמריקאי (4 אפשרויות)">
+                                <label for="t1">✅ אמריקאי (רב-ברירה)</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="t2" name="questionTypes" value="נכון/לא נכון + הסבר">
+                                <label for="t2">✔️ נכון/לא נכון</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="t3" name="questionTypes" value="שאלות פתוחות קצרות">
+                                <label for="t3">💬 פתוחות קצרות</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="t4" name="questionTypes" value="שאלות פתוחות מורחבות">
+                                <label for="t4">📝 פתוחות מורחבות</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="t5" name="questionTypes" value="תרחישים מעשיים">
+                                <label for="t5">🎭 תרחישים מעשיים</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="t6" name="questionTypes" value="השלמת משפטים">
+                                <label for="t6">✏️ השלמת משפטים</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">3</span>
+                        רמת קושי ותוספות
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>רמת קושי</strong>
+                        </label>
+                        <div class="radio-group-2col">
+                            <div class="radio-option">
+                                <input type="radio" id="d1" name="difficulty" value="קל" required>
+                                <label for="d1"><span>😊 קל</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="d2" name="difficulty" value="בינוני">
+                                <label for="d2"><span>🤔 בינוני</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="d3" name="difficulty" value="קשה">
+                                <label for="d3"><span>💪 קשה</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="d4" name="difficulty" value="מעורב - קל עד קשה">
+                                <label for="d4"><span>🔀 מעורב (קל עד קשה)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>תוספות</strong> (ניתן לבחור כמה שרוצים)
+                        </label>
+                        <div class="checkbox-group-3col">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="e1" name="extras" value="תשובות נכונות">
+                                <label for="e1">✔️ תשובות נכונות</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="e2" name="extras" value="הסברים מפורטים">
+                                <label for="e2">💡 הסברים מפורטים</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="e3" name="extras" value="rubric לשאלות פתוחות">
+                                <label for="e3">📊 Rubric לשאלות פתוחות</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="e4" name="extras" value="זמן משוער לשאלה">
+                                <label for="e4">⏱️ זמן משוער</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="e5" name="extras" value="ניקוד מוצע">
+                                <label for="e5">🎯 ניקוד מוצע</label>
+                            </div>
+                        </div>
+                        <div class="helper-text">💡 תוספות אלו יסייעו במתן משוב ובניקוד השאלות</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">4</span>
+                        התאמות (אופציונלי)
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label" for="focusTopics">
+                            <strong>נושאים מרכזיים</strong>
+                            <span class="label-subtitle">השדה הזה רלוונטי רק אם אין לך חומרים להעלות. עם חומרים - השאלות ייבנו מתוך החומרים שתעלה</span>
+                        </label>
+                        <textarea id="focusTopics" name="focusTopics" rows="3" placeholder="למשל: בטיחות מידע, ניהול פרויקטים, כלכלה..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label" for="additionalPrefs">
+                            <strong>דרישות נוספות</strong>
+                            <span class="label-subtitle">הנחיות מיוחדות או העדפות</span>
+                        </label>
+                        <textarea id="additionalPrefs" name="additionalPrefs" rows="3" placeholder="למשל: דגש על דוגמאות מהשטח, שפה פשוטה, מיקוד במקרי קצה..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">✨ צור פרומפט</button>
+            </form>
+
+            <div id="result" class="result">
+                <div class="result-header">
+                    <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+                    <button type="button" class="copy-button" onclick="copyPrompt()">📋 העתק פרומפט</button>
+                </div>
+
+                <pre id="promptOutput" class="prompt-output"></pre>
+            </div>
+        </div> </div> 
+</div>
+      <div id="global-footer"></div>
+    <script src="promptmasterjs.js"></script>
+
+    <script>
+        // פונקציה לאיסוף נתונים מהטופס
+        function collectData() {
+            return {
+                bloomLevels: getCheckedValues('input[name="bloomLevels"]'),
+                totalQuestions: getRadioValue('totalQuestions'),
+                questionTypes: getCheckedValues('input[name="questionTypes"]'),
+                difficulty: getRadioValue('difficulty'),
+                extras: getCheckedValues('input[name="extras"]'),
+                focusTopics: getFieldValue('focusTopics'),
+                additionalPrefs: getFieldValue('additionalPrefs')
+            };
+        }
+
+        // פונקציה לבניית הפרומפט
+        function buildPrompt(data) {
+            // בניית טקסט רמות בלום
+            const bloomText = data.bloomLevels.length > 0
+                ? `\n    • ${data.bloomLevels.join('\n    • ')}`
+                : ' (לא צוינו - השתמש בשיקול דעתך)';
+
+            // בניית טקסט סוגי שאלות
+            const typesText = data.questionTypes.length > 0
+                ? `\n    • ${data.questionTypes.join('\n    • ')}`
+                : ' (לא צוינו - גיוון לפי שיקול דעתך)';
+
+            // בניית טקסט תוספות
+            const extrasText = data.extras.length > 0
+                ? `\n    • ${data.extras.join('\n    • ')}`
+                : '\n    • תשובות נכונות (ברירת מחדל)';
+
+            // בניית טקסט נושאים מרכזיים
+            const focusText = data.focusTopics
+                ? `\n\n נושאים מרכזיים:\nהתמקד בנושאים הבאים:\n${data.focusTopics}`
+                : '';
+
+            // בניית טקסט דרישות נוספות
+            const additionalText = data.additionalPrefs
+                ? `\n\n דרישות נוספות:\n${data.additionalPrefs}`
+                : '';
+
+            return `# בקשה ליצירת שאלות הערכה מבוססות תוכן
+
+##מפרט השאלות
+- **כמות שאלות:** ${data.totalQuestions}
+- **רמת קושי:** ${data.difficulty}
+
+## רמות קוגניטיביות (טקסונומיה של בלום):${bloomText}
+
+##סוגי שאלות:${typesText}
+
+##תוספות נדרשות:${extrasText}${focusText}${additionalText}
+
+---
+
+## שלב ראשון - העלאת תוכן:
+
+**לפני שאתחיל ליצור שאלות, אני זקוק לתוכן הלימודי.**
+
+**אנא העלה את החומר הבא:**
+- מצגות / מסמכים / קבצי PDF
+- חומרי קריאה / מאמרים
+- תקצירים / סיכומים
+- כל חומר רלוונטי שעליו יש לבנות את שאלות ההערכה
+
+**אחרי שתעלה את הקבצים, אני:**
+1. אקרא ואנתח את כל התוכן
+2. אזהה את הנושאים המרכזיים והמושגים החשובים
+3. אצור את שאלות ההערכה בהתאם למפרט לעיל
+
+**המתן להעלאת הקבצים לפני שתמשיך...**
+
+---
+
+## הנחיות ליצירת השאלות (יופעל לאחר העלאת התוכן):
+
+אתה מומחה ליצירת שאלות הערכה איכותיות ומקצועיות.
+
+### עקרונות מנחים:
+
+**איכות גבוהה:**
+- שאלות ברורות, מדויקות וללא עמימות
+- ניסוח פשוט ומובן (אלא אם נדרש אחרת)
+- הימנעות משאלות מלכודת או מטעות
+
+**התאמה מדויקת:**
+- כל שאלה צמודה לרמת בלום שצוינה
+- התאמת רמת הקושי למפרט
+- כיסוי מאוזן של כל התוכן
+
+**מגוון ועומק:**
+- שילוב סוגי שאלות שונים לפי המבוקש
+- איזון בין שאלות מידע, הבנה ויישום
+- שאלות שבוחנות הבנה אמיתית ולא רק שינון
+
+**כיסוי מקיף:**
+- השאלות מכסות את כל חלקי החומר
+- דגש על נושאים מרכזיים וקריטיים
+- לא להתמקד רק בפרטים טכניים
+
+**דיוק והגינות:**
+- בשאלות אמריקאי: טרקטורים הגיוניים שלא מטעים
+- תשובות נכונות חד-משמעיות
+- הסברים ברורים ומבוססים על התוכן
+
+---
+
+## מבנה הפלט הנדרש:
+
+### לכל שאלה כלול:
+
+#### שאלה מספר [X]
+**סוג:** [סוג השאלה] | **רמת בלום:** [הרמה הקוגניטיבית]
+
+**השאלה:**
+[נוסח השאלה בצורה ברורה]
+
+${data.questionTypes.includes('אמריקאי (4 אפשרויות)') ? `
+**אפשרויות תשובה:** (אם רלוונטי)
+א) [אפשרות 1]
+ב) [אפשרות 2]
+ג) [אפשרות 3]
+ד) [אפשרות 4]
+` : ''}
+
+${data.extras.includes('תשובות נכונות') || data.extras.length === 0 ? '**תשובה נכונה:**\n[התשובה הנכונה]\n\n' : ''}${data.extras.includes('הסברים מפורטים') ? '** הסבר מפורט:**\n[הסבר מדוע זו התשובה הנכונה, תוך התייחסות לתוכן]\n\n' : ''}${data.extras.includes('rubric לשאלות פתוחות') ? '**📊 Rubric להערכה:** (לשאלות פתוחות)\n- מצוין (100%): [קריטריונים]\n- טוב (80%): [קריטריונים]\n- בינוני (60%): [קריטריונים]\n- חלש (40%): [קריטריונים]\n\n' : ''}${data.extras.includes('זמן משוער לשאלה') ? '** זמן משוער:** [X דקות]\n\n' : ''}${data.extras.includes('ניקוד מוצע') ? '** ניקוד מוצע:** [X נקודות]\n\n' : ''}
+---
+
+### סיכום המבחן:
+בסוף כלול:
+-  התפלגות השאלות לפי רמות בלום
+- זמן כולל משוער למבחן
+-  ניקוד כולל (אם רלוונטי)
+-  הערות למורה/מנחה
+
+**אני ממתין להעלאת התוכן שלך... **`;
+        }
+
+        // אתחול המחולל בטעינת הדף
+        document.addEventListener('DOMContentLoaded', function() {
+            initPromptGenerator({
+                formId: 'assessmentForm',
+                collectData: collectData,
+                buildPrompt: buildPrompt
+            });
+        });
+    </script>
+    
+    </body>
+</html>

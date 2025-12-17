@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל מזניק קשב ויזואלי | PromptMaster</title>
+
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="global-navbar-container"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🎨 מחולל מזניק קשב ויזואלי</h1>
+        <p>יוצר פרומפט שמפיק תמונה שמעירה, מרעננת ומחזירה פוקוס לקבוצה</p>
+    </div>
+
+    <!-- INFO BOX -->
+    <div class="generator-info-box">
+        <h3>💡 איך המחולל עובד?</h3>
+        <p>
+            הכלי מייצר פרומפט ליצירת <strong>תמונה חזקה, מפתיעה, מעוררת קשב</strong> ומתאימה למפגשי למידה.
+            לאחר הדבקת הפרומפט בכלי ה-AI תופק <strong>תמונה מטריפה</strong>
+            שתופסת תשומת לב תוך שנייה.
+        </p>
+    </div>
+
+    <!-- FORM -->
+    <form id="visualAttentionForm" class="form-content">
+
+        <!-- חלק 1 -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                נושא המפגש (אופציונלי)
+            </h2>
+
+            <div class="input-group">
+                <label class="label" for="topic">
+                    <strong>נושא המפגש / ההכשרה</strong>
+                </label>
+                <input type="text" id="topic" placeholder="לדוגמה: עבודת צוות / מנהיגות / חדשנות">
+                <div class="helper-text">💡 אם ריק — התמונה תהיה כללית ומתאימה לכל מפגש.</div>
+            </div>
+        </div>
+
+        <!-- חלק 2 -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                מטרת השימוש
+            </h2>
+
+            <div class="input-group">
+                <label class="label"><strong>מתי התמונה תוצג?</strong></label>
+
+                <div class="radio-group-2col">
+                    <div class="radio-option">
+                        <input type="radio" id="purpose1" name="purpose" value="פתיחת מפגש" required>
+                        <label for="purpose1"><span>🎬 פתיחת מפגש</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="purpose2" name="purpose" value="הרמת אנרגיה באמצע">
+                        <label for="purpose2"><span>⚡ הרמת אנרגיה</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="purpose3" name="purpose" value="מעבר בין נושאים">
+                        <label for="purpose3"><span>🔄 מעבר בין נושאים</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="purpose4" name="purpose" value="פתיחת דיון">
+                        <label for="purpose4"><span>🎯 פתיחת דיון</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- חלק 3 -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                סוג התמונה
+            </h2>
+
+            <div class="input-group">
+                <label class="label"><strong>איזה סוג תמונה מתאים?</strong></label>
+
+                <div class="radio-group-2col">
+                    <div class="radio-option">
+                        <input type="radio" id="type1" name="imageType" value="דילמה ויזואלית" required>
+                        <label for="type1"><span>🤔 דילמה ויזואלית</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="type2" name="imageType" value="מטאפורה חזותית">
+                        <label for="type2"><span>🎭 מטאפורה חזותית</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="type3" name="imageType" value="תמונה מפתיעה ויוצאת דופן">
+                        <label for="type3"><span>😮 מפתיעה</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="type4" name="imageType" value="תמונה הומוריסטית">
+                        <label for="type4"><span>😄 הומוריסטית</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- חלק 4 -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                רמת אנרגיה ואווירה
+            </h2>
+
+            <div class="input-group">
+                <label class="label"><strong>איזו אווירה תרצי ליצור?</strong></label>
+
+                <div class="radio-group-3col">
+                    <div class="radio-option">
+                        <input type="radio" id="energy1" name="energy" value="אווירה רגועה ומחשבתית" required>
+                        <label for="energy1"><span>😌 רגועה</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="energy2" name="energy" value="אווירה מעניינת ומעוררת סקרנות">
+                        <label for="energy2"><span>🤔 מעניינת</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="energy3" name="energy" value="אווירה אנרגטית ומפתיעה">
+                        <label for="energy3"><span>🔥 מפתיעה</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- חלק 5 -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                סגנון ויזואלי
+            </h2>
+
+            <div class="input-group">
+                <label class="label"><strong>סגנון התמונה</strong></label>
+
+                <div class="radio-group-2col">
+                    <div class="radio-option">
+                        <input type="radio" id="style1" name="style" value="צילום ריאליסטי" required>
+                        <label for="style1"><span>📸 צילום ריאליסטי</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="style2" name="style" value="איור דיגיטלי">
+                        <label for="style2"><span>🎨 איור דיגיטלי</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="style3" name="style" value="צבעוני ועליז">
+                        <label for="style3"><span>🌈 צבעוני</span></label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="style4" name="style" value="מינימליסטי שחור-לבן">
+                        <label for="style4"><span>⚫ מינימליסטי</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- חלק 6 (הערות נוספות) -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                הערות נוספות (אופציונלי)
+            </h2>
+
+            <div class="input-group">
+                <label class="label" for="additionalNotes">
+                    <strong>הערות נוספות</strong>
+                </label>
+                <textarea id="additionalNotes" rows="3"
+                          placeholder="אובייקטים, דמויות, אווירה, צבעים, פרטים חשובים..."></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-button">✨ צור פרומפט</button>
+
+    </form>
+
+    <!-- RESULT -->
+    <div id="result" class="result">
+        <div class="result-header">
+            <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+            <button onclick="copyPrompt()" class="copy-button">📋 העתק פרומפט</button>
+        </div>
+        <pre id="promptOutput" class="prompt-output"></pre>
+    </div>
+
+</div>
+
+<div id="global-footer"></div>
+
+<script src="promptmasterjs.js"></script>
+
+<script>
+function collectData() {
+    return {
+        topic: getFieldValue('topic'),
+        purpose: getRadioValue('purpose'),
+        imageType: getRadioValue('imageType'),
+        energy: getRadioValue('energy'),
+        style: getRadioValue('style'),
+        notes: getFieldValue('additionalNotes')
+    };
+}
+
+function buildPrompt(d) {
+    return `צור תמונה חזקה, יצירתית ומעוררת קשב בהתאם למאפיינים הבאים:
+
+• נושא המפגש: ${d.topic || "כללי"}
+• מטרת השימוש: ${d.purpose}
+• סוג התמונה: ${d.imageType}
+• רמת אנרגיה: ${d.energy}
+• סגנון ויזואלי: ${d.style}
+
+הנחיות חשובות:
+- התמונה צריכה לתפוס תשומת לב תוך שנייה
+- להימנע מקלישאות ותמונות סטוק
+- להשתמש בזווית מעניינת או פרספקטיבה לא שגרתית
+- ליצור רגע שמעורר "וואו!" או מחשבה
+- ניתן לשלב אלמנטים סימבוליים או מפתיעים
+${d.notes ? "• הערות נוספות: " + d.notes : ""}
+
+כעת צור תמונה מעוררת קשב שמתאימה למפגש למידה.`.trim();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initPromptGenerator({
+        formId: 'visualAttentionForm',
+        collectData: collectData,
+        buildPrompt: buildPrompt
+    });
+});
+</script>
+
+</body>
+</html>

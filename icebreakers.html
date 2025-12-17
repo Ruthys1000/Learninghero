@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל Icebreakers יצירתיים | PromptMaster</title>
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    
+</head>
+<body>
+    <div id="global-navbar-container"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>🎉 מחולל Icebreakers יצירתיים</h1>
+                <p>צור פרומפט מדויק שיייצר פעילויות הכרות מקוריות ומעניינות</p>
+            </div>
+        </div>
+
+        <!-- תיבת הסבר ייחודית למחולל הזה -->
+        <div class="generator-info-box">
+            <h3>💡 איך זה עובד?</h3>
+            <p>
+        המחולל יוצר פרומפט שמפיק <strong>3 פעילויות Icebreakers מותאמות אישית</strong> לפי מאפייני הקבוצה, הנושא והזמן העומד לרשותכם.
+לאחר הדבקת הפרומפט בכלי ה-AI והעלאת פרטי המפגש, תקבלו <strong>פעילויות מוכנות להפעלה</strong> — עם שם, מטרות, הוראות, וריאציות וטיפים למנחה.
+<strong>מוכנים לפתוח את המפגש באנרגיה טובה?</strong>
+            </p>
+        </div>
+
+        <div class="form-content">
+            <form id="icebreakerForm">
+                <!-- חלק א': פרטי בסיס -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">1</span>
+                        פרטי בסיס
+                    </h2>
+                    
+                    <div class="input-group">
+                        <label class="label" for="topic">
+                            נושא המפגש/ההכשרה (אופציונלי)
+                            <span class="label-subtitle">אם יש נושא ספציפי, ה-Icebreaker יכול להתחבר אליו</span>
+                        </label>
+                        <input type="text" id="topic" name="topic" placeholder='דוגמאות: "מנהיגות", "שירות לקוחות", "חדשנות", "עבודת צוות"'>
+                        <div class="helper-text">
+                            💡 השאר ריק אם רוצה פעילות כללית שלא קשורה לנושא ספציפי
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>גודל הקבוצה</strong>
+                            <span class="label-subtitle">גודל הקבוצה משפיע על סוג הפעילות</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="size1" name="groupSize" value="קבוצה קטנה (3-8)" required>
+                                <label for="size1"><span>קבוצה קטנה (3-8 משתתפים)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="size2" name="groupSize" value="קבוצה בינונית (9-20)">
+                                <label for="size2"><span>קבוצה בינונית (9-20 משתתפים)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="size3" name="groupSize" value="קבוצה גדולה (20+)">
+                                <label for="size3"><span>קבוצה גדולה (20+ משתתפים)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>רמת היכרות בין המשתתפים</strong>
+                            <span class="label-subtitle">רמת ההיכרות משפיעה על עומק הפעילות</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="fam1" name="familiarity" value="לא מכירים - מפגש ראשון" required>
+                                <label for="fam1"><span>לא מכירים - מפגש ראשון</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="fam2" name="familiarity" value="מכירים חלקית">
+                                <label for="fam2"><span>מכירים חלקית</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="fam3" name="familiarity" value="מכירים היטב">
+                                <label for="fam3"><span>מכירים היטב</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- חלק ב': מסגרת הפעילות -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">2</span>
+                        מסגרת הפעילות
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>סביבת הפעילות</strong>
+                            <span class="label-subtitle">הסביבה משפיעה על סוג האינטראקציה האפשרית</span>
+                        </label>
+                        <div class="radio-group-2col">
+                            <div class="radio-option">
+                                <input type="radio" id="env1" name="environment" value="פנים אל פנים - בכיתה/אולם" required>
+                                <label for="env1"><span>🏢 פנים אל פנים</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="env2" name="environment" value="מקוון - Zoom/Teams">
+                                <label for="env2"><span>💻 מקוון (Zoom/Teams)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="env3" name="environment" value="משולב - חלק פיזי וחלק מקוון">
+                                <label for="env3"><span>🔄 משולב (היברידי)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="env4" name="environment" value="בחוץ - פעילות חוץ">
+                                <label for="env4"><span>🌳 בחוץ (פעילות חוץ)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>משך הזמן הזמין</strong>
+                            <span class="label-subtitle">התאם את הפעילות למסגרת הזמן</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="time1" name="duration" value="מהיר (5 דקות)" required>
+                                <label for="time1"><span>⚡ מהיר (5 דקות)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="time2" name="duration" value="בינוני (10-15 דקות)">
+                                <label for="time2"><span>⏱️ בינוני (10-15 דקות)</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="time3" name="duration" value="ארוך (20-30 דקות)">
+                                <label for="time3"><span>⏳ ארוך (20-30 דקות)</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- חלק ג': מטרה ואנרגיה -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">3</span>
+                        מטרה ואנרגיה
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>האנרגיה הרצויה</strong>
+                            <span class="label-subtitle">האנרגיה משפיעה על סוג הפעילות</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="energy1" name="energy" value="רגועה ואינטימית" required>
+                                <label for="energy1"><span>😌 רגועה ואינטימית</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="energy2" name="energy" value="בינונית - יש תנועה אבל לא מוגזמת">
+                                <label for="energy2"><span>🚶 בינונית - תנועה מתונה</span></label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="energy3" name="energy" value="גבוהה - אנרגטית ומלאת חיות">
+                                <label for="energy3"><span>🔥 גבוהה - אנרגטית וחיונית</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>מטרות הפעילות</strong> (ניתן לבחור יותר מאחת)
+                            <span class="label-subtitle">מה הפעילות צריכה להשיג?</span>
+                        </label>
+                        <div class="checkbox-group-2col">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="goal1" name="goals" value="היכרות ראשונית">
+                                <label for="goal1">👋 היכרות ראשונית</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="goal2" name="goals" value="שבירת מחסומים">
+                                <label for="goal2">🧱 שבירת מחסומים</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="goal3" name="goals" value="בניית אמון">
+                                <label for="goal3">🤝 בניית אמון</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="goal4" name="goals" value="עידוד שיתוף פעולה">
+                                <label for="goal4">🤼 עידוד שיתוף פעולה</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="goal5" name="goals" value="יצירת צחוק ושמחה">
+                                <label for="goal5">😄 יצירת צחוק ושמחה</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- חלק ד': מגבלות והעדפות -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">4</span>
+                        מגבלות והעדפות (אופציונלי)
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label" for="preferences">
+                            <strong>מגבלות או העדפות מיוחדות</strong>
+                            <span class="label-subtitle">למשל: אנשים עם מוגבלויות, סביבה שקטה, בלי נגיעה פיזית וכו'</span>
+                        </label>
+                        <textarea id="preferences" name="preferences" rows="3" placeholder="כתבי כאן מגבלות או העדפות מיוחדות..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    ✨ צור פרומפט
+                </button>
+            </form>
+        </div>
+
+        <!-- תוצאה -->
+        <div id="result" class="result">
+            <div class="result-header">
+                <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+                <p>העתיקי את הפרומפט והדביקי אותו בכלי AI כלשהו</p>
+                <button onclick="copyPrompt()" class="copy-button">📋 העתק פרומפט</button>
+            </div>
+            <pre id="promptOutput" class="prompt-output"></pre>
+        </div>
+
+      
+    </div>
+
+    <div id="global-footer"></div>
+    <script src="promptmasterjs.js"></script>
+
+    <!-- הגיון ייחודי למחולל הזה -->
+    <script>
+        // פונקציה לאיסוף נתונים מהטופס
+        function collectData() {
+            return {
+                topic: getFieldValue('topic'),
+                groupSize: getRadioValue('groupSize'),
+                familiarity: getRadioValue('familiarity'),
+                environment: getRadioValue('environment'),
+                duration: getRadioValue('duration'),
+                energy: getRadioValue('energy'),
+                preferences: getFieldValue('preferences'),
+                goals: getCheckedValues('input[name="goals"]')
+            };
+        }
+
+        // פונקציה לבניית הפרומפט
+        function buildPrompt(data) {
+            // בניית טקסט המטרות
+            const goalsText = data.goals.length > 0 
+                ? `\n   • ${data.goals.join('\n   • ')}`
+                : ' (לא צוין - פעילות כללית)';
+
+            // בניית טקסט הנושא
+            const topicText = data.topic 
+                ? `\n\n קשר לנושא:\nהפעילות צריכה להתחבר לנושא: "${data.topic}"\nשלב אלמנטים או שאלות שקשורות לנושא זה באופן טבעי ולא מאולץ.`
+                : '\n\n קשר לנושא:\nפעילות כללית ללא קשר לנושא ספציפי - התמקד ביצירת קשר בין אנשים.';
+
+            // בניית טקסט ההעדפות
+            const preferencesText = data.preferences
+                ? `\n\n מגבלות והעדפות מיוחדות:\n${data.preferences}`
+                : '';
+            
+            // בניית הפרומפט המלא
+            return `# בקשה ליצירת Icebreakers יצירתיים ומקוריים
+
+##  פרטי הקבוצה
+- **גודל קבוצה:** ${data.groupSize}
+- **רמת היכרות:** ${data.familiarity}
+
+##  מסגרת הפעילות
+- **סביבה:** ${data.environment}
+- **משך זמן:** ${data.duration}
+
+##  אנרגיה ומטרות
+- **האנרגיה הרצויה:** ${data.energy}
+- **מטרות הפעילות:**${goalsText}${topicText}${preferencesText}
+
+---
+
+## הנחיות ליצירת Icebreakers:
+
+אתה מומחה ליצירת פעילויות Icebreaker יצירתיות ומקוריות. 
+
+**צור 3 אפשרויות שונות** לפעילויות Icebreaker, כאשר כל אחת:
+- מתאימה בדיוק לפרמטרים שצוינו
+- מקורית ולא שגרתית (לא רק "ספר על עצמך")
+- מעניינת ומפתיעה
+- קלה להסבר וביצוע
+
+### לכל פעילות פרט:
+
+####  שם הפעילות
+[שם יצירתי וקליט]
+
+####  תיאור קצר
+[2-3 משפטים על מהות הפעילות]
+
+####  איך זה עובד?
+1. [שלב ראשון - הסבר ברור]
+2. [שלב שני - הוראות מדויקות]
+3. [שלב שלישי - איך מסכמים]
+
+####  טיפים להנחיה מוצלחת
+- [טיפ 1]
+- [טיפ 2]
+- [טיפ 3]
+
+####  התאמת זמן
+- אם יש יותר זמן: [איך להרחיב]
+- אם יש פחות זמן: [איך לקצר]
+
+####  וריאציות
+- **לקבוצה שקטה:** [התאמה]
+- **לקבוצה אנרגטית:** [התאמה]
+- **גרסה דיגיטלית:** [אם רלוונטי]
+
+---
+
+### דגשים חשובים:
+ **יצירתיות**: חשוב מחוץ לקופסה! תן רעיונות מפתיעים
+ **התאמה מדויקת**: כל פעילות חייבת להתאים לגודל הקבוצה, הזמן והסביבה
+ **כיף**: הפעילויות צריכות להיות מהנות ומעוררות עניין
+ **גמישות**: תן אפשרויות להתאמה לפי האנרגיה של הקבוצה
+
+**צור עכשיו 3 פעילויות Icebreaker מקוריות ומעולות!**`;
+        }
+
+        // אתחול המחולל בטעינת הדף
+        document.addEventListener('DOMContentLoaded', function() {
+            initPromptGenerator({
+                formId: 'icebreakerForm',
+                collectData: collectData,
+                buildPrompt: buildPrompt
+            });
+        });
+    </script>
+
+
+</body>
+</html>

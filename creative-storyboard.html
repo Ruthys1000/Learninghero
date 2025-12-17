@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל תסריטים יצירתיים | PromptMaster</title>
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+   
+</head>
+
+<body>
+<div id="global-navbar-container"></div>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🎭 מחולל תסריטים יצירתיים</h1>
+        <p>כלי שמאתגר את ה-AI הפנימי לייצר תסריטים דמיוניים, מפתיעים ובלתי שגרתיים</p>
+    </div>
+
+    <!-- INFO BOX -->
+    <div class="generator-info-box">
+        <h3>💡 איך זה עובד?</h3>
+        <p>
+המחולל יוצר פרומפט שמפיק <strong>תסריט יצירתי ומקורי</strong> הכולל דימויים, אלגוריות, עולמות ודמויות בלתי שגרתיות.
+לאחר הדבקת הפרומפט בכלי ה-AI , תתבקשו להעלות רקע קצר — והמערכת תיצור עבורכם <strong>תסריט עשיר, מפתיע ונטול תוכן רגיש</strong>.
+<strong>מוכנים לפתח עלילה שלא דומה לשום דבר אחר?</strong>        </p>
+    </div>
+
+    <!-- FORM -->
+    <form id="creativeScriptForm" class="form-content">
+
+        <!-- חלק 1: סגנון העלילה -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                סגנון העלילה
+            </h2>
+
+            <div class="input-group">
+                <label class="label">
+                    <strong>ז'אנר</strong>
+                </label>
+                <div class="radio-group-2col">
+                    <div class="radio-option">
+                        <input type="radio" id="genre1" name="genre" value="מדע בדיוני" required>
+                        <label for="genre1"><span>🚀 מדע בדיוני</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="genre2" name="genre" value="פנטזיה">
+                        <label for="genre2"><span>🧙‍♂️ פנטזיה</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="genre3" name="genre" value="אלגוריה חכמה">
+                        <label for="genre3"><span>📖 אלגוריה חכמה</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="genre4" name="genre" value="דרמה סוריאליסטית">
+                        <label for="genre4"><span>🎨 דרמה סוריאליסטית</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="genre5" name="genre" value="קומדיה אבסורדית">
+                        <label for="genre5"><span>😄 קומדיה אבסורדית</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="genre6" name="genre" value="משל מודרני">
+                        <label for="genre6"><span>💭 משל מודרני</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="label">
+                    <strong>רמת יצירתיות</strong>
+                </label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="creativity1" name="creativity" value="גבוהה אבל הגיונית" required>
+                        <label for="creativity1"><span>⭐ גבוהה אבל הגיונית</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="creativity2" name="creativity" value="גבוהה מאוד — טוויסטים מפתיעים">
+                        <label for="creativity2"><span>✨ גבוהה מאוד — טוויסטים מפתיעים</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="creativity3" name="creativity" value="קיצונית — עולמות מופשטים ואלמנטים בלתי רגילים">
+                        <label for="creativity3"><span>🌟 קיצונית — עולמות מופשטים ואלמנטים בלתי רגילים</span></label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- חלק 2: מבנה ודמויות -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                דמויות ומסר
+            </h2>
+
+            <div class="input-group">
+                <label class="label">
+                    <strong>סוג הדמויות</strong>
+                </label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="characters1" name="characters" value="דמויות אנושיות" required>
+                        <label for="characters1"><span>👤 דמויות אנושיות</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="characters2" name="characters" value="דמויות דמיוניות">
+                        <label for="characters2"><span>🦄 דמויות דמיוניות</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="characters3" name="characters" value="ישויות מופשטות (כמו זמן, זיכרון, צבעים)">
+                        <label for="characters3"><span>💫 ישויות מופשטות (זמן, זיכרון, צבעים)</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="characters4" name="characters" value="חפצים שמקבלים אישיות">
+                        <label for="characters4"><span>🎭 חפצים עם אישיות</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="characters5" name="characters" value="שילוב בין כל האפשרויות">
+                        <label for="characters5"><span>🌈 שילוב בין כל האפשרויות</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="label" for="coreMessage">
+                    <strong>הפואנטה / המסר המרכזי</strong>
+                </label>
+                <input type="text" id="coreMessage" required placeholder="לדוגמה: הצורך בשיתוף פעולה / משמעות של הקשבה / איזון בחיים">
+                <div class="helper-text">💡 מה התובנה המרכזית שהתסריט צריך להעביר?</div>
+            </div>
+
+        </div>
+
+        <!-- חלק 3: צורה ואורך -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                אורך ותצורה
+            </h2>
+
+            <div class="input-group">
+                <label class="label">
+                    <strong>אורך התסריט</strong>
+                </label>
+                <div class="radio-group-3col">
+                    <div class="radio-option">
+                        <input type="radio" id="length1" name="length" value="קצר (פסקה–שתיים)" required>
+                        <label for="length1"><span>⚡ קצר (פסקה–שתיים)</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="length2" name="length" value="בינוני (3–5 פסקאות)">
+                        <label for="length2"><span>📄 בינוני (3–5 פסקאות)</span></label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="length3" name="length" value="ארוך (עלילה מלאה)">
+                        <label for="length3"><span>📚 ארוך (עלילה מלאה)</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="label" for="constraints">
+                    <strong>דגשים / הנחיות מיוחדות</strong> (אופציונלי)
+                </label>
+                <textarea id="constraints" rows="3" placeholder="לדוגמה: ללא אלימות, ללא ייצור דמויות אמיתיות, טון הומוריסטי וכו׳"></textarea>
+                <div class="helper-text">💡 הנחיות נוספות שיעזרו ליצור את התסריט המושלם</div>
+            </div>
+
+        </div>
+
+        <button type="submit" class="submit-button">✨ צור פרומפט</button>
+
+    </form>
+
+    <!-- RESULT -->
+    <div id="result" class="result">
+        <div class="result-header">
+            <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+            <button onclick="copyPrompt()" class="copy-button">📋 העתק פרומפט</button>
+        </div>
+        <pre id="promptOutput" class="prompt-output"></pre>
+    </div>
+</div>
+<div id="global-footer"></div>
+<script src="promptmasterjs.js"></script>
+
+<script>
+function collectData() {
+    return {
+        genre: getRadioValue('genre'),
+        creativity: getRadioValue('creativity'),
+        characters: getRadioValue('characters'),
+        coreMessage: getFieldValue('coreMessage'),
+        length: getRadioValue('length'),
+        constraints: getFieldValue('constraints')
+    };
+}
+
+function buildPrompt(d) {
+    return `אתה יוצר תסריטים יצירתיים, דמיוניים ואמנותיים.
+
+צור תסריט מקורי, מפתיע ויצירתי במיוחד בהתאם למאפיינים הבאים:
+
+---
+
+#  מאפייני העלילה
+
+**ז'אנר:** ${d.genre}  
+**רמת יצירתיות:** ${d.creativity}  
+**סוג הדמויות:** ${d.characters}  
+**מסר מרכזי:** ${d.coreMessage}  
+**אורך מבוקש:** ${d.length}  
+
+**הנחיות / דגשים:**  
+${d.constraints || "—"}
+
+---
+
+#  מבנה התסריט המבוקש
+
+1. פתיחה חזקה שיוצרת עולם ייחודי  
+2. בניית דמויות לא שגרתיות עם עומק ומניע  
+3. התפתחות עלילתית מפתיעה  
+4. טוויסט לא צפוי שמשנה את נקודת המבט  
+5. פואנטה חזקה הקשורה למסרים  
+6. אפשרות: גרסה אלטרנטיבה מפתיעה  
+7. אפשרות: פרשנות פדגוגית למנחה — כיצד להשתמש בתסריט
+
+---
+
+#  עכשיו צור תסריט יצירתי, עמוק ומופלא — כזה שמאתגר את הדמיון ומפתיע.`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initPromptGenerator({
+        formId: 'creativeScriptForm',
+        collectData: collectData,
+        buildPrompt: buildPrompt
+    });
+});
+</script>
+
+</body>
+</html>

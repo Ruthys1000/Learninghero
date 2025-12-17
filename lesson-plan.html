@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל מערכי שיעור | כלי פשוט ויעיל</title>
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+        
+
+</head>
+<body>
+    <div id="global-navbar-container"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 מחולל מערכי שיעור</h1>
+            <p>כלי פשוט ומהיר ליצירת מערך שיעור מושלם</p>
+        </div>
+
+        <div class="generator-info-box">
+            <h3>💡 איך זה עובד?</h3>
+            <p>
+המחולל יוצר פרומפט שמפיק <strong>מערך שיעור מלא ומובנה</strong> בהתאם לפרטי השיעור שתזינו — מטרות, קהל יעד, זמן ופורמט.
+לאחר הדבקת הפרומפט בכלי ה-AI והעלאת התוכן, המערכת תיצור עבורכם <strong>מערך שיעור מסודר</strong>: מטרות, שלבי הוראה, טבלת זמנים, פעילויות, הנחיות וחומרים נדרשים.
+<strong>בואו נבנה שיעור מדויק ומקצועי.</strong>.
+            </p>
+        </div>
+
+        <form id="lessonForm" class="form-content">
+            <!-- Basic Information Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    פרטי השיעור
+                </h2>
+                
+                <div class="input-group">
+                    <label class="label" for="topic">
+                        <strong>נושא השיעור</strong>
+                        <span class="tooltip">
+                            <span class="tooltiptext">הנושא המרכזי שיילמד בשיעור</span>
+                        </span>
+                    </label>
+                    <input type="text" id="topic" name="topic" placeholder="לדוגמה: מיומנויות תקשורת בצוות" required>
+                </div>
+
+                <div class="input-group">
+                    <label class="label" for="goals">
+                        <strong>מטרות השיעור</strong>
+                    </label>
+                    <textarea id="goals" name="goals" placeholder="מה הלומדים ידעו/יוכלו לעשות בסוף השיעור? (שורה לכל מטרה)" rows="4" required></textarea>
+                    <div class="helper-text">💡 רשום מטרה אחת בכל שורה. התמקד במטרות ברורות ומדידות</div>
+                </div>
+            </div>
+
+            <!-- Target Audience Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    קהל היעד
+                </h2>
+                
+                <div class="input-group">
+                    <label class="label">
+                        <strong>רמת הניסיון</strong>
+                    </label>
+                    <div class="radio-group-2col">
+                        <div class="radio-option">
+                            <input type="radio" id="audience-new" name="audience" value="חדשים בתחום">
+                            <label for="audience-new"><span>🌱 חדשים בתחום</span></label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="audience-basic" name="audience" value="בעלי ידע בסיסי">
+                            <label for="audience-basic"><span>📚 בעלי ידע בסיסי</span></label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="audience-experienced" name="audience" value="מנוסים">
+                            <label for="audience-experienced"><span>⭐ מנוסים</span></label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="audience-mixed" name="audience" value="קבוצה מעורבת">
+                            <label for="audience-mixed"><span>🔀 קבוצה מעורבת</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="label" for="groupSize">
+                        <strong>גודל הקבוצה המשוער</strong>
+                    </label>
+                    <select id="groupSize" name="groupSize">
+                        <option value="אישי (1 על 1)">👤 אישי (1 על 1)</option>
+                        <option value="קבוצה קטנה (2-5)">👥 קבוצה קטנה (2-5)</option>
+                        <option value="קבוצה בינונית (6-15)" selected>👨‍👩‍👧‍👦 קבוצה בינונית (6-15)</option>
+                        <option value="קבוצה גדולה (16-30)">👥👥 קבוצה גדולה (16-30)</option>
+                        <option value="קהל גדול (30+)">🏟️ קהל גדול (30+)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Time and Format Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    זמן ופורמט
+                </h2>
+                
+                <div class="input-group">
+                    <label class="label">
+                        <strong>משך השיעור ופורמט ההעברה</strong>
+                    </label>
+                    <div class="time-inputs">
+                        <div>
+                            <input type="number" id="duration" name="duration" min="15" max="480" step="15" value="60" required>
+                            <div class="helper-text">⏱️ דקות</div>
+                        </div>
+                        <div>
+                            <select id="format" name="format">
+                                <option value="פרונטלי">🏫 פרונטלי</option>
+                                <option value="מקוון (זום/טימס)">💻 מקוון (זום/טימס)</option>
+                                <option value="היברידי">🔄 היברידי</option>
+                                <option value="למידה עצמית">📖 למידה עצמית</option>
+                            </select>
+                            <div class="helper-text">📍 פורמט ההעברה</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teaching Focus Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    אופי הלמידה
+                </h2>
+                
+                <div class="input-group">
+                    <label class="label">
+                        <strong>מה המוקד המרכזי של השיעור?</strong>
+                    </label>
+                    <div class="radio-group-2col">
+                        <div class="radio-option">
+                            <input type="radio" id="focus-knowledge" name="focus" value="העברת ידע" >
+                            <label for="focus-knowledge"><span>📚 העברת ידע</span></label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="focus-skill" name="focus" value="תרגול מיומנות">
+                            <label for="focus-skill"><span>🎯 תרגול מיומנות</span></label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="focus-thinking" name="focus" value="פיתוח חשיבה">
+                            <label for="focus-thinking"><span>💡 פיתוח חשיבה</span></label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="focus-application" name="focus" value="יישום מעשי">
+                            <label for="focus-application"><span>🔧 יישום מעשי</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="label">
+                        <strong>אילו סוגי פעילויות אתה מעדיף לשלב?</strong> (ניתן לבחור יותר מאחת)
+                    </label>
+                    <div class="checkbox-group-2col">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="activity-discussion" name="activities" value="דיון קבוצתי">
+                            <label for="activity-discussion">💬 דיון קבוצתי</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="activity-exercise" name="activities" value="תרגיל מעשי">
+                            <label for="activity-exercise">✍️ תרגיל מעשי</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="activity-case" name="activities" value="ניתוח מקרה">
+                            <label for="activity-case">🔍 ניתוח מקרה</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="activity-game" name="activities" value="משחק/סימולציה">
+                            <label for="activity-game">🎮 משחק/סימולציה</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="activity-video" name="activities" value="סרטון/מצגת">
+                            <label for="activity-video">📺 סרטון/מצגת</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="activity-brainstorm" name="activities" value="סיעור מוחות">
+                            <label for="activity-brainstorm">🧠 סיעור מוחות</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Context Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    מידע נוסף
+                </h2>
+                
+                <div class="input-group">
+                    <label class="label" for="context">
+                        <strong>הקשר נוסף</strong> (אופציונלי)
+                    </label>
+                    <textarea id="context" name="context" rows="4" placeholder="מידע נוסף שיעזור ליצור מערך שיעור מותאם יותר (למשל: ציוד זמין, אילוצים מיוחדים, רקע של הקבוצה)"></textarea>
+                    <div class="helper-text">💡 כל מידע שיעזור להתאים את המערך לצרכים שלך</div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">✨ צור מערך שיעור</button>
+        </form>
+
+        <div id="result" class="result">
+            <div class="result-header">
+                <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+                <button onclick="copyPrompt()" class="copy-button">📋 העתק פרומפט</button>
+            </div>
+            <pre id="promptOutput" class="prompt-output"></pre>
+        </div>
+
+       
+    </div>
+
+       <div id="global-footer"></div>
+     <script src="promptmasterjs.js"></script>
+
+    <script>
+        function collectData() {
+            return {
+                topic: getFieldValue('topic'),
+                goals: getFieldValue('goals'),
+                audience: getRadioValue('audience'),
+                groupSize: getFieldValue('groupSize'),
+                duration: getFieldValue('duration'),
+                format: getFieldValue('format'),
+                focus: getRadioValue('focus'),
+                activities: getCheckedValues('input[name="activities"]'),
+                context: getFieldValue('context')
+            };
+        }
+
+        function buildPrompt(data) {
+            const activitiesText = data.activities.length > 0
+                ? data.activities.map(a => '- ' + a).join('\n')
+                : '- לא צוינו';
+
+            return `# בקשה ליצירת מערך שיעור מפורט
+
+##  פרטי השיעור
+
+**נושא:** ${data.topic}
+
+**מטרות השיעור:**
+${data.goals}
+
+##  קהל היעד
+
+**רמת ניסיון:** ${data.audience}
+**גודל קבוצה:** ${data.groupSize}
+
+##  זמן ופורמט
+
+**משך:** ${data.duration} דקות
+**פורמט:** ${data.format}
+
+##  אופי הלמידה
+
+**מוקד מרכזי:** ${data.focus}
+
+**סוגי פעילויות מועדפות:**
+${activitiesText}
+
+##  הקשר נוסף
+
+${data.context || '—'}
+
+---
+
+## הנחיות ליצירת מערך השיעור:
+
+אתה מומחה לתכנון פדגוגי ויצירת מערכי שיעור איכותיים.
+
+צור מערך שיעור מפורט ומקצועי הכולל:
+
+### 1. פתיחה
+- מטרות השיעור (ברורות ומדידות)
+- זמן כולל ופילוח
+
+### 2. מבנה השיעור - טבלת זמנים מפורטת
+
+לכל שלב כלול:
+-  **זמן**
+-  **שלב** (שם השלב)
+-  **פעילות** (מה קורה)
+-  **תפקיד המדריך** (מה המדריך עושה)
+-  **תפקיד הלומדים** (מה הלומדים עושים)
+
+### 3. פעילויות מפורטות
+לכל פעילות:
+- הוראות ביצוע צעד אחר צעד
+- חומרים נדרשים
+- טיפים להצלחה
+
+### 4. הערכה
+- איך נבדוק שהמטרות הושגו
+- כלי הערכה מומלצים
+
+### 5. סיכום ומשוב
+- שאלות לסיכום
+- רעיונות להמשך
+
+### דגשים חשובים:
+ התאם את התוכן לרמת הקהל
+ שמור על קצב נכון - לא מהיר מדי ולא איטי מדי
+ כל פעילות צריכה להיות קשורה למטרות
+ תן אלטרנטיבות למדריך
+ הצע משאבים נוספים
+
+**צור עכשיו מערך שיעור מלא, מפורט ומוכן לשימוש!**`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initPromptGenerator({
+                formId: 'lessonForm',
+                collectData: collectData,
+                buildPrompt: buildPrompt
+            });
+        });
+    </script>
+</body>
+</html>

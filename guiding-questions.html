@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל שאלות מנחות | PromptMaster</title>
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+  
+</head>
+<body>
+    <div id="global-navbar-container"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>💭 מחולל שאלות מנחות</h1>
+                <p>צור שאלות איכותיות שמעוררות חשיבה, דיון ולמידה עמוקה</p>
+            </div>
+        </div>
+
+        <div class="generator-info-box">
+            <h3>💡 איך זה עובד?</h3>
+            <p>
+           המחולל יוצר פרומפט שמפיק <strong>סט שאלות מנחות איכותיות</strong> בהתאם לנושא, למטרה ולסוגי השאלות שתבחרו.
+לאחר הדבקת הפרומפט בכלי ה-AI והעלאת פרטי ההקשר, המערכת תבנה עבורכם <strong>שאלות מעוררות מחשבה</strong> המותאמות לדיון, הוראה, סדנה או הנחיה אישית.
+<strong>בואו ננסח שאלות שמעמיקות את הלמידה.</strong>
+            </p>
+        </div>
+
+        <div class="form-content">
+            <form id="questionsForm">
+                <!-- חלק 1: נושא ומטרה -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">1</span>
+                        נושא ומטרה
+                    </h2>
+                    
+                    <div class="input-group">
+                        <label class="label" for="topic">
+                            <strong>על איזה נושא/תחום השאלות?</strong>
+                            <span class="label-subtitle">נושא הדיון, הלמידה או השיחה</span>
+                        </label>
+                        <input type="text" id="topic" name="topic" required placeholder='דוגמה: "מנהיגות בעידן דיגיטלי", "שינוי אקלים", "תקשורת בין-אישית"'>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>מה מטרת השאלות?</strong>
+                            <span class="label-subtitle">הקשר השימוש</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="purpose1" name="purpose" value="דיון קבוצתי או סדנה" required>
+                                <label for="purpose1">
+                                    <span><strong>💬 דיון קבוצתי או סדנה</strong></span>
+                                    <div class="option-description">שאלות להנחיית דיון, הפקת רעיונות</div>
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="purpose2" name="purpose" value="הוראה ולמידה">
+                                <label for="purpose2">
+                                    <span><strong>📚 הוראה ולמידה</strong></span>
+                                    <div class="option-description">שאלות שמובילות להבנה עמוקה, שאלות סוקרטיות</div>
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="purpose3" name="purpose" value="קואצ'ינג והנחיה אישית">
+                                <label for="purpose3">
+                                    <span><strong>🎯 קואצ'ינג והנחיה אישית</strong></span>
+                                    <div class="option-description">שאלות לתובנות אישיות, פיתוח והתפתחות</div>
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="purpose4" name="purpose" value="רפלקציה והערכה">
+                                <label for="purpose4">
+                                    <span><strong>🔍 רפלקציה והערכה</strong></span>
+                                    <div class="option-description">שאלות לסיכום, למידה והסקת מסקנות</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label" for="context">
+                            <strong>הקשר נוסף</strong> (אופציונלי)
+                            <span class="label-subtitle">פרטים ספציפיים על הסיטואציה</span>
+                        </label>
+                        <textarea id="context" name="context" rows="3" placeholder='דוגמה: "קבוצת מנהלים בכירים", "תלמידי תיכון", "צוות שעבר שינוי ארגוני"'></textarea>
+                    </div>
+                </div>
+
+                <!-- חלק 2: בחירת קטגוריות שאלות -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">2</span>
+                        בחר סוגי שאלות
+                    </h2>
+                    
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>אילו קטגוריות שאלות אתה צריך?</strong> (בחר לפחות 3)
+                            <span class="label-subtitle">כל קטגוריה משרתת מטרה אחרת בתהליך</span>
+                        </label>
+                        <div class="checkbox-group-3col">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat1" name="categories" value="הבהרה">
+                                <label for="cat1">
+                                    <strong>🔍 הבהרה</strong>
+                                    <div class="option-description">שאלות שמבהירות משמעות והבנה</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat2" name="categories" value="מבט קדימה">
+                                <label for="cat2">
+                                    <strong>🔮 מבט קדימה</strong>
+                                    <div class="option-description">שאלות על עתיד, השלכות ותוצאות</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat3" name="categories" value="אתגור">
+                                <label for="cat3">
+                                    <strong>⚡ אתגור</strong>
+                                    <div class="option-description">שאלות שמאתגרות הנחות ואמונות</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat4" name="categories" value="דוגמאות">
+                                <label for="cat4">
+                                    <strong>📌 דוגמאות</strong>
+                                    <div class="option-description">שאלות שמבקשות קונקרטיות</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat5" name="categories" value="חקר">
+                                <label for="cat5">
+                                    <strong>🔬 חקר</strong>
+                                    <div class="option-description">שאלות שחוקרות לעומק</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat6" name="categories" value="היסטוריה">
+                                <label for="cat6">
+                                    <strong>📜 היסטוריה</strong>
+                                    <div class="option-description">שאלות על מקור ורקע</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat7" name="categories" value="אינטגרציה">
+                                <label for="cat7">
+                                    <strong>🔗 אינטגרציה</strong>
+                                    <div class="option-description">שאלות על קשרים וחיבורים</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat8" name="categories" value="הטמעה">
+                                <label for="cat8">
+                                    <strong>⚙️ הטמעה</strong>
+                                    <div class="option-description">שאלות על יישום מעשי</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat9" name="categories" value="תוצאה">
+                                <label for="cat9">
+                                    <strong>🎯 תוצאה</strong>
+                                    <div class="option-description">שאלות על מטרה ותוצאות</div>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="cat10" name="categories" value="חסמים">
+                                <label for="cat10">
+                                    <strong>🚧 חסמים</strong>
+                                    <div class="option-description">שאלות על מכשולים ואתגרים</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label" for="questionCount">
+                            <strong>כמה שאלות לכל קטגוריה?</strong>
+                        </label>
+                        <input type="number" id="questionCount" name="questionCount" min="2" max="10" value="3" required>
+                        <div class="helper-text">💡 מומלץ: 3-5 שאלות לכל קטגוריה</div>
+                    </div>
+                </div>
+
+                <!-- חלק 3: מאפייני השאלות -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">3</span>
+                        מאפייני השאלות
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label">
+                            <strong>עומק השאלות</strong>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="depth1" name="depth" value="פשוטות וישירות" required>
+                                <label for="depth1">
+                                    <span><strong>😊 פשוטות וישירות</strong></span>
+                                    <div class="option-description">מתאימות למתחילים, תשובות קצרות</div>
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="depth2" name="depth" value="בינוניות">
+                                <label for="depth2">
+                                    <span><strong>🤔 בינוניות</strong></span>
+                                    <div class="option-description">דורשות חשיבה, מתאימות למתקדמים</div>
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="depth3" name="depth" value="עמוקות">
+                                <label for="depth3">
+                                    <span><strong>💭 עמוקות ופילוסופיות</strong></span>
+                                    <div class="option-description">מורכבות, דורשות מחשבה רבה</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label" for="audience">
+                            <strong>קהל יעד</strong> (אופציונלי)
+                            <span class="label-subtitle">למי השאלות מיועדות?</span>
+                        </label>
+                        <input type="text" id="audience" name="audience" placeholder='דוגמה: "מנהלים בכירים", "תלמידי תיכון", "מבוגרים 40+"'>
+                    </div>
+                </div>
+
+                <!-- חלק 4: דרישות נוספות -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-number">4</span>
+                        דרישות נוספות (אופציונלי)
+                    </h2>
+
+                    <div class="input-group">
+                        <label class="label" for="additionalNotes">
+                            <strong>הערות או דגשים מיוחדים</strong>
+                            <span class="label-subtitle">כל דבר אחר שחשוב</span>
+                        </label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="4" placeholder='דוגמאות:
+• "השאלות צריכות להיות מעשיות ולא תיאורטיות"
+• "דגש על תחושות ולא רק על מחשבות"
+• "הימנע משאלות שיכולות להרגיש מאיימות"
+• "כלול שאלות שמעודדות פעולה קונקרטית"'></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    ✨ צור שאלות מנחות
+                </button>
+            </form>
+
+            <div id="result" class="result">
+                <div class="result-header">
+                    <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
+                    <button class="copy-button" onclick="copyPrompt()">
+                        📋 העתק פרומפט
+                    </button>
+                </div>
+                <pre id="promptOutput" class="prompt-output"></pre>
+            </div>
+            </div>
+        </div>
+    </div>
+
+      <div id="global-footer"></div>
+   <script src="promptmasterjs.js"></script>
+
+    <script>
+        function collectData() {
+            return {
+                topic: getFieldValue('topic'),
+                purpose: getRadioValue('purpose'),
+                context: getFieldValue('context'),
+                categories: getCheckedValues('input[name="categories"]'),
+                questionCount: getFieldValue('questionCount'),
+                depth: getRadioValue('depth'),
+                audience: getFieldValue('audience'),
+                additionalNotes: getFieldValue('additionalNotes')
+            };
+        }
+
+        function buildPrompt(data) {
+            const categoriesText = data.categories.length > 0
+                ? data.categories.map(c => '- ' + c).join('\n')
+                : '- לא נבחרו קטגוריות';
+
+            return `# בקשה ליצירת שאלות מנחות איכותיות
+
+##  נושא ומטרה
+
+**נושא:** ${data.topic}
+**מטרת השאלות:** ${data.purpose}
+
+${data.context ? `**הקשר:** ${data.context}` : ''}
+
+##  קטגוריות השאלות המבוקשות
+
+${categoriesText}
+
+##  מאפייני השאלות
+
+**מספר שאלות לכל קטגוריה:** ${data.questionCount}
+**עומק השאלות:** ${data.depth}
+${data.audience ? `**קהל יעד:** ${data.audience}` : ''}
+
+${data.additionalNotes ? `##  דרישות מיוחדות
+
+${data.additionalNotes}` : ''}
+
+---
+
+## הנחיות ליצירת השאלות:
+
+אתה מומחה ליצירת שאלות מנחות איכותיות שמעוררות חשיבה, דיון ולמידה עמוקה.
+
+צור סט שאלות מנחות מקצועי, מגוון ומדויק בהתאם למאפיינים שצוינו.
+
+### עקרונות מנחים:
+
+ **איכות:** שאלות פתוחות שמזמינות חשיבה
+ **מדויקות:** קשורות ישירות לנושא
+ **מגוונות:** גישות שונות לאותו נושא
+ **מעוררות דיון:** שאלות ש"אין להן תשובה אחת נכונה"
+ **מותאמות לקהל:** ברמה המתאימה
+
+##  פורמט התוצאה
+
+לכל קטגוריה, הצג:
+
+---
+### [שם הקטגוריה] 
+
+**1. [שאלה ראשונה]**
+    מתי להשתמש: [הסבר קצר מתי השאלה הזו יעילה]
+   
+**2. [שאלה שנייה]**
+    מתי להשתמש: [הסבר קצר]
+
+[וכן הלאה...]
+
+---
+
+**צור עכשיו את השאלות המלאות בעברית, מסודרות לפי קטגוריות!**`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initPromptGenerator({
+                formId: 'questionsForm',
+                collectData: collectData,
+                buildPrompt: buildPrompt
+            });
+        });
+ 
+   </script>
+   
+</body>
+</html>
