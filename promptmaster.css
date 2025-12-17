@@ -2388,73 +2388,69 @@ input[type="checkbox"]:checked + * {
 }
 
 /* ---------------------------------------------------------
-   15. Responsive Design
+   15. Responsive Design - תיקון סופי למחולל תמונות
    --------------------------------------------------------- */
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
+    /* הסתרת מספרי ה-HEX (הטקסט של הצבע) - חובה !important */
+    .color-display-base {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        position: absolute !important;
     }
-    
-    .navbar-logo {
-        font-size: 1.8em;
+
+    /* סידור מחדש של אזור בחירת הצבע */
+    .color-preview-and-hex {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 15px !important;
+        background: rgba(102, 126, 234, 0.05) !important;
+        padding: 10px !important;
+        border-radius: 15px !important;
+        width: 100% !important;
     }
-    
-    .navbar-links {
-        gap: 15px;
+
+    /* הגדלת ריבועי הצבע שיהיה נוח ללחוץ עליהם עם האצבע */
+    .color-preview-small {
+        width: 65px !important;
+        height: 65px !important;
+        border-radius: 15px !important;
+        flex-shrink: 0 !important;
     }
-    
-    .header {
-        padding: 40px 20px;
+
+    /* פלטת הצבעים האוטומטית - פריסה ב-5 עמודות שוות ללא גלילה */
+    .color-palette-display {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 6px !important;
+        padding: 10px !important;
+        width: 100% !important;
     }
-    
-    .header h1 {
-        font-size: 2.5em;
+
+    .color-swatch {
+        width: 100% !important;
+        height: 55px !important;
+        border-radius: 10px !important;
+        margin: 0 !important;
     }
-    
-    .container {
-        margin: 80px 20px 20px;
-        border-radius: 20px;
+
+    /* תיקון תוויות הצבעים */
+    .label-and-hex {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 12px !important;
     }
-    
+
+    /* צמצום שוליים במיכל הראשי כדי למנוע דחיסה */
     .section {
-        margin: 20px;
-        padding: 25px;
-    }
-    
-    .radio-group,
-    .checkbox-group-2col,
-    .radio-group-2col,
-    .checkbox-group-3col,
-    .radio-group-3col {
-        grid-template-columns: 1fr;
-    }
-    
-    .color-inputs-row {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .color-input-wrapper {
-        width: 100%;
+        margin: 15px 10px !important;
+        padding: 20px 15px !important;
     }
 }
-
-@media (max-width: 576px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .navbar-links {
-        margin-top: 10px;
-    }
-    
-    .header h1 {
-        font-size: 2em;
-    }
-}
-
 /* ---------------------------------------------------------
    16. Print Styles
    --------------------------------------------------------- */
