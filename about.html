@@ -402,7 +402,6 @@
 </head>
 
 <body>
-    <!-- Animated Background Particles -->
     <div class="particles" id="particles"></div>
 <nav class="navbar">
         <div class="navbar-logo">Learning Hero</div>
@@ -518,44 +517,9 @@
         </div>
     </div>
 
-    <!-- AI Tools Footer -->
-<footer class="footer" style="
-        text-align: center; 
-        padding: 60px 20px; 
-        color: white; 
-        background: rgba(15, 15, 35, 0.8);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(102, 126, 234, 0.3);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-        margin-top: 50px;
-    ">
-        <div class="footer-ai-links" style="
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 500px;
-            width: 100%;
-        ">
-            <strong style="display: block; margin-bottom: 20px; color: #4facfe; font-size: 1.2em; font-weight: 700;">קישורים מהירים לכלי AI:</strong>
-            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <a href="https://chat.openai.com/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">ChatGPT</a>
-                <a href="https://claude.ai/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">Claude</a>
-                <a href="https://gemini.google.com/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">Gemini</a>
-            </div>
-        </div>
-        
-        <div style="line-height: 1.8;">
-            <strong style="font-size: 1.4em; background: linear-gradient(135deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 900;">Learning Hero © 2025</strong><br>
-            <span style="color: rgba(255,255,255,0.7);">Created with ❤️ by Ruthy Salomon</span><br>
-            <span style="color: rgba(255,255,255,0.7);">פותח עבור שיפור תהליכי למידה והדרכה</span>
-        </div>
-    </footer>
+    <div id="global-footer"></div>
 
+    <script src="promptmasterjs.js"></script>
     <script>
         // Create floating particles
         const particlesContainer = document.getElementById('particles');
