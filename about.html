@@ -39,17 +39,14 @@
         }
         @keyframes float {
             from { transform: translateY(100vh) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
             to { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
 
+        /* תיקון ה-Container: ביטול הרקע הלבן בכותרת */
         .container {
             max-width: 1200px;
             margin: 140px auto 35px !important;
             padding: 0 20px 50px !important;
-            position: relative;
-            z-index: 1;
             background: transparent !important; 
             box-shadow: none !important;
             border: none !important;
@@ -73,7 +70,7 @@
             border-radius: 30px;
             padding: 50px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-top: 50px; /* Space לפני "הסיפור של..." */
+            margin-top: 50px; /* Space לפני התוכן */
             margin-bottom: 40px;
             color: #1f2937;
         }
@@ -115,11 +112,11 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white; padding: 50px 40px; border-radius: 30px; text-align: center; margin: 60px 0;
         }
-        .vision-box h2 { font-size: 2.5em; margin-bottom: 20px; color: white; border: none; }
+        .vision-box h2 { font-size: 2.5em; margin-bottom: 20px; color: white; }
 
-        /* כפתור המייל */
+        /* כפתור המייל המעוצב */
         .contact-cta { text-align: center; padding: 60px 20px; background: rgba(255, 255, 255, 0.98); border-radius: 30px; margin-top: 40px; }
-        .contact-cta h2 { color: #1f2937; margin-bottom: 30px; font-size: 2.5em; border: none; }
+        .contact-cta h2 { color: #1f2937; margin-bottom: 30px; font-size: 2.5em; }
         .contact-link {
             display: inline-flex;
             align-items: center;
@@ -146,6 +143,7 @@
 
 <body>
     <div class="particles" id="particles"></div>
+    
     <div id="global-navbar-container"></div>
 
     <div class="container">
@@ -159,7 +157,7 @@
                 <h2>🚀 הסיפור של Learning Hero</h2>
                 <p><strong>זה התחיל מתסכול.</strong> בכל פרויקט רחב היקף שהובלתי – בין אם במגזר הביטחוני, בגופים ממשלתיים או באקדמיה – ראיתי את אותה הבעיה: מנהלי למידה ומומחי תוכן מוכשרים מבזבזים שעות יקרות על משימות טכניות ושוחקות, במקום להתמקד במה שהם באמת טובים בו – לעצב למידה איכותית ואפקטיבית.</p>
                 <p>כשהבינה המלאכותית (AI) נכנסה לחיינו, זיהיתי הזדמנות אדירה, אך גם אתגר חדש – איך לכתוב פרומפטים נכונים? איך להבטיח תוצאות מקצועיות ולא גנריות? אז החלטתי ליצור את הגשר: <strong>כלים שהופכים את הידע הדידקטי שלכם לפרומפטים מקצועיים ברמה הגבוהה ביותר.</strong></p>
-                <p>Learning Hero הוא השותף שמבין את השפה הפדגוגית שלכם, את הצרכים הארגוניים שלכם, ועוזר לכם להפיק את המקסימום מהטכנולוגיה – בלי להתפשר על האיכות המקצועית.</p>
+                <p>Learning Hero הוא לא עוד כלי AI. הוא השותף שמבין את השפה הפדגוגית שלכם, את הצרכים הארגוניים שלכם, ועוזר לכם להפיק את המקסימום מהטכנולוגיה – בלי להתפשר על האיכות המקצועית.</p>
             </div>
 
             <div class="about-section">
@@ -198,6 +196,8 @@
                     <div class="skill-card"><h3>🔄 טרנספורמציה דיגיטלית</h3><p>הובלת תהליכי שינוי אסטרטגיים ואימוץ טכנולוגיות חדשות במגזר הציבורי והפרטי</p></div>
                     <div class="skill-card"><h3>🎨 Design Thinking</h3><p>מומחיות בזיהוי צרכים מערכתיים ופיתוח פתרונות חדשניים מבוססי חוויית משתמש</p></div>
                     <div class="skill-card"><h3>🤖 AI בלמידה</h3><p>שילוב פרקטי של בינה מלאכותית בתהליכי פיתוח הדרכה וייעול עבודת מנהל הלמידה</p></div>
+                    <div class="skill-card"><h3>👥 הובלת תהליכי ייעוץ</h3><p>ליווי מנהלים בכירים וארגונים בגיבוש אסטרטגיית למידה וחדשנות פדגוגית</p></div>
+                    <div class="skill-card"><h3>📊 Learning Analytics</h3><p>בניית מערכות למידה מבוססות נתונים למדידת אפקטיביות ושיפור ביצועים</p></div>
                 </div>
             </div>
         </div>
