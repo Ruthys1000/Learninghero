@@ -580,15 +580,104 @@
             box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header h1 { font-size: 3.5em; }
-            .cards-container { grid-template-columns: 1fr; }
-            .navbar { padding: 15px 20px; }
-            .navbar-logo { font-size: 2em; }
-            .stats { gap: 20px; }
-            .generator-info-box { padding: 30px 20px; margin: 40px 20px; }
-        }
+       /* --- התאמות משופרות למובייל (Responsive Design) --- */
+@media (max-width: 768px) {
+    /* התאמת תפריט הניווט - סידור אנכי כדי למנוע חריגה מהמסך */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+        gap: 15px;
+        text-align: center;
+        height: auto; /* מאפשר לתפריט לגדול לפי התוכן */
+    }
+
+    .navbar-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar-links a {
+        font-size: 1rem;
+    }
+
+    /* תיקון כותרת ה-Hero - מניעת שבירת מילים לא יפה */
+    .header {
+        padding: 40px 15px;
+    }
+
+    .header h1 {
+        font-size: 2.8em; /* הקטנה משמעותית למניעת חריגה */
+        line-height: 1.2;
+        letter-spacing: 1px;
+    }
+
+    .header p {
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+
+    /* סטטיסטיקות - מעבר למבנה של טור אחד */
+    .stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin: 30px 0;
+    }
+
+    .stat-item {
+        width: 85%; /* ניצול רוב רוחב המסך בנייד */
+        padding: 20px;
+    }
+
+    /* כרטיסיות המחוללים - פריסה מלאה לקריאות מקסימלית */
+    .generators-grid {
+        padding: 0 15px 40px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr; /* כרטיס אחד בכל שורה */
+        gap: 20px;
+    }
+
+    .generator-card {
+        padding: 25px 20px;
+    }
+
+    /* התאמת תוכן הקונטיינר למובייל */
+    .container {
+        margin-top: 160px; /* רווח בגלל ה-Navbar הגבוה יותר במובייל */
+    }
+
+    .generator-info-box {
+        padding: 25px 20px;
+        margin: 30px 15px;
+    }
+
+    .category-title {
+        font-size: 1.6em;
+        margin: 40px 15px 20px;
+    }
+
+    .cta-section {
+        margin: 40px 15px;
+        padding: 40px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 2em;
+    }
+}
+
+/* התאמה למכשירים קטנים מאוד (כמו iPhone SE) */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2.2em;
+    }
+    .navbar-logo {
+        font-size: 1.8em;
+    }
+}
 /* תיקון כללי למניעת חריגת אלמנטים */
 * {
     box-sizing: border-box;
