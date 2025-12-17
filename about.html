@@ -70,7 +70,7 @@
             border-radius: 30px;
             padding: 50px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-top: 50px; /* Space לפני התוכן */
+            margin-top: 50px; 
             margin-bottom: 40px;
             color: #1f2937;
         }
@@ -114,9 +114,23 @@
         }
         .vision-box h2 { font-size: 2.5em; margin-bottom: 20px; color: white; }
 
-        /* כפתור המייל המעוצב */
-        .contact-cta { text-align: center; padding: 60px 20px; background: rgba(255, 255, 255, 0.98); border-radius: 30px; margin-top: 40px; }
-        .contact-cta h2 { color: #1f2937; margin-bottom: 30px; font-size: 2.5em; }
+        /* כפתור המייל - תיקון מרכוז */
+        .contact-cta { 
+            text-align: center; 
+            padding: 60px 20px; 
+            background: rgba(255, 255, 255, 0.98); 
+            border-radius: 30px; 
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* ממרכז את הכל אופקית */
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+        }
         .contact-link {
             display: inline-flex;
             align-items: center;
@@ -133,6 +147,9 @@
         }
         .contact-link:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(79, 172, 254, 0.5); }
 
+        /* הסרת הגדרות פוטר פנימיות כדי למנוע ירידת שורה של Gemini במובייל */
+        .footer, .footer-ai-links { all: unset; }
+
         @media (max-width: 768px) {
             .container { margin-top: 160px !important; }
             .about-header h1 { font-size: 2.5em; }
@@ -143,7 +160,6 @@
 
 <body>
     <div class="particles" id="particles"></div>
-    
     <div id="global-navbar-container"></div>
 
     <div class="container">
@@ -154,21 +170,15 @@
 
         <div class="about-content">
             <div class="about-section">
-<div class="about-section">
-    <h2>🌱 הסיפור של Learning Hero</h2>
-    <p>
-        <strong>זה התחיל מרצון לייעל.</strong> לאורך השנים, בניהול פרויקטי למידה במגזר הביטחוני, הציבורי והאקדמי, ראיתי כמה זמן יקר מושקע במשימות טכניות וחוזרות. מנהלי למידה ומומחי תוכן מוצאים את עצמם לעיתים "טובעים" בניסוחים טכניים במקום להתמקד בלב העשייה – עיצוב למידה משמעותית.
-    </p>
-    <p>
-        עם כניסת ה-AI, זיהיתי הזדמנות לשדרג את העבודה שלנו, אך גם את המורכבות שבכתיבת פרומפטים מדויקים שיפיקו תוצאות מקצועיות. יצרתי את המחוללים האלו כדי שישמשו <strong>גשר מעשי</strong>: כלים שמטרתם <strong>לסייע במתן מענה דידקטי</strong> על ידי בניית מבנה פרומפט מקצועי וממוקד.
-    </p>
-    <p>
-        Learning Hero הוא פרי פיתוח אישי המבוסס על הניסיון שלי, והוא מוצע כאן באהבה לקהילת הלמידה. הוא משמש <strong>שותף לדרך</strong> שמטרתו למקסם את יכולות הטכנולוגיה תוך שמירה על השפה הפדגוגית שלנו.
-    </p>
-    <p style="background: rgba(79, 172, 254, 0.1); padding: 15px; border-radius: 10px; border-right: 4px solid #4facfe;">
-        <strong>חשוב לי לציין:</strong> המחוללים הם הצעה לדרך עבודה יעילה יותר. אני משפרת אותם כל הזמן, ואשמח מאוד לשמוע מכם – מה עבד לכם, מה פחות ואיפה אפשר להשתפר. המשוב שלכם הוא הכוח שיעזור לכלי הזה להפוך לטוב ומדויק יותר עבור כולנו.
-    </p>
-</div>
+                <h2>🌱 הסיפור של Learning Hero</h2>
+                <p><strong>זה התחיל מרצון לייעל.</strong> לאורך השנים, בניהול פרויקטי למידה במגזר הביטחוני, הציבורי והאקדמי, ראיתי כמה זמן יקר מושקע במשימות טכניות וחוזרות. מנהלי למידה ומומחי תוכן מוצאים את עצמם לעיתים "טובעים" בניסוחים טכניים במקום להתמקד בלב העשייה – עיצוב למידה משמעותית.</p>
+                <p>עם כניסת ה-AI, זיהיתי הזדמנות לשדרג את העבודה שלנו, אך גם את המורכבות שבכתיבת פרומפטים מדויקים שיפיקו תוצאות מקצועיות. יצרתי את המחוללים האלו כדי שישמשו <strong>גשר מעשי</strong>: כלים שמטרתם <strong>לסייע במתן מענה דידקטי</strong> על ידי בניית מבנה פרומפט מקצועי וממוקד.</p>
+                <p>Learning Hero הוא פרי פיתוח אישי המבוסס על הניסיון שלי, והוא מוצע כאן באהבה לקהילת הלמידה. הוא משמש <strong>שותף לדרך</strong> שמטרתו למקסם את יכולות הטכנולוגיה תוך שמירה על השפה הפדגוגית שלנו.</p>
+                <p style="background: rgba(79, 172, 254, 0.1); padding: 15px; border-radius: 10px; border-right: 4px solid #4facfe;">
+                    <strong>חשוב לי לציין:</strong> המחוללים הם הצעה לדרך עבודה יעילה יותר. אני משפרת אותם כל הזמן, ואשמח מאוד לשמוע מכם – מה עבד לכם, מה פחות ואיפה אפשר להשתפר. המשוב שלכם הוא הכוח שיעזור לכלי הזה להפוך לטוב ומדויק יותר עבור כולנו.
+                </p>
+            </div>
+
             <div class="about-section">
                 <h2>📚 הניסיון שלי</h2>
                 <div class="timeline">
@@ -177,19 +187,16 @@
                         <div class="timeline-title">מנהלת מוצר בצה"ל</div>
                         <div class="timeline-desc">הובלת אפיון, הקמה וניהול של מערכת למידה רב-זרועית מורכבת תוך שימוש במתודולוגיות Design Thinking.</div>
                     </div>
-
                     <div class="timeline-item">
                         <div class="timeline-year">2020 - היום</div>
                         <div class="timeline-title">אסטרטגיה דיגיטלית במגזר הממשלתי</div>
                         <div class="timeline-desc">ניהול וטרנספורמציה דיגיטלית של מערכי למידה וכתיבת תוכניות אסטרטגיות רב-שנתיות. אפיון והקמת מערכות למידה ארגוניות והובלת תהליכי כשירות וביצוע חוצי-חטיבות.</div>
                     </div>
-
                     <div class="timeline-item">
                         <div class="timeline-year">2018 - 2025</div>
                         <div class="timeline-title">מרצה באקדמיה</div>
                         <div class="timeline-desc">הוראה בתחומי UX, ארכיטקטורת מידע וניהול תוכן במסלולי תואר ראשון ושני.</div>
                     </div>
-
                     <div class="timeline-item">
                         <div class="timeline-year">2000 - 2021</div>
                         <div class="timeline-title">הובלת חדשנות ופדגוגיה דיגיטלית</div>
@@ -216,18 +223,16 @@
             <p>אני מאמינה שהעתיד של הלמידה הוא בשילוב חכם בין המומחיות האנושית לכוח של ה-AI.<br>Learning Hero הוא הדרך שלי להעצים אתכם, לחסוך לכם זמן יקר, ולאפשר לכם להתמקד במה שחשוב באמת: ליצור חוויות למידה משמעותיות שמשנות מציאות.</p>
         </div>
 
-<div class="contact-cta" id="contact" style="text-align: center;">
-    <h2>🤝 בואו נדבר</h2>
-    <p style="font-size: 1.2em; color: #6b7280; margin-bottom: 30px;">
-        יש לכם רעיון למחולל חדש? צריכים התאמה מיוחדת? רוצים לשמוע עוד?<br>
-        אשמח לשמוע מכם!
-    </p>
-    <div class="contact-links" style="display: flex; justify-content: center; width: 100%;">
-        <a href="mailto:ruthy.salomon@gmail.com" class="contact-link">
-            📧 ruthy.salomon@gmail.com
-        </a>
-    </div>
-</div>
+        <div class="contact-cta" id="contact">
+            <h2>🤝 בואו נדבר</h2>
+            <p style="font-size: 1.2em; color: #6b7280; margin-bottom: 10px;">
+                יש לכם רעיון למחולל חדש? צריכים התאמה מיוחדת? רוצים לשמוע עוד?<br>
+                אשמח לשמוע מכם!
+            </p>
+            <div class="contact-links">
+                <a href="mailto:ruthy.salomon@gmail.com" class="contact-link">📧 ruthy.salomon@gmail.com</a>
+            </div>
+        </div>
     </div>
 
     <div id="global-footer"></div>
