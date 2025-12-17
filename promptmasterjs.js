@@ -443,12 +443,34 @@ function initPromptGenerator(options) {
 
 // תוכן ה-HTML של סרגל הניווט, מותאם לעבודה מכל דף
 const GLOBAL_NAVBAR_HTML = `
-<nav class="navbar">
-    <div class="navbar-logo">Learning Hero</div>
-    <ul class="navbar-links">
-        <li><a href="index.html">דף הבית</a></li>
-        <li><a href="about.html">אודות</a></li>
-        <li><a href="index.html#contact">צרו קשר</a></li>
+<nav class="navbar" style="
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px; 
+    background: rgba(15, 15, 35, 0.95); 
+    backdrop-filter: blur(20px); 
+    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+">
+    <div class="navbar-logo" style="
+        font-size: 2.2em; 
+        font-weight: 900; 
+        margin-bottom: 15px;
+        background: linear-gradient(45deg, #00f2fe, #4facfe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    ">Learning Hero</div>
+    <ul class="navbar-links" style="
+        list-style: none; 
+        display: flex; 
+        gap: 20px; 
+        padding: 0; 
+        margin: 0;
+    ">
+        <li><a href="index.html" style="color: white; text-decoration: none; font-weight: 600;">דף הבית</a></li>
+        <li><a href="about.html" style="color: white; text-decoration: none; font-weight: 600;">אודות</a></li>
+        <li><a href="index.html#contact" style="color: white; text-decoration: none; font-weight: 600;">צרו קשר</a></li>
     </ul>
 </nav>
 `;
