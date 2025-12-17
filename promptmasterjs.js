@@ -482,42 +482,26 @@ const GLOBAL_FOOTER_HTML = `
     align-items: center;
     gap: 25px;
     width: 100%;
-    margin-top: 80px;
     font-family: 'Heebo', sans-serif;
 ">
     <div class="footer-ai-links" style="
         background: rgba(255, 255, 255, 0.05);
-        padding: 20px 40px;
+        padding: 25px;
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        max-width: 550px;
+        max-width: 500px;
         width: 100%;
     ">
-        <strong class="footer-title" style="
-            display: block; 
-            margin-bottom: 15px; 
-            color: #4facfe; 
-            font-size: 1.2em; 
-            font-weight: 700;
-        ">קישורים מהירים לכלי AI:</strong>
-        
-        <div class="footer-links-wrapper" style="
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 20px; 
-            flex-direction: row; /* מבטיח שזה יהיה בשורה אחת */
-        ">
-            <a href="https://chat.openai.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">ChatGPT</a>
-            <span class="footer-sep" style="color: rgba(255,255,255,0.3);">|</span>
-            <a href="https://claude.ai/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Claude</a>
-            <span class="footer-sep" style="color: rgba(255,255,255,0.3);">|</span>
-            <a href="https://gemini.google.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Gemini</a>
+        <strong style="display: block; margin-bottom: 20px; color: #4facfe; font-size: 1.2em; font-weight: 700;">קישורים מהירים לכלי AI:</strong>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <a href="https://chat.openai.com/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">ChatGPT</a>
+            <a href="https://claude.ai/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">Claude</a>
+            <a href="https://gemini.google.com/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">Gemini</a>
         </div>
     </div>
     
-    <div class="footer-bottom-text" style="line-height: 1.8;">
-        <strong class="footer-brand" style="font-size: 1.3em;">Learning Hero © 2025</strong><br>
+    <div style="line-height: 1.8;">
+        <strong style="font-size: 1.4em; background: linear-gradient(135deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 900;">Learning Hero © 2025</strong><br>
         <span style="color: rgba(255,255,255,0.7);">Created with ❤️ by Ruthy Salomon</span><br>
         <span style="color: rgba(255,255,255,0.7);">פותח עבור שיפור תהליכי למידה והדרכה</span>
     </div>
