@@ -1013,73 +1013,83 @@ input[type="checkbox"]:checked + * {
 }
 
 /* ---------------------------------------------------------
-   15. Responsive Design
+/* ---------------------------------------------------------
+   15. Responsive Design - גירסה מתוקנת למובייל
    --------------------------------------------------------- */
 
 @media (max-width: 768px) {
+    /* התאמת הניווט */
     .navbar {
-        padding: 15px 20px;
+        padding: 10px 15px;
+        flex-direction: column;
+        height: auto;
     }
     
-    .navbar-logo {
-        font-size: 1.8em;
-    }
-    
-    .navbar-links {
-        gap: 15px;
-    }
-    
-    .header {
-        padding: 40px 20px;
-    }
-    
-    .header h1 {
-        font-size: 2.5em;
-    }
-    
+    .navbar-logo { font-size: 1.8em; }
+    .navbar-links { gap: 12px; margin-top: 5px; }
+
+    /* התאמת המיכל הראשי */
     .container {
-        margin: 80px 20px 20px;
-        border-radius: 20px;
+        margin: 120px 10px 20px; /* רווח עליון גדול יותר בגלל הנאב-בר */
+        border-radius: 15px;
+        width: calc(100% - 20px);
     }
     
-    .section {
-        margin: 20px;
-        padding: 25px;
-    }
+    .header { padding: 30px 15px; }
+    .header h1 { font-size: 2.2em; }
+    .section { margin: 15px 10px; padding: 20px 15px; }
+
+    /* --- תיקון מחולל התמונות --- */
     
-    .radio-group,
-    .checkbox-group-2col,
-    .radio-group-2col,
-    .checkbox-group-3col,
-    .radio-group-3col {
-        grid-template-columns: 1fr;
+    /* הסתרת מספרי ה-HEX כדי למנוע צפיפות */
+    .color-display-base {
+        display: none !important;
     }
-    
-    .color-inputs-row {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .color-input-wrapper {
+
+    /* סידור מחדש של בחירת הצבע */
+    .color-preview-and-hex {
+        display: flex;
+        justify-content: center;
         width: 100%;
+        gap: 15px;
+        background: rgba(0,0,0,0.03);
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    /* הגדלת ריבועי הצבע שיהיה קל ללחוץ */
+    .color-preview-small {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 12px;
+    }
+
+    /* פלטת הצבעים האוטומטית - פריסה ב-5 עמודות שוות */
+    .color-palette-display {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 5px !important;
+        padding: 10px 5px !important;
+    }
+
+    .color-swatch {
+        width: 100% !important;
+        height: 45px !important;
+        border-radius: 6px;
+    }
+
+    /* תיקון כפתורי רדיו וצ'קבוקס - טור אחד */
+    .radio-group, .radio-group-2col, .checkbox-group-2col {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* הקטנת כפתור השליחה שיתאים למסך */
+    .submit-button {
+        font-size: 1.2em !important;
+        padding: 18px !important;
+        width: 95% !important;
     }
 }
-
-@media (max-width: 576px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .navbar-links {
-        margin-top: 10px;
-    }
-    
-    .header h1 {
-        font-size: 2em;
-    }
-}
-
 /* ---------------------------------------------------------
    16. Print Styles
    --------------------------------------------------------- */
