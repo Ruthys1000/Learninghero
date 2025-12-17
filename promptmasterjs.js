@@ -466,26 +466,47 @@ function loadGlobalNavbar() {
 
 
 /* ============================================
-   FOOTER INJECTION (FIX) - הזרקת פוטר גלובלי
+   FOOTER INJECTION (Enhanced) - הזרקת פוטר מעוצב
 ============================================ */
 
 const GLOBAL_FOOTER_HTML = `
-<footer class="footer" id="about">
-    <div class="footer-ai-links">
-        <strong class="footer-title">קישורים מהירים לכלי AI:</strong>
-        <div class="footer-links-wrapper">
-            <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-            <span class="footer-sep">|</span>
-            <a href="https://claude.ai/" target="_blank">Claude</a>
-            <span class="footer-sep">|</span>
-            <a href="https://gemini.google.com/" target="_blank">Gemini</a>
+<footer class="footer" id="about" style="
+    text-align: center; 
+    padding: 60px 20px; 
+    color: white; 
+    background: rgba(15, 15, 35, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(102, 126, 234, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    margin-top: 50px;
+    font-family: 'Heebo', sans-serif;
+">
+    <div class="footer-ai-links" style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 500px;
+        width: 100%;
+    ">
+        <strong class="footer-title" style="display: block; margin-bottom: 15px; color: #4facfe; font-size: 1.2em; font-weight: 700;">קישורים מהירים לכלי AI:</strong>
+        <div class="footer-links-wrapper" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center;">
+            <a href="https://chat.openai.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">ChatGPT</a>
+            <span class="footer-sep" style="color: rgba(255,255,255,0.3)">|</span>
+            <a href="https://claude.ai/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">Claude</a>
+            <span class="footer-sep" style="color: rgba(255,255,255,0.3)">|</span>
+            <a href="https://gemini.google.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">Gemini</a>
         </div>
     </div>
     
-    <div class="footer-bottom-text">
-        <strong class="footer-brand">Learning Hero © 2025</strong><br>
-        <span class="footer-author">Created with ❤️ by Ruthy Salomon</span><br>
-        <span class="footer-mission">פותח עבור שיפור תהליכי למידה והדרכה</span>
+    <div class="footer-bottom-text" style="line-height: 1.8;">
+        <strong class="footer-brand" style="font-size: 1.3em; color: #fff;">Learning Hero © 2025</strong><br>
+        <span class="footer-author" style="color: rgba(255,255,255,0.7);">Created with ❤️ by Ruthy Salomon</span><br>
+        <span class="footer-mission" style="color: rgba(255,255,255,0.7);">פותח עבור שיפור תהליכי למידה והדרכה</span>
     </div>
 </footer>
 `;
