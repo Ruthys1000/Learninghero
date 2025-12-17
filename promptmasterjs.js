@@ -474,9 +474,9 @@ const GLOBAL_FOOTER_HTML = `
     text-align: center; 
     padding: 60px 20px; 
     color: white; 
-    background: rgba(15, 15, 35, 0.95);
-    backdrop-filter: blur(20px);
-    border-top: 2px solid rgba(102, 126, 234, 0.3);
+    background: rgba(15, 15, 35, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(102, 126, 234, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -484,57 +484,42 @@ const GLOBAL_FOOTER_HTML = `
     width: 100%;
     margin-top: 80px;
     font-family: 'Heebo', sans-serif;
-    box-sizing: border-box;
 ">
     <div class="footer-ai-links" style="
         background: rgba(255, 255, 255, 0.05);
-        padding: 25px 40px;
+        padding: 20px 40px;
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        max-width: 600px;
+        max-width: 550px;
         width: 100%;
-        box-sizing: border-box;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     ">
         <strong class="footer-title" style="
             display: block; 
-            margin-bottom: 20px; 
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 1.3em;
-            font-weight: 800;
+            margin-bottom: 15px; 
+            color: #4facfe; 
+            font-size: 1.2em; 
+            font-weight: 700;
         ">קישורים מהירים לכלי AI:</strong>
         
         <div class="footer-links-wrapper" style="
             display: flex; 
-            flex-direction: row; /* זה מה שמבטיח שורה אחת */
             justify-content: center; 
             align-items: center; 
-            gap: 15px; 
-            flex-wrap: nowrap; /* מונע שבירה לשורות במחשב */
+            gap: 20px; 
+            flex-direction: row; /* מבטיח שזה יהיה בשורה אחת */
         ">
-            <a href="https://chat.openai.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600; white-space: nowrap;">ChatGPT</a>
+            <a href="https://chat.openai.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">ChatGPT</a>
             <span class="footer-sep" style="color: rgba(255,255,255,0.3);">|</span>
-            <a href="https://claude.ai/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600; white-space: nowrap;">Claude</a>
+            <a href="https://claude.ai/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Claude</a>
             <span class="footer-sep" style="color: rgba(255,255,255,0.3);">|</span>
-            <a href="https://gemini.google.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600; white-space: nowrap;">Gemini</a>
+            <a href="https://gemini.google.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Gemini</a>
         </div>
     </div>
     
-    <div class="footer-bottom-text" style="line-height: 1.8; text-align: center;">
-        <strong class="footer-brand" style="
-            font-size: 1.6em; 
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-            letter-spacing: 1px;
-        ">Learning Hero © 2025</strong><br>
-        <span style="color: rgba(255,255,255,0.8); font-weight: 500;">Created with ❤️ by Ruthy Salomon</span><br>
-        <span style="color: rgba(255,255,255,0.6); font-size: 0.9em;">פותח עבור שיפור תהליכי למידה והדרכה</span>
+    <div class="footer-bottom-text" style="line-height: 1.8;">
+        <strong class="footer-brand" style="font-size: 1.3em;">Learning Hero © 2025</strong><br>
+        <span style="color: rgba(255,255,255,0.7);">Created with ❤️ by Ruthy Salomon</span><br>
+        <span style="color: rgba(255,255,255,0.7);">פותח עבור שיפור תהליכי למידה והדרכה</span>
     </div>
 </footer>
 `;
