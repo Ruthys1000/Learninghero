@@ -1027,7 +1027,31 @@ input[type="checkbox"]:checked + * {
     
     .navbar-logo { font-size: 1.8em; }
     .navbar-links { gap: 12px; margin-top: 5px; }
+@media (max-width: 768px) {
+    /* התאמת הניווט (הקיים אצלך) */
+    .navbar {
+        padding: 10px 15px;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .navbar-logo { font-size: 1.8em; }
+    .navbar-links { gap: 12px; margin-top: 5px; }
 
+    /* --- תוספת חדשה: שינוי ל-2 עמודות במובייל --- */
+    .radio-group-3col, 
+    .checkbox-group-3col {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    /* התאמת גודל האופציות למבנה של 2 עמודות */
+    .radio-option, 
+    .checkbox-option {
+        padding: 12px 10px !important;
+        font-size: 0.9em !important;
+    }
+}
     /* התאמת המיכל הראשי */
     .container {
         margin: 120px 10px 20px; /* רווח עליון גדול יותר בגלל הנאב-בר */
