@@ -441,8 +441,26 @@ function initPromptGenerator(options) {
    NAVBAR INJECTION - הזרקת סרגל ניווט גלובלי
 ============================================ */
 
-// תוכן ה-HTML של סרגל הניווט, מותאם לעבודה מכל דף
-const GLOBAL_NAVBAR_HTML = `
+function isHomePage() {
+    try {
+        const p = window.location.pathname || '';
+        return p.endsWith('/') || p.endsWith('/index.html') || p.endsWith('index.html');
+    } catch {
+        return false;
+    }
+}
+
+function buildGlobalNavbarHtml() {
+    // כלל: בכל הדפים יש תפריט.
+    // בדף הבית (index) מוצג קישור "אודות".
+    // בכל שאר הדפים (כולל about) מוצג קישור "המחוללים" שמחזיר ל-index#generators.
+    const primaryLinkHtml = isHomePage()
+        ? `<li><a href="about.html" style="color: white; text-decoration: none; font-weight: 600;">אודות</a></li>`
+        : `<li><a href="index.html#generators" style="color: white; text-decoration: none; font-weight: 600;">המחוללים</a></li>`;
+
+    const contactHref = isHomePage() ? '#contact' : 'index.html#contact';
+
+    return `
 <nav class="navbar" style="
     display: flex; 
     flex-direction: column; 
@@ -452,7 +470,8 @@ const GLOBAL_NAVBAR_HTML = `
     backdrop-filter: blur(20px); 
     border-bottom: 2px solid rgba(102, 126, 234, 0.3);
 ">
-    <div class="navbar-logo" style="
+    <a href="index.html" class="navbar-logo" style="
+        text-decoration: none;
         font-size: 2.2em; 
         font-weight: 900; 
         margin-bottom: 15px;
@@ -460,20 +479,22 @@ const GLOBAL_NAVBAR_HTML = `
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-    ">Learning Hero</div>
+    ">Learning Hero</a>
     <ul class="navbar-links" style="
         list-style: none; 
         display: flex; 
         gap: 20px; 
         padding: 0; 
         margin: 0;
+        flex-wrap: wrap;
+        justify-content: center;
     ">
-        <li><a href="index.html" style="color: white; text-decoration: none; font-weight: 600;">דף הבית</a></li>
-        <li><a href="about.html" style="color: white; text-decoration: none; font-weight: 600;">אודות</a></li>
-        <li><a href="index.html#contact" style="color: white; text-decoration: none; font-weight: 600;">צרו קשר</a></li>
+        ${primaryLinkHtml}
+        <li><a href="${contactHref}" style="color: white; text-decoration: none; font-weight: 600;">צרו קשר</a></li>
     </ul>
 </nav>
-`;
+`.trim();
+}
 
 /**
  * טוען את סרגל הניווט הגלובלי לתוך האלמנט #global-navbar-container.
@@ -481,7 +502,7 @@ const GLOBAL_NAVBAR_HTML = `
 function loadGlobalNavbar() {
     const targetElement = document.querySelector('#global-navbar-container');
     if (targetElement) {
-        targetElement.innerHTML = GLOBAL_NAVBAR_HTML;
+        targetElement.innerHTML = buildGlobalNavbarHtml();
         console.log('✅ Loaded Global Navbar via JavaScript injection');
     }
 }
