@@ -1085,6 +1085,66 @@ input[type="checkbox"]:checked + * {
         width: 95% !important;
         margin: 30px auto !important;
     }
+
+    /* --- שיפור טפסים במובייל (מניעת zoom באייפון) --- */
+    input,
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+
+    /* --- תוצאות (Result) במובייל: מניעת צפיפות/שבירה --- */
+    .result {
+        margin: 15px 10px 40px !important;
+    }
+
+    .result-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        text-align: center !important;
+    }
+
+    .result-title {
+        max-width: 100% !important;
+        font-size: 1.4em !important;
+    }
+
+    .copy-button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .prompt-output {
+        padding: 18px !important;
+        font-size: 0.95em !important;
+        overflow-x: auto !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+    }
+}
+
+/* מסכים קטנים מאוד: עמודה אחת לכפתורי בחירה + כותרות קטנות יותר */
+@media (max-width: 420px) {
+    .header h1 {
+        font-size: 2em !important;
+    }
+
+    .radio-group,
+    .radio-group-2col,
+    .radio-group-3col,
+    .checkbox-group,
+    .checkbox-group-2col,
+    .checkbox-group-3col {
+        grid-template-columns: 1fr !important;
+    }
+
+    .radio-option,
+    .checkbox-option {
+        padding: 14px 12px !important;
+        min-height: 56px !important;
+        font-size: 0.95em !important;
+    }
 }
 /* ---------------------------------------------------------
    16. Print Styles
