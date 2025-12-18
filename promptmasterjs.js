@@ -451,11 +451,14 @@ function isHomePage() {
 }
 
 function buildGlobalNavbarHtml() {
-    // כלל: בכל הדפים יש "המחוללים". רק בדף הבית יש גם "אודות".
-    const showAboutLink = isHomePage();
-    const aboutLinkHtml = showAboutLink
+    // כלל: בכל הדפים יש תפריט.
+    // בדף הבית (index) מוצג קישור "אודות".
+    // בכל שאר הדפים (כולל about) מוצג קישור "המחוללים" שמחזיר ל-index#generators.
+    const primaryLinkHtml = isHomePage()
         ? `<li><a href="about.html" style="color: white; text-decoration: none; font-weight: 600;">אודות</a></li>`
-        : '';
+        : `<li><a href="index.html#generators" style="color: white; text-decoration: none; font-weight: 600;">המחוללים</a></li>`;
+
+    const contactHref = isHomePage() ? '#contact' : 'index.html#contact';
 
     return `
 <nav class="navbar" style="
@@ -467,7 +470,8 @@ function buildGlobalNavbarHtml() {
     backdrop-filter: blur(20px); 
     border-bottom: 2px solid rgba(102, 126, 234, 0.3);
 ">
-    <div class="navbar-logo" style="
+    <a href="index.html" class="navbar-logo" style="
+        text-decoration: none;
         font-size: 2.2em; 
         font-weight: 900; 
         margin-bottom: 15px;
@@ -475,7 +479,7 @@ function buildGlobalNavbarHtml() {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-    ">Learning Hero</div>
+    ">Learning Hero</a>
     <ul class="navbar-links" style="
         list-style: none; 
         display: flex; 
@@ -485,10 +489,8 @@ function buildGlobalNavbarHtml() {
         flex-wrap: wrap;
         justify-content: center;
     ">
-        <li><a href="index.html" style="color: white; text-decoration: none; font-weight: 600;">דף הבית</a></li>
-        <li><a href="index.html#generators" style="color: white; text-decoration: none; font-weight: 600;">המחוללים</a></li>
-        ${aboutLinkHtml}
-        <li><a href="index.html#contact" style="color: white; text-decoration: none; font-weight: 600;">צרו קשר</a></li>
+        ${primaryLinkHtml}
+        <li><a href="${contactHref}" style="color: white; text-decoration: none; font-weight: 600;">צרו קשר</a></li>
     </ul>
 </nav>
 `.trim();
