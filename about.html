@@ -13,6 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        /* ביטול גורף של אנימציות תנועה */
+        * {
+            animation: none !important;
+            transition: background 0.3s ease, color 0.3s ease !important;
+            transform: none !important;
+        }
+
         body {
             font-family: 'Heebo', sans-serif !important;
             direction: rtl;
@@ -35,22 +42,24 @@
             width: 4px; height: 4px;
             background: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
-            animation: float 20s infinite linear;
+            animation: float 20s infinite linear !important; 
         }
         @keyframes float {
             from { transform: translateY(100vh) translateX(0); opacity: 0; }
             to { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
 
-        /* תיקון ה-Container: ביטול הרקע הלבן בכותרת */
+        /* Container: מרכוז וביטול רקע לבן בכותרת */
         .container {
-            max-width: 1200px;
+            max-width: 900px !important;
             margin: 140px auto 35px !important;
             padding: 0 20px 50px !important;
+            position: relative;
+            z-index: 10;
             background: transparent !important; 
             box-shadow: none !important;
             border: none !important;
-            backdrop-filter: none !important;
+            display: block !important;
         }
 
         .about-header { text-align: center; padding: 40px 20px; }
@@ -107,6 +116,7 @@
             padding: 25px; border-radius: 20px; border: 2px solid rgba(79, 172, 254, 0.2);
         }
         .skill-card h3 { color: #1f2937; margin-bottom: 10px; font-size: 1.3em; }
+        .skill-card p { color: #6b7280; font-size: 1em; }
 
         .vision-box {
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -114,41 +124,25 @@
         }
         .vision-box h2 { font-size: 2.5em; margin-bottom: 20px; color: white; }
 
-        /* כפתור המייל - תיקון מרכוז */
+        /* כפתור המייל - מרכוז */
         .contact-cta { 
-            text-align: center; 
-            padding: 60px 20px; 
-            background: rgba(255, 255, 255, 0.98); 
-            border-radius: 30px; 
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* ממרכז את הכל אופקית */
+            text-align: center; padding: 60px 20px; background: rgba(255, 255, 255, 0.98); 
+            border-radius: 30px; margin-top: 40px; display: flex; flex-direction: column; align-items: center; 
         }
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-top: 20px;
-        }
+        .contact-links { display: flex; justify-content: center; width: 100%; margin-top: 20px; }
         .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 35px;
-            background: linear-gradient(135deg, #4facfe, #667eea);
-            color: white !important;
-            text-decoration: none !important;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+            display: inline-flex; align-items: center; gap: 12px; padding: 18px 35px;
+            background: linear-gradient(135deg, #4facfe, #667eea); color: white !important;
+            text-decoration: none !important; border-radius: 50px; font-weight: 700;
+            font-size: 1.2em; box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
         }
-        .contact-link:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(79, 172, 254, 0.5); }
 
-        /* הסרת הגדרות פוטר פנימיות כדי למנוע ירידת שורה של Gemini במובייל */
-        .footer, .footer-ai-links { all: unset; }
+        /* תיקון Gemini במובייל */
+        @media (max-width: 600px) {
+            #global-footer .footer-ai-links { padding: 15px 10px !important; }
+            #global-footer .footer-ai-links div { gap: 8px !important; justify-content: center !important; }
+            #global-footer .footer-ai-links a { font-size: 0.85em !important; padding: 6px 10px !important; }
+        }
 
         @media (max-width: 768px) {
             .container { margin-top: 160px !important; }
@@ -174,7 +168,7 @@
                 <p><strong>זה התחיל מרצון לייעל.</strong> לאורך השנים, בניהול פרויקטי למידה במגזר הביטחוני, הציבורי והאקדמי, ראיתי כמה זמן יקר מושקע במשימות טכניות וחוזרות. מנהלי למידה ומומחי תוכן מוצאים את עצמם לעיתים "טובעים" בניסוחים טכניים במקום להתמקד בלב העשייה – עיצוב למידה משמעותית.</p>
                 <p>עם כניסת ה-AI, זיהיתי הזדמנות לשדרג את העבודה שלנו, אך גם את המורכבות שבכתיבת פרומפטים מדויקים שיפיקו תוצאות מקצועיות. יצרתי את המחוללים האלו כדי שישמשו <strong>גשר מעשי</strong>: כלים שמטרתם <strong>לסייע במתן מענה דידקטי</strong> על ידי בניית מבנה פרומפט מקצועי וממוקד.</p>
                 <p>Learning Hero הוא פרי פיתוח אישי המבוסס על הניסיון שלי, והוא מוצע כאן באהבה לקהילת הלמידה. הוא משמש <strong>שותף לדרך</strong> שמטרתו למקסם את יכולות הטכנולוגיה תוך שמירה על השפה הפדגוגית שלנו.</p>
-                <p style="background: rgba(79, 172, 254, 0.1); padding: 15px; border-radius: 10px; border-right: 4px solid #4facfe;">
+                <p style="background: rgba(79, 172, 254, 0.1); padding: 15px; border-radius: 10px; border-right: 4px solid #4facfe; color: #1f2937;">
                     <strong>חשוב לי לציין:</strong> המחוללים הם הצעה לדרך עבודה יעילה יותר. אני משפרת אותם כל הזמן, ואשמח מאוד לשמוע מכם – מה עבד לכם, מה פחות ואיפה אפשר להשתפר. המשוב שלכם הוא הכוח שיעזור לכלי הזה להפוך לטוב ומדויק יותר עבור כולנו.
                 </p>
             </div>
