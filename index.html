@@ -40,7 +40,6 @@
             background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
             color: var(--color-primary);
             line-height: 1.7;
-            overflow-x: hidden;
             position: relative;
         }
 
@@ -678,14 +677,7 @@
         font-size: 1.8em;
     }
 }
-/* תיקון כללי למניעת חריגת אלמנטים */
-* {
-    box-sizing: border-box;
-}
-
 body, html {
-    margin: 0;
-    padding: 0;
     width: 100%;
     overflow-x: hidden; /* מונע גלילה לצדדים במובייל */
 }
@@ -852,7 +844,7 @@ body, html {
         <div class="cta-section" id="contact">
             <h2>💡 רעיון למחולל חדש?</h2>
             <p>יש לכם רעיון למחולל חדש? אחד המחוללים לא עבד כמו שציפיתם? נשמח לשמוע הצעות שיעזרו לשפר ולחדש את תהליכי הלמידה בארגון.</p>
-            <a href="/cdn-cgi/l/email-protection#d7a5a2a3bfaef9a4b6bbb8bab8b997b0bab6bebbf9b4b8ba" class="cta-button">צרו קשר</a>
+            <a href="mailto:ruthy.salomon@gmail.com" class="cta-button">צרו קשר</a>
         </div>
     </div>
 
@@ -896,7 +888,7 @@ body, html {
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Create floating particles
         const particlesContainer = document.getElementById('particles');
         const particleCount = 50;
@@ -944,9 +936,8 @@ body, html {
             observer.observe(card);
         });
 
-        // Add hover sound effect (optional - requires adding audio file)
-        const cards = document.querySelectorAll('.generator-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                // Add subtle interaction feedback
+        // (Removed unfinished hover-sound code to prevent JS errors.)
+    </script>
+</body>
+</html>
     
