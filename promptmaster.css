@@ -435,23 +435,25 @@ input[type="checkbox"]:checked + * {
 
 .copy-button {
     padding: 12px 24px;
-    background: var(--gradient-secondary);
-    color: white;
+    background: white;
+    color: #475569;
     border-radius: 12px;
-    font-weight: 700;
-    border: none;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.6);
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(244, 63, 94, 0.3);
+    transition: all 0.2s ease;
+    font-size: 0.9em;
 }
 
 .copy-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(244, 63, 94, 0.4);
+    background: rgba(255,255,255,0.9);
+    color: #1e293b;
 }
 
 .copy-button.success {
-    background: linear-gradient(135deg, #10b981, #059669);
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
     animation: successPulse 0.5s ease;
 }
 
@@ -1409,25 +1411,42 @@ input[type="checkbox"]:checked + * {
 /* ===== Prompt Methodology (collapsible learning section) ===== */
 .prompt-methodology {
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     border-radius: 16px;
-    margin-bottom: 24px;
+    margin: 0 40px 24px;
     overflow: hidden;
 }
 .prompt-methodology summary {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
-    padding: 16px 24px;
+    padding: 14px 20px;
     cursor: pointer;
     font-weight: 600;
     color: #334155;
     list-style: none;
     user-select: none;
-    font-size: 1em;
+    font-size: 0.95em;
+    transition: background 0.15s;
+    border-radius: 16px;
 }
+.prompt-methodology summary:hover { background: #f1f5f9; }
+.prompt-methodology[open] > summary {
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 16px 16px 0 0;
+    background: #f1f5f9;
+}
+.prompt-methodology summary::after {
+    content: '▾';
+    font-size: 1.1em;
+    color: #94a3b8;
+    transition: transform 0.2s;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.prompt-methodology[open] > summary::after { transform: rotate(180deg); }
 .prompt-methodology summary::-webkit-details-marker { display: none; }
-.prompt-methodology[open] > summary { border-bottom: 1px solid #e2e8f0; }
 .methodology-body { padding: 20px 24px; }
 .technique-grid {
     display: grid;
