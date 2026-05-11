@@ -1,283 +1,271 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מחולל שאלות הערכה | PromptMaster</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>מחולל שאלות הערכה | PromptMaster</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFJ2PMQPKX"></script>
-    <script>
+ <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFJ2PMQPKX"></script>
+ <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-CFJ2PMQPKX');
     </script>
-    <link rel="stylesheet" href="promptmaster.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="promptmaster.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="global-navbar-container"></div>
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <h1>📝 מחולל שאלות הערכה</h1>
-                <p>צור פרומפט שמנחה AI לבנות שאלות הערכה מבוססות תוכן</p>
-            </div>
-        </div>
+ <div id="global-navbar-container"></div>
+ <div class="container">
+ <div class="header">
+ <div class="header-content">
+ <h1>מחולל שאלות הערכה</h1>
+ <p>צור פרומפט שמנחה AI לבנות שאלות הערכה מבוססות תוכן</p>
+ </div>
+ </div>
 
-        <div class="generator-info-box">
-            <h3>💡 איך זה עובד?</h3>
-            <p>
-           המחולל יוצר פרומפט שמפיק <strong>סט שאלות הערכה מקצועי</strong> לפי ההגדרות שתבחרו: רמות חשיבה, סוגי שאלות ורמת קושי.
+ <div class="generator-info-box">
+ <h3>איך זה עובד?</h3>
+ <p>המחולל יוצר פרומפט שמפיק <strong>סט שאלות הערכה מקצועי</strong> לפי ההגדרות שתבחרו: רמות חשיבה, סוגי שאלות ורמת קושי.
 לאחר הדבקת הפרומפט בכלי ה-AI, תתבקשו להעלות את התוכן הרלוונטי — והמערכת תיצור עבורכם <strong>מבחן מלא</strong> הכולל שאלות, תשובות והסברים לפי הצורך.
 <strong>בואו נבנה יחד הערכה חכמה ומדויקת.</strong>
-            </p>
-        </div>
+ </p>
+ </div>
 
-        <details class="prompt-methodology">
-            <summary>🎓 הפרומפט מבפנים — איך הוא בנוי?</summary>
-            <div class="methodology-body">
-                <div class="technique-grid">
-                    <div class="technique-card">
-                        <div class="technique-label">Bloom's Taxonomy Prompting</div>
-                        <div class="technique-desc">הבחירה ברמות קוגניטיביות (זכירה → יצירה) מנחה את ה-AI לייצר שאלות בעומק מדויק. זוהי אחת מהפריצות הגדולות ב-prompt engineering חינוכי: ציון רמת חשיבה מדויקת = איכות שאלה מדויקת.</div>
-                    </div>
-                    <div class="technique-card">
-                        <div class="technique-label">Role Prompting</div>
-                        <div class="technique-desc">ה-AI מקבל תפקיד "מומחה ליצירת שאלות הערכה" — מגדיל דיוק ורמת מקצועיות. בלי הגדרת תפקיד, ה-AI עשוי לייצר שאלות גנריות במקום שאלות הערכה מקצועיות.</div>
-                    </div>
-                    <div class="technique-card">
-                        <div class="technique-label">Staged Workflow</div>
-                        <div class="technique-desc">הפרדה בין "מפרט השאלות" (עכשיו) לבין "העלאת חומר" (אח"כ) — מאפשרת ל-AI לנתח את התוכן בעומק לפני שמתחיל לנסח שאלות. ה-AI לא "מנחש" אלא קורא ומנתח.</div>
-                    </div>
-                    <div class="technique-card">
-                        <div class="technique-label">Structured Output Spec</div>
-                        <div class="technique-desc">כל שאלה צריכה להיות בפורמט קבוע (שאלה → אפשרויות → תשובה → הסבר) — מבטיח פלט מוכן לשימוש ישיר במבחן, ללא עריכה נוספת.</div>
-                    </div>
-                </div>
-                <div class="methodology-tip"><strong>💡 טיפ:</strong> בשדה "דרישות נוספות" הוסיפו "לפחות 30% מהשאלות יהיו ברמת 'יצירה' ו'הערכה' של בלום" — זה ייצור שאלות שמאתגרות חשיבה גבוהה ולא רק שינון. זוהי אחת הדרכים הפשוטות ביותר לשדרג מבחן מרמה בינונית לרמה גבוהה.</div>
-            </div>
-        </details>
+ <details class="prompt-methodology">
+ <summary>הפרומפט מבפנים — איך הוא בנוי?</summary>
+ <div class="methodology-body">
+ <div class="technique-grid">
+ <div class="technique-card">
+ <div class="technique-label">Bloom's Taxonomy Prompting</div>
+ <div class="technique-desc">הבחירה ברמות קוגניטיביות (זכירה → יצירה) מנחה את ה-AI לייצר שאלות בעומק מדויק. זוהי אחת מהפריצות הגדולות ב-prompt engineering חינוכי: ציון רמת חשיבה מדויקת = איכות שאלה מדויקת.</div>
+ </div>
+ <div class="technique-card">
+ <div class="technique-label">Role Prompting</div>
+ <div class="technique-desc">ה-AI מקבל תפקיד "מומחה ליצירת שאלות הערכה" — מגדיל דיוק ורמת מקצועיות. בלי הגדרת תפקיד, ה-AI עשוי לייצר שאלות גנריות במקום שאלות הערכה מקצועיות.</div>
+ </div>
+ <div class="technique-card">
+ <div class="technique-label">Staged Workflow</div>
+ <div class="technique-desc">הפרדה בין "מפרט השאלות" (עכשיו) לבין "העלאת חומר" (אח"כ) — מאפשרת ל-AI לנתח את התוכן בעומק לפני שמתחיל לנסח שאלות. ה-AI לא "מנחש" אלא קורא ומנתח.</div>
+ </div>
+ <div class="technique-card">
+ <div class="technique-label">Structured Output Spec</div>
+ <div class="technique-desc">כל שאלה צריכה להיות בפורמט קבוע (שאלה → אפשרויות → תשובה → הסבר) — מבטיח פלט מוכן לשימוש ישיר במבחן, ללא עריכה נוספת.</div>
+ </div>
+ </div>
+ <div class="methodology-tip"><strong>טיפ:</strong> בשדה "דרישות נוספות" הוסיפו "לפחות 30% מהשאלות יהיו ברמת 'יצירה' ו'הערכה' של בלום" — זה ייצור שאלות שמאתגרות חשיבה גבוהה ולא רק שינון. זוהי אחת הדרכים הפשוטות ביותר לשדרג מבחן מרמה בינונית לרמה גבוהה.</div>
+ </div>
+ </details>
 
-        <div class="form-content">
-            <form id="assessmentForm">
+ <div class="form-content">
+ <form id="assessmentForm">
 
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-number">1</span>
-                        רמות למידה (טקסונומיה של בלום)
-                    </h2>
+ <div class="section">
+ <h2 class="section-title"><span class="section-number">1</span>
+ רמות למידה (טקסונומיה של בלום)
+ </h2>
 
-                    <div class="input-group">
-                        <label class="label">
-                            <strong>אילו רמות קוגניטיביות לכלול?</strong>
-                            <span class="label-subtitle">ניתן לבחור כמה שרוצים</span>
-                        </label>
+ <div class="input-group">
+ <label class="label"><strong>אילו רמות קוגניטיביות לכלול?</strong>
+ <span class="label-subtitle">ניתן לבחור כמה שרוצים</span>
+ </label>
 
-                        <div class="checkbox-group-3col">
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="b1" name="bloomLevels" value="זכירה (Remember)">
-                                <label for="b1">🧠 <strong>זכירה</strong> (Remember)</label>
-                            </div>
+ <div class="checkbox-group-3col">
+ <div class="checkbox-option">
+ <input type="checkbox" id="b1" name="bloomLevels" value="זכירה (Remember)">
+ <label for="b1"><strong>זכירה</strong> (Remember)</label>
+ </div>
 
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="b2" name="bloomLevels" value="הבנה (Understand)">
-                                <label for="b2">💡 <strong>הבנה</strong> (Understand)</label>
-                            </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="b2" name="bloomLevels" value="הבנה (Understand)">
+ <label for="b2"><strong>הבנה</strong> (Understand)</label>
+ </div>
 
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="b3" name="bloomLevels" value="יישום (Apply)">
-                                <label for="b3">🔧 <strong>יישום</strong> (Apply)</label>
-                            </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="b3" name="bloomLevels" value="יישום (Apply)">
+ <label for="b3"><strong>יישום</strong> (Apply)</label>
+ </div>
 
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="b4" name="bloomLevels" value="ניתוח (Analyze)">
-                                <label for="b4">🔬 <strong>ניתוח</strong> (Analyze)</label>
-                            </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="b4" name="bloomLevels" value="ניתוח (Analyze)">
+ <label for="b4"><strong>ניתוח</strong> (Analyze)</label>
+ </div>
 
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="b5" name="bloomLevels" value="הערכה (Evaluate)">
-                                <label for="b5">⚖️ <strong>הערכה</strong> (Evaluate)</label>
-                            </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="b5" name="bloomLevels" value="הערכה (Evaluate)">
+ <label for="b5"><strong>הערכה</strong> (Evaluate)</label>
+ </div>
 
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="b6" name="bloomLevels" value="יצירה (Create)">
-                                <label for="b6">✨ <strong>יצירה</strong> (Create)</label>
-                            </div>
-                        </div>
-                        <div class="helper-text">💡 רמות גבוהות יותר (ניתוח, הערכה, יצירה) יוצרות שאלות מאתגרות יותר</div>
-                    </div>
-                </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="b6" name="bloomLevels" value="יצירה (Create)">
+ <label for="b6"><strong>יצירה</strong> (Create)</label>
+ </div>
+ </div>
+ <div class="helper-text"> רמות גבוהות יותר (ניתוח, הערכה, יצירה) יוצרות שאלות מאתגרות יותר</div>
+ </div>
+ </div>
 
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-number">2</span>
-                        סוג ומבנה השאלות
-                    </h2>
+ <div class="section">
+ <h2 class="section-title"><span class="section-number">2</span>
+ סוג ומבנה השאלות
+ </h2>
 
-                    <div class="input-group">
-                        <label class="label">
-                            <strong>כמה שאלות בסך הכל?</strong>
-                        </label>
-                        <div class="radio-group-2col">
-                            <div class="radio-option">
-                                <input type="radio" id="q1" name="totalQuestions" value="5-8 שאלות" required>
-                                <label for="q1"><span>📄 5–8 שאלות</span></label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="q2" name="totalQuestions" value="10-15 שאלות">
-                                <label for="q2"><span>📋 10–15 שאלות</span></label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="q3" name="totalQuestions" value="20-25 שאלות">
-                                <label for="q3"><span>📚 20–25 שאלות</span></label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="q4" name="totalQuestions" value="30+ שאלות">
-                                <label for="q4"><span>📖 30+ שאלות</span></label>
-                            </div>
-                        </div>
-                    </div>
+ <div class="input-group">
+ <label class="label"><strong>כמה שאלות בסך הכל?</strong>
+ </label>
+ <div class="radio-group-2col">
+ <div class="radio-option">
+ <input type="radio" id="q1" name="totalQuestions" value="5-8 שאלות" required>
+ <label for="q1"><span>5–8 שאלות</span></label>
+ </div>
+ <div class="radio-option">
+ <input type="radio" id="q2" name="totalQuestions" value="10-15 שאלות">
+ <label for="q2"><span>10–15 שאלות</span></label>
+ </div>
+ <div class="radio-option">
+ <input type="radio" id="q3" name="totalQuestions" value="20-25 שאלות">
+ <label for="q3"><span>20–25 שאלות</span></label>
+ </div>
+ <div class="radio-option">
+ <input type="radio" id="q4" name="totalQuestions" value="30+ שאלות">
+ <label for="q4"><span>30+ שאלות</span></label>
+ </div>
+ </div>
+ </div>
 
-                    <div class="input-group">
-                        <label class="label">
-                            <strong>סוגי השאלות</strong> (ניתן לבחור כמה שרוצים)
-                        </label>
+ <div class="input-group">
+ <label class="label"><strong>סוגי השאלות</strong> (ניתן לבחור כמה שרוצים)
+ </label>
 
-                        <div class="checkbox-group-3col">
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="t1" name="questionTypes" value="אמריקאי (4 אפשרויות)">
-                                <label for="t1">✅ אמריקאי (רב-ברירה)</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="t2" name="questionTypes" value="נכון/לא נכון + הסבר">
-                                <label for="t2">✔️ נכון/לא נכון</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="t3" name="questionTypes" value="שאלות פתוחות קצרות">
-                                <label for="t3">💬 פתוחות קצרות</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="t4" name="questionTypes" value="שאלות פתוחות מורחבות">
-                                <label for="t4">📝 פתוחות מורחבות</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="t5" name="questionTypes" value="תרחישים מעשיים">
-                                <label for="t5">🎭 תרחישים מעשיים</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="t6" name="questionTypes" value="השלמת משפטים">
-                                <label for="t6">✏️ השלמת משפטים</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+ <div class="checkbox-group-3col">
+ <div class="checkbox-option">
+ <input type="checkbox" id="t1" name="questionTypes" value="אמריקאי (4 אפשרויות)">
+ <label for="t1">אמריקאי (רב-ברירה)</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="t2" name="questionTypes" value="נכון/לא נכון + הסבר">
+ <label for="t2">נכון/לא נכון</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="t3" name="questionTypes" value="שאלות פתוחות קצרות">
+ <label for="t3">פתוחות קצרות</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="t4" name="questionTypes" value="שאלות פתוחות מורחבות">
+ <label for="t4">פתוחות מורחבות</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="t5" name="questionTypes" value="תרחישים מעשיים">
+ <label for="t5">תרחישים מעשיים</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="t6" name="questionTypes" value="השלמת משפטים">
+ <label for="t6">השלמת משפטים</label>
+ </div>
+ </div>
+ </div>
+ </div>
 
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-number">3</span>
-                        רמת קושי ותוספות
-                    </h2>
+ <div class="section">
+ <h2 class="section-title"><span class="section-number">3</span>
+ רמת קושי ותוספות
+ </h2>
 
-                    <div class="input-group">
-                        <label class="label">
-                            <strong>רמת קושי</strong>
-                        </label>
-                        <div class="radio-group-2col">
-                            <div class="radio-option">
-                                <input type="radio" id="d1" name="difficulty" value="קל" required>
-                                <label for="d1"><span>😊 קל</span></label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="d2" name="difficulty" value="בינוני">
-                                <label for="d2"><span>🤔 בינוני</span></label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="d3" name="difficulty" value="קשה">
-                                <label for="d3"><span>💪 קשה</span></label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="d4" name="difficulty" value="מעורב - קל עד קשה">
-                                <label for="d4"><span>🔀 מעורב (קל עד קשה)</span></label>
-                            </div>
-                        </div>
-                    </div>
+ <div class="input-group">
+ <label class="label"><strong>רמת קושי</strong>
+ </label>
+ <div class="radio-group-2col">
+ <div class="radio-option">
+ <input type="radio" id="d1" name="difficulty" value="קל" required>
+ <label for="d1"><span>קל</span></label>
+ </div>
+ <div class="radio-option">
+ <input type="radio" id="d2" name="difficulty" value="בינוני">
+ <label for="d2"><span>בינוני</span></label>
+ </div>
+ <div class="radio-option">
+ <input type="radio" id="d3" name="difficulty" value="קשה">
+ <label for="d3"><span>קשה</span></label>
+ </div>
+ <div class="radio-option">
+ <input type="radio" id="d4" name="difficulty" value="מעורב - קל עד קשה">
+ <label for="d4"><span>מעורב (קל עד קשה)</span></label>
+ </div>
+ </div>
+ </div>
 
-                    <div class="input-group">
-                        <label class="label">
-                            <strong>תוספות</strong> (ניתן לבחור כמה שרוצים)
-                        </label>
-                        <div class="checkbox-group-3col">
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="e1" name="extras" value="תשובות נכונות">
-                                <label for="e1">✔️ תשובות נכונות</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="e2" name="extras" value="הסברים מפורטים">
-                                <label for="e2">💡 הסברים מפורטים</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="e3" name="extras" value="rubric לשאלות פתוחות">
-                                <label for="e3">📊 Rubric לשאלות פתוחות</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="e4" name="extras" value="זמן משוער לשאלה">
-                                <label for="e4">⏱️ זמן משוער</label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="e5" name="extras" value="ניקוד מוצע">
-                                <label for="e5">🎯 ניקוד מוצע</label>
-                            </div>
-                        </div>
-                        <div class="helper-text">💡 תוספות אלו יסייעו במתן משוב ובניקוד השאלות</div>
-                    </div>
-                </div>
+ <div class="input-group">
+ <label class="label"><strong>תוספות</strong> (ניתן לבחור כמה שרוצים)
+ </label>
+ <div class="checkbox-group-3col">
+ <div class="checkbox-option">
+ <input type="checkbox" id="e1" name="extras" value="תשובות נכונות">
+ <label for="e1">תשובות נכונות</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="e2" name="extras" value="הסברים מפורטים">
+ <label for="e2">הסברים מפורטים</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="e3" name="extras" value="rubric לשאלות פתוחות">
+ <label for="e3">Rubric לשאלות פתוחות</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="e4" name="extras" value="זמן משוער לשאלה">
+ <label for="e4">זמן משוער</label>
+ </div>
+ <div class="checkbox-option">
+ <input type="checkbox" id="e5" name="extras" value="ניקוד מוצע">
+ <label for="e5">ניקוד מוצע</label>
+ </div>
+ </div>
+ <div class="helper-text"> תוספות אלו יסייעו במתן משוב ובניקוד השאלות</div>
+ </div>
+ </div>
 
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-number">4</span>
-                        התאמות (אופציונלי)
-                    </h2>
+ <div class="section">
+ <h2 class="section-title"><span class="section-number">4</span>
+ התאמות (אופציונלי)
+ </h2>
 
-                    <div class="input-group">
-                        <label class="label" for="focusTopics">
-                            <strong>נושאים מרכזיים</strong>
-                            <span class="label-subtitle">השדה הזה רלוונטי רק אם אין לך חומרים להעלות. עם חומרים - השאלות ייבנו מתוך החומרים שתעלה</span>
-                        </label>
-                        <textarea id="focusTopics" name="focusTopics" rows="3" placeholder="למשל: בטיחות מידע, ניהול פרויקטים, כלכלה..."></textarea>
-                    </div>
+ <div class="input-group">
+ <label class="label" for="focusTopics"><strong>נושאים מרכזיים</strong>
+ <span class="label-subtitle">השדה הזה רלוונטי רק אם אין לך חומרים להעלות. עם חומרים - השאלות ייבנו מתוך החומרים שתעלה</span>
+ </label>
+ <textarea id="focusTopics" name="focusTopics" rows="3" placeholder="למשל: בטיחות מידע, ניהול פרויקטים, כלכלה..."></textarea>
+ </div>
 
-                    <div class="input-group">
-                        <label class="label" for="additionalPrefs">
-                            <strong>דרישות נוספות</strong>
-                            <span class="label-subtitle">הנחיות מיוחדות או העדפות</span>
-                        </label>
-                        <textarea id="additionalPrefs" name="additionalPrefs" rows="3" placeholder="למשל: דגש על דוגמאות מהשטח, שפה פשוטה, מיקוד במקרי קצה..."></textarea>
-                    </div>
-                </div>
+ <div class="input-group">
+ <label class="label" for="additionalPrefs"><strong>דרישות נוספות</strong>
+ <span class="label-subtitle">הנחיות מיוחדות או העדפות</span>
+ </label>
+ <textarea id="additionalPrefs" name="additionalPrefs" rows="3" placeholder="למשל: דגש על דוגמאות מהשטח, שפה פשוטה, מיקוד במקרי קצה..."></textarea>
+ </div>
+ </div>
 
-                <button type="submit" class="submit-button">✨ צור פרומפט</button>
-            </form>
+ <button type="submit" class="submit-button">צור פרומפט</button>
+ </form>
 
-            <div id="result" class="result">
-                <div class="result-header">
-                    <h2 class="result-title">📋 הפרומפט שלך מוכן!</h2>
-                    <button type="button" class="copy-button" onclick="copyPrompt()">📋 העתק פרומפט</button>
-                </div>
+ <div id="result" class="result">
+ <div class="result-header">
+ <h2 class="result-title">הפרומפט שלך מוכן!</h2>
+ <button type="button" class="copy-button" onclick="copyPrompt()">העתק פרומפט</button>
+ </div>
 
-                <pre id="promptOutput" class="prompt-output"></pre>
-            </div>
-        </div> </div> 
+ <pre id="promptOutput" class="prompt-output"></pre>
+ </div>
+ </div> </div> 
 </div>
-      <div id="global-footer"></div>
-    <script src="promptmasterjs.js"></script>
+ <div id="global-footer"></div>
+ <script src="promptmasterjs.js"></script>
 
-    <script>
+ <script>
         // פונקציה לאיסוף נתונים מהטופס
         function collectData() {
             return {
@@ -424,6 +412,6 @@ ${data.extras.includes('תשובות נכונות') || data.extras.length === 0 
             });
         });
     </script>
-    
-    </body>
+ 
+ </body>
 </html>
