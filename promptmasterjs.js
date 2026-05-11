@@ -462,35 +462,32 @@ function buildGlobalNavbarHtml() {
 
     return `
 <nav class="navbar" style="
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    padding: 20px; 
-    background: rgba(15, 15, 35, 0.95); 
-    backdrop-filter: blur(20px); 
-    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 64px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 ">
     <a href="index.html" class="navbar-logo" style="
         text-decoration: none;
-        font-size: 2.2em; 
-        font-weight: 900; 
-        margin-bottom: 15px;
-        background: linear-gradient(45deg, #00f2fe, #4facfe);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-size: 1.4em;
+        font-weight: 800;
+        color: #1e293b;
+        letter-spacing: 0.5px;
     ">Learning Hero</a>
     <ul class="navbar-links" style="
-        list-style: none; 
-        display: flex; 
-        gap: 20px; 
-        padding: 0; 
+        list-style: none;
+        display: flex;
+        gap: 28px;
+        padding: 0;
         margin: 0;
         flex-wrap: wrap;
-        justify-content: center;
     ">
         ${primaryLinkHtml}
-        <li><a href="${contactHref}" style="color: white; text-decoration: none; font-weight: 600;">צרו קשר</a></li>
+        <li><a href="${contactHref}" style="color: #64748b; text-decoration: none; font-weight: 500; font-size: 0.95em;">צרו קשר</a></li>
     </ul>
 </nav>
 `.trim();
@@ -514,39 +511,31 @@ function loadGlobalNavbar() {
 
 const GLOBAL_FOOTER_HTML = `
 <footer class="footer" id="about" style="
-    text-align: center; 
-    padding: 60px 20px; 
-    color: white; 
-    background: rgba(15, 15, 35, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(102, 126, 234, 0.3);
+    text-align: center;
+    padding: 40px 20px;
+    color: #475569;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
     width: 100%;
     font-family: 'Heebo', sans-serif;
+    margin-top: 0;
 ">
-    <div class="footer-ai-links" style="
-        background: rgba(255, 255, 255, 0.05);
-        padding: 25px;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        max-width: 500px;
-        width: 100%;
-    ">
-        <strong style="display: block; margin-bottom: 20px; color: #4facfe; font-size: 1.2em; font-weight: 700;">קישורים מהירים לכלי AI:</strong>
-        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-            <a href="https://chat.openai.com/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">ChatGPT</a>
-            <a href="https://claude.ai/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">Claude</a>
-            <a href="https://gemini.google.com/" target="_blank" style="background: rgba(255, 255, 255, 0.08); padding: 8px 18px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95em; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;">Gemini</a>
-        </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; font-size: 0.9em;">
+        <span style="color: #94a3b8; font-weight: 500;">קישורים מהירים לכלי AI:</span>
+        <a href="https://chat.openai.com/" target="_blank" style="color: #64748b; text-decoration: none; font-weight: 600;">ChatGPT</a>
+        <span style="color: #e2e8f0;">|</span>
+        <a href="https://claude.ai/" target="_blank" style="color: #64748b; text-decoration: none; font-weight: 600;">Claude</a>
+        <span style="color: #e2e8f0;">|</span>
+        <a href="https://gemini.google.com/" target="_blank" style="color: #64748b; text-decoration: none; font-weight: 600;">Gemini</a>
     </div>
-    
-    <div style="line-height: 1.8;">
-        <strong style="font-size: 1.4em; background: linear-gradient(135deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 900;">Learning Hero © 2025</strong><br>
-        <span style="color: rgba(255,255,255,0.7);">Created with ❤️ by Ruthy Salomon</span><br>
-        <span style="color: rgba(255,255,255,0.7);">פותח עבור שיפור תהליכי למידה והדרכה</span>
+    <div style="line-height: 1.8; font-size: 0.85em; color: #94a3b8;">
+        <strong style="font-size: 1.1em; color: #475569; font-weight: 700;">Learning Hero © 2025</strong><br>
+        Created with ❤️ by Ruthy Salomon<br>
+        פותח עבור שיפור תהליכי למידה והדרכה
     </div>
 </footer>
 `;

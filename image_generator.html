@@ -33,9 +33,9 @@
 
         <div class="generator-info-box">
             <h3>💡 איך זה עובד?</h3>
-המחולל יוצר פרומפט שמפיק <strong>תמונות עקביות ובעלות שפה עיצובית אחידה</strong> לפי ההגדרות שתבחרו: תיאור, סגנון, צבעים ורכיבים ויזואליים.
-לאחר הדבקת הפרומפט בכלי ה-AI, תוכלו להפיק <strong>סדרה של תמונות</strong> — פשוט מחליפים את הנושא המרכזי בכל הפעלה ושומרים על אותו סגנון.
-<strong>מוכנים ליצור ויזואליים מקצועיים ואחידים?</strong>            </p>
+            <p>המחולל יוצר פרומפט שמפיק <strong>תמונות עקביות ובעלות שפה עיצובית אחידה</strong> לפי ההגדרות שתבחרו: תיאור, סגנון, צבעים ורכיבים ויזואליים.
+            לאחר הדבקת הפרומפט בכלי ה-AI, תוכלו להפיק <strong>סדרה של תמונות</strong> — פשוט מחליפים את הנושא המרכזי בכל הפעלה ושומרים על אותו סגנון.
+            <strong>מוכנים ליצור ויזואליים מקצועיים ואחידים?</strong></p>
         </div>
 
         <div class="form-content">
@@ -138,7 +138,7 @@
         </div>
     </div>
 
-    <div class="palette-preview-container" style="margin-top: 25px;">
+    <div class="palette-preview-container">
         <h4 class="label">פלטה הרמונית שנוצרה אוטומטית (5 צבעים):</h4>
         <div class="color-palette-display" id="palettePreview">
             <div id="swatch1" class="color-swatch"></div>
@@ -147,12 +147,12 @@
             <div id="swatch4" class="color-swatch"></div>
             <div id="swatch5" class="color-swatch"></div>
         </div>
-        <p class="helper-text" style="margin-top: 15px;">
+        <p class="helper-text">
             פלטה מקצועית הכוללת: <strong>צבע הבסיס</strong> + <strong>צבעים סמוכים</strong> (analogous) + <strong>צבע משלים</strong> (complementary) + <strong>צבע מבטא</strong> (accent). הצבעים נבחרו לעבוד יחד בהרמוניה ויזואלית.
         </p>
     </div>
 
-    <div class="single-color-group" style="margin-top: 35px; border-top: 1px dashed var(--color-border); padding-top: 25px;">
+    <div class="single-color-group color-group-separated">
         
         <div class="label-and-hex">
             <label for="backgroundColor"><strong>צבע רקע:</strong></label>
@@ -356,14 +356,6 @@
                     swatch.setAttribute('title', color);
                 }
             });
-        }
-
-        // 🛠️ פונקציה לקבלת הטקסט המוצג של אופציה נבחרת ב-select
-        function getSelectedLabel(selectId) {
-            const select = document.getElementById(selectId);
-            if (!select) return '';
-            const selectedOption = select.options[select.selectedIndex];
-            return selectedOption ? selectedOption.text : '';
         }
 
         // 🛠️ פונקציה לאיסוף נתונים (מעודכן: כולל lighting)
