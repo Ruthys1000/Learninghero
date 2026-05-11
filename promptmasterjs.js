@@ -451,43 +451,18 @@ function isHomePage() {
 }
 
 function buildGlobalNavbarHtml() {
-    // כלל: בכל הדפים יש תפריט.
-    // בדף הבית (index) מוצג קישור "אודות".
-    // בכל שאר הדפים (כולל about) מוצג קישור "המחוללים" שמחזיר ל-index#generators.
     const primaryLinkHtml = isHomePage()
-        ? `<li><a href="about.html" style="color: #64748b; text-decoration: none; font-weight: 500; font-size: 0.95em;">אודות</a></li>`
-        : `<li><a href="index.html#generators" style="color: #64748b; text-decoration: none; font-weight: 500; font-size: 0.95em;">המחוללים</a></li>`;
+        ? `<li><a href="about.html">אודות</a></li>`
+        : `<li><a href="index.html#generators">המחוללים</a></li>`;
 
     const contactHref = isHomePage() ? '#contact' : 'index.html#contact';
 
     return `
-<nav class="navbar" style="
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    height: 64px;
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-">
-    <a href="index.html" class="navbar-logo" style="
-        text-decoration: none;
-        font-size: 1.4em;
-        font-weight: 800;
-        color: #1e293b;
-        letter-spacing: 0.5px;
-    ">Learning Hero</a>
-    <ul class="navbar-links" style="
-        list-style: none;
-        display: flex;
-        gap: 28px;
-        padding: 0;
-        margin: 0;
-        flex-wrap: wrap;
-    ">
+<nav class="navbar">
+    <a href="index.html" class="navbar-logo">Learning Hero</a>
+    <ul class="navbar-links">
         ${primaryLinkHtml}
-        <li><a href="${contactHref}" style="color: #64748b; text-decoration: none; font-weight: 500; font-size: 0.95em;">צרו קשר</a></li>
+        <li><a href="${contactHref}">צרו קשר</a></li>
     </ul>
 </nav>
 `.trim();
@@ -510,30 +485,17 @@ function loadGlobalNavbar() {
 ============================================ */
 
 const GLOBAL_FOOTER_HTML = `
-<footer class="footer" id="about" style="
-    text-align: center;
-    padding: 40px 20px;
-    color: #475569;
-    background: #ffffff;
-    border-top: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    font-family: 'Heebo', sans-serif;
-    margin-top: 0;
-">
-    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; font-size: 0.9em;">
-        <span style="color: #94a3b8; font-weight: 500;">קישורים מהירים לכלי AI:</span>
-        <a href="https://chat.openai.com/" target="_blank" style="color: #64748b; text-decoration: none; font-weight: 600;">ChatGPT</a>
-        <span style="color: #e2e8f0;">|</span>
-        <a href="https://claude.ai/" target="_blank" style="color: #64748b; text-decoration: none; font-weight: 600;">Claude</a>
-        <span style="color: #e2e8f0;">|</span>
-        <a href="https://gemini.google.com/" target="_blank" style="color: #64748b; text-decoration: none; font-weight: 600;">Gemini</a>
+<footer class="footer">
+    <div class="footer-links">
+        <span class="footer-links-label">קישורים מהירים לכלי AI:</span>
+        <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+        <span class="sep">|</span>
+        <a href="https://claude.ai/" target="_blank">Claude</a>
+        <span class="sep">|</span>
+        <a href="https://gemini.google.com/" target="_blank">Gemini</a>
     </div>
-    <div style="line-height: 1.8; font-size: 0.85em; color: #94a3b8;">
-        <strong style="font-size: 1.1em; color: #475569; font-weight: 700;">Learning Hero © 2025</strong><br>
+    <div class="footer-meta">
+        <strong>Learning Hero © 2025</strong><br>
         Created with ❤️ by Ruthy Salomon<br>
         פותח עבור שיפור תהליכי למידה והדרכה
     </div>
