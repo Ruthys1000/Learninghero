@@ -64,6 +64,7 @@ body::before {
     z-index: 9999;
 }
 
+
 /* ---------------------------------------------------------
    2. Enhanced Navbar
    --------------------------------------------------------- */
@@ -1466,6 +1467,59 @@ input[type="checkbox"]:checked + * {
         margin: 15px 10px !important;
         padding: 20px 15px !important;
     }
+}
+
+/* ===== Prompt Methodology (collapsible learning section) ===== */
+.prompt-methodology {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+.prompt-methodology summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #334155;
+    list-style: none;
+    user-select: none;
+    font-size: 1em;
+}
+.prompt-methodology summary::-webkit-details-marker { display: none; }
+.prompt-methodology[open] > summary { border-bottom: 1px solid #e2e8f0; }
+.methodology-body { padding: 20px 24px; }
+.technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.technique-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+.technique-label {
+    font-size: 0.75em;
+    font-weight: 700;
+    color: #4facfe;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+.technique-desc { font-size: 0.88em; color: #475569; line-height: 1.5; }
+.methodology-tip {
+    background: rgba(79,172,254,0.07);
+    border: 1px solid rgba(79,172,254,0.2);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.88em;
+    color: #334155;
 }
 
 /* תיקון סופי להסתרת קודי HEX במובייל בלבד */
