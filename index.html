@@ -12,30 +12,26 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-CFJ2PMQPKX');
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Varela+Round&display=swap" rel="stylesheet">
 
     <style>
-        /* Keep the base CSS variables */
         :root {
-            --color-accent: #334155; 
-            --color-accent-dark: #1e293b;    
-            --color-primary: #1f2937; 
-            --color-secondary: #4b5563; 
-            --color-text: #1f2937;
+            --color-bg: #f1f5f9;
+            --color-surface: #ffffff;
             --color-border: #e2e8f0;
-            --color-light-bg: #f8fafc; 
-            --color-card-bg: #ffffff; 
-            --shadow-subtle: 0 2px 10px rgba(0,0,0,0.05);
-            --shadow-medium: 0 8px 20px rgba(0,0,0,0.1);
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --color-text-primary: #1e293b;
+            --color-text-secondary: #64748b;
+            --color-text-muted: #94a3b8;
+            --color-accent: #334155;
+            --shadow-card: 0 1px 4px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-card-hover: 0 8px 24px rgba(0,0,0,0.11), 0 2px 8px rgba(0,0,0,0.06);
+            --radius-card: 16px;
+            --radius-btn: 8px;
         }
 
         * {
@@ -47,679 +43,501 @@
         body {
             font-family: 'Heebo', sans-serif;
             direction: rtl;
-            background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
-            color: var(--color-primary);
+            background: var(--color-bg);
+            color: var(--color-text-primary);
             line-height: 1.7;
-            position: relative;
+            width: 100%;
+            overflow-x: hidden;
         }
 
-        /* Animated background particles */
-        .particles {
+        /* ---- Navbar ---- */
+        .navbar {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        /* Enhanced Navbar */
-        .navbar {
-            position: fixed; 
-            top: 0; 
-            right: 0; 
+            right: 0;
             left: 0;
             z-index: 1000;
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(20px);
-            color: white; 
-            padding: 18px 40px;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0 40px;
+            height: 64px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         }
 
         .navbar-logo {
             font-family: 'Heebo', sans-serif;
-            font-size: 2.5em;
-            background: linear-gradient(45deg, #00f2fe, #4facfe, #667eea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 3s ease-in-out infinite;
-            letter-spacing: 2px;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.3); }
+            font-size: 1.4em;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            letter-spacing: 0.5px;
         }
 
         .navbar-links {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 28px;
         }
 
         .navbar-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--color-text-secondary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #00f2fe, #4facfe);
-            transition: width 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: color 0.2s;
         }
 
         .navbar-links a:hover {
-            color: #fff;
+            color: var(--color-text-primary);
         }
 
-        .navbar-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Container */
+        /* ---- Page layout ---- */
         .container {
             max-width: 1200px;
-            margin: 100px auto 0;
-            padding-bottom: 50px;
-            position: relative;
-            z-index: 1;
+            margin: 64px auto 0;
+            padding: 0 32px 80px;
         }
 
-        /* Enhanced Header */
+        /* ---- Hero header ---- */
         .header {
             text-align: center;
-            padding: 80px 20px;
-            position: relative;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+            padding: 64px 20px 48px;
         }
 
         .header h1 {
             font-family: 'Heebo', sans-serif;
-            font-size: 6em;
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            animation: slideDown 1s ease-out;
-            letter-spacing: 3px;
-            filter: drop-shadow(0 10px 20px rgba(102, 126, 234, 0.3));
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            font-size: 3.4em;
+            font-weight: 900;
+            color: var(--color-text-primary);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
         }
 
         .header p {
-            font-size: 1.4em;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
+            font-size: 1.15em;
+            color: var(--color-text-secondary);
+            max-width: 600px;
             margin: 0 auto;
-            line-height: 1.6;
-            animation: fadeIn 1.5s ease-out;
+            line-height: 1.7;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Stats Section */
+        /* ---- Stats ---- */
         .stats {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 60px 0;
+            gap: 24px;
+            margin: 40px 0;
             flex-wrap: wrap;
         }
 
         .stat-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 30px 40px;
-            border-radius: 20px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: 20px 32px;
+            border-radius: 12px;
             text-align: center;
-            transition: all 0.3s ease;
-            animation: statFloat 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .stat-item:nth-child(1) { animation-delay: 0.2s; }
-        .stat-item:nth-child(2) { animation-delay: 0.4s; }
-        .stat-item:nth-child(3) { animation-delay: 0.6s; }
-
-        @keyframes statFloat {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            background: rgba(102, 126, 234, 0.1);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
         }
 
         .stat-number {
             display: block;
-            font-family: 'Heebo', sans-serif;
-            font-size: 3.5em;
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
+            font-size: 2.2em;
+            font-weight: 900;
+            color: var(--color-text-primary);
+            line-height: 1.1;
         }
 
         .stat-label {
-            font-size: 1.1em;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 600;
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            margin-top: 4px;
         }
 
-        /* Info Box */
+        /* ---- Info box ---- */
         .generator-info-box {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(102, 126, 234, 0.3);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 60px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .generator-info-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            animation: sweep 8s linear infinite;
-        }
-
-        @keyframes sweep {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin: 0 0 48px;
         }
 
         .generator-info-box h3 {
-            font-size: 2em;
-            color: #fff;
-            margin-bottom: 20px;
-            font-weight: 800;
+            font-size: 1.3em;
+            color: var(--color-text-primary);
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .generator-info-box p {
-            font-size: 1.2em;
-            color: rgba(255, 255, 255, 0.85);
+            font-size: 1em;
+            color: var(--color-text-secondary);
             line-height: 1.8;
         }
 
-        /* Section Header */
+        /* ---- Section header ---- */
         .section-header {
             text-align: center;
-            margin: 80px 0 60px;
+            margin: 0 0 32px;
         }
 
         .section-header h2 {
             font-family: 'Heebo', sans-serif;
-            font-size: 3.5em;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin-bottom: 6px;
         }
 
         .section-header p {
-            font-size: 1.3em;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
+            color: var(--color-text-secondary);
         }
 
-        /* Generators Grid */
-        .generators-grid {
-            padding: 0 40px 60px;
+        /* ---- Filter bar ---- */
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
         }
 
-        .category-title {
+        .search-input {
+            flex: 1;
+            min-width: 180px;
+            padding: 9px 14px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-btn);
             font-family: 'Heebo', sans-serif;
-            font-size: 2em;
+            font-size: 0.9em;
+            color: var(--color-text-primary);
+            background: var(--color-surface);
+            outline: none;
+            transition: border-color 0.2s;
+            direction: rtl;
+        }
+
+        .search-input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .search-input:focus {
+            border-color: #94a3b8;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-btn);
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            font-family: 'Heebo', sans-serif;
+            font-size: 0.88em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            border-color: #94a3b8;
+            color: var(--color-text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--color-text-primary);
+            border-color: var(--color-text-primary);
             color: #fff;
-            margin: 60px 0 30px;
-            padding-right: 20px;
-            border-right: 5px solid;
-            border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
-            animation: slideInLeft 0.8s ease-out;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .sort-select {
+            padding: 9px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-btn);
+            font-family: 'Heebo', sans-serif;
+            font-size: 0.88em;
+            color: var(--color-text-secondary);
+            background: var(--color-surface);
+            outline: none;
+            cursor: pointer;
+            direction: rtl;
         }
 
-        .cards-container {
+        /* ---- Generators grid ---- */
+        #generators-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        /* Generator Cards with 3D Effects */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 1.05em;
+            padding: 40px 0;
+        }
+
+        /* ---- Generator cards ---- */
         .generator-card {
-            position: relative;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 35px 30px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: 28px 24px;
             text-decoration: none;
-            color: #fff;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-            animation: cardEntry 0.8s ease-out forwards;
-            opacity: 0;
-            overflow: hidden;
-        }
-
-        @keyframes cardEntry {
-            from {
-                opacity: 0;
-                transform: translateY(50px) rotateX(-10deg);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) rotateX(0);
-            }
-        }
-
-        .generator-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .generator-card:hover::before {
-            opacity: 1;
-        }
-
-        .generator-card::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.2), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .generator-card:hover::after {
-            opacity: 1;
-            animation: ripple 0.6s ease-out;
-        }
-
-        @keyframes ripple {
-            from {
-                transform: scale(0);
-            }
-            to {
-                transform: scale(1);
-            }
+            color: inherit;
+            display: block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            box-shadow: var(--shadow-card);
         }
 
         .generator-card:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(-5deg) scale(1.05);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 
-                0 20px 40px rgba(102, 126, 234, 0.4),
-                0 0 60px rgba(102, 126, 234, 0.2),
-                inset 0 0 30px rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: #cbd5e1;
         }
 
-        .generator-icon {
-            font-size: 3.5em;
-            display: block;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
-            animation: bounce 2s ease-in-out infinite;
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: var(--color-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .card-icon svg {
+            width: 26px;
+            height: 26px;
+            color: var(--color-accent);
         }
 
-        .generator-card:hover .generator-icon {
-            animation: spin 0.6s ease;
+        .category-tag {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            letter-spacing: 0.2px;
         }
 
-        @keyframes spin {
-            from { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            to { transform: rotate(360deg) scale(1); }
+        .category-learning {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .category-guidance {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .category-visual {
+            background: #ede9fe;
+            color: #6d28d9;
         }
 
         .generator-title {
-            font-family: 'Heebo', sans-serif;
-            font-size: 1.5em;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
         .generator-description {
-            font-size: 1.05em;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.6;
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
         }
 
-        /* Sequential animation delays */
-        .cards-container .generator-card:nth-child(1) { animation-delay: 0.1s; }
-        .cards-container .generator-card:nth-child(2) { animation-delay: 0.2s; }
-        .cards-container .generator-card:nth-child(3) { animation-delay: 0.3s; }
-
-        /* CTA Section */
+        /* ---- CTA section ---- */
         .cta-section {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(244, 63, 94, 0.2));
-            backdrop-filter: blur(10px);
-            padding: 80px 40px;
-            margin: 80px 40px 40px;
-            border-radius: 30px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 56px 40px;
+            margin-top: 56px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            animation: sweep 10s linear infinite;
         }
 
         .cta-section h2 {
-            font-size: 3em;
-            color: #fff;
-            margin-bottom: 20px;
-            font-weight: 900;
+            font-size: 1.7em;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin-bottom: 12px;
         }
 
         .cta-section p {
-            font-size: 1.3em;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
+            font-size: 1em;
+            color: var(--color-text-secondary);
+            margin-bottom: 28px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 20px 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 12px 36px;
+            background: var(--color-text-primary);
             color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.15s;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+            background: #0f172a;
+            transform: translateY(-2px);
         }
 
-       /* --- התאמות משופרות למובייל (Responsive Design) --- */
-@media (max-width: 768px) {
-    /* התאמת תפריט הניווט - סידור אנכי כדי למנוע חריגה מהמסך */
-    .navbar {
-        flex-direction: column;
-        padding: 15px 10px;
-        gap: 15px;
-        text-align: center;
-        height: auto; /* מאפשר לתפריט לגדול לפי התוכן */
-    }
+        /* ---- Footer ---- */
+        .site-footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: 40px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 60px;
+        }
 
-    .navbar-links {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        .footer-ai-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 0.9em;
+        }
 
-    .navbar-links a {
-        font-size: 1rem;
-    }
+        .footer-ai-links span {
+            color: var(--color-text-muted);
+            font-weight: 500;
+        }
 
-    /* תיקון כותרת ה-Hero - מניעת שבירת מילים לא יפה */
-    .header {
-        padding: 40px 15px;
-    }
+        .footer-ai-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
 
-    .header h1 {
-        font-size: 2.8em; /* הקטנה משמעותית למניעת חריגה */
-        line-height: 1.2;
-        letter-spacing: 1px;
-    }
+        .footer-ai-links a:hover {
+            color: var(--color-text-primary);
+        }
 
-    .header p {
-        font-size: 1.1em;
-        padding: 0 10px;
-    }
+        .footer-ai-links .sep {
+            color: var(--color-border);
+        }
 
-    /* סטטיסטיקות - מעבר למבנה של טור אחד */
-    .stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin: 30px 0;
-    }
+        .footer-meta {
+            font-size: 0.85em;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
 
-    .stat-item {
-        width: 85%; /* ניצול רוב רוחב המסך בנייד */
-        padding: 20px;
-    }
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 16px;
+                height: auto;
+                flex-direction: column;
+                padding-top: 14px;
+                padding-bottom: 14px;
+                gap: 10px;
+            }
 
-    /* כרטיסיות המחוללים - פריסה מלאה לקריאות מקסימלית */
-    .generators-grid {
-        padding: 0 15px 40px;
-    }
+            .navbar-links {
+                gap: 16px;
+            }
 
-    .cards-container {
-        grid-template-columns: 1fr; /* כרטיס אחד בכל שורה */
-        gap: 20px;
-    }
+            .container {
+                margin-top: 96px;
+                padding: 0 16px 60px;
+            }
 
-    .generator-card {
-        padding: 25px 20px;
-    }
+            .header {
+                padding: 40px 0 32px;
+            }
 
-    /* התאמת תוכן הקונטיינר למובייל */
-    .container {
-        margin-top: 160px; /* רווח בגלל ה-Navbar הגבוה יותר במובייל */
-    }
+            .header h1 {
+                font-size: 2.2em;
+            }
 
-    .generator-info-box {
-        padding: 25px 20px;
-        margin: 30px 15px;
-    }
+            .stats {
+                gap: 12px;
+            }
 
-    .category-title {
-        font-size: 1.6em;
-        margin: 40px 15px 20px;
-    }
+            .stat-item {
+                padding: 16px 24px;
+            }
 
-    .cta-section {
-        margin: 40px 15px;
-        padding: 40px 20px;
-    }
+            .generator-info-box {
+                padding: 24px 20px;
+            }
 
-    .cta-section h2 {
-        font-size: 2em;
-    }
-}
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
 
-/* התאמה למכשירים קטנים מאוד (כמו iPhone SE) */
-@media (max-width: 480px) {
-    .header h1 {
-        font-size: 2.2em;
-    }
-    .navbar-logo {
-        font-size: 1.8em;
-    }
-}
-body, html {
-    width: 100%;
-    overflow-x: hidden; /* מונע גלילה לצדדים במובייל */
-}
+            .search-input {
+                width: 100%;
+            }
 
-/* התאמת הפוטר למסכים קטנים */
-@media (max-width: 600px) {
-    .footer-ai-links {
-        padding: 15px 10px !important;
-    }
-    
-    .footer-ai-links div {
-        gap: 10px !important;
-    }
+            .filter-buttons {
+                justify-content: flex-start;
+            }
 
-    .footer-ai-links a {
-        font-size: 0.9em;
-        background: rgba(255, 255, 255, 0.05); /* הופך את הקישורים לכפתורים קטנים במובייל */
-        padding: 5px 12px;
-        border-radius: 8px;
-    }
+            .sort-select {
+                align-self: flex-start;
+            }
 
-    .footer-ai-links span {
-        display: none; /* מסתיר את המפרידים | במובייל למראה נקי */
-    }
-}
+            #generators-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 36px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .navbar-logo {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-ai-links .sep {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!-- Animated Background Particles -->
-    <div class="particles" id="particles"></div>
-
     <nav class="navbar">
         <div class="navbar-logo">Learning Hero</div>
         <ul class="navbar-links">
@@ -731,9 +549,8 @@ body, html {
 
     <div class="container">
         <div class="header">
-         <h1>🦸 Learning Hero</h1>
+            <h1>Learning Hero</h1>
             <p>
-                גיבור הלמידה החכמה שלכם. <br>
                 הכלים הדידקטיים שלכם לעיצוב והובלת למידה חכמה ב-AI.
             </p>
         </div>
@@ -753,201 +570,71 @@ body, html {
             </div>
         </div>
 
- <div class="generator-info-box">
-    <h3>💡 מנהלי למידה, ברוכים הבאים.</h3>
-    <p>
-        <strong>ה-AI הוא לא רק כלי, הוא יכול להיות השותף המקצועי החדש שלכם.</strong><br>
-        במסגרת העבודה שלי ומתוך סקרנות והעמקה בתחום, פיתחתי עבורכם סדרת מחוללים המבוססים על הנדסת פרומפטים ממוקדת, כדי שתוכלו להתמקד במה שחשוב באמת: <strong>איכות ההדרכה והערך הפדגוגי.</strong>
-        <br><br>
-        <strong>איך זה עובד?</strong> בחרו את המשימה שלכם (מערך שיעור, סימולציה או תוצר ויזואלי), וקבלו <strong>פרומפט מלוטש</strong> שיסייע לכם לייצר תוכן הדרכתי איכותי ומדויק.
-    </p>
-</div>
+        <div class="generator-info-box">
+            <h3>מנהלי למידה, ברוכים הבאים.</h3>
+            <p>
+                <strong>ה-AI הוא לא רק כלי — הוא יכול להיות השותף המקצועי החדש שלכם.</strong><br>
+                בחרו את המשימה שלכם (מערך שיעור, סימולציה או תוצר ויזואלי), וקבלו <strong>פרומפט מלוטש</strong> שיסייע לכם לייצר תוכן הדרכתי איכותי ומדויק.
+            </p>
+        </div>
+
         <div class="section-header" id="generators">
-            <h2>🚀 המחוללים </h2>
+            <h2>המחוללים</h2>
             <p>בחרו את הכלי המושלם למשימה שלכם</p>
         </div>
 
-        <div class="generators-grid">
-            <h3 class="category-title">🎓 למידה והדרכה</h3>
-            <div class="cards-container">
-                <a href="lesson-plan.html" class="generator-card">
-                    <span class="generator-icon">📚</span>
-                    <h3 class="generator-title">מחולל מערכי שיעור</h3>
-                    <p class="generator-description">
-                        יוצר פרומפט למערך שיעור דידקטי מלא: מטרות, מהלכי הוראה, רצף לימודי ודרכי בדיקה.
-                    </p>
-                </a>
-
-                <a href="microlearning-generator.html" class="generator-card">
-                    <span class="generator-icon">⚡</span>
-                    <h3 class="generator-title">מחולל Microlearning</h3>
-                    <p class="generator-description">
-                        מפיק תוצרי מיקרו-למידה חדים וקצרים: נקודות מפתח, משימות קצרות,
-                        תרגולים ממוקדים וסיכומים בהירים.
-                    </p>
-                </a>
-
-                <a href="assessment-questions.html" class="generator-card">
-                    <span class="generator-icon">📝</span>
-                    <h3 class="generator-title">מחולל שאלות הערכה</h3>
-                    <p class="generator-description">
-                        בונה שאלות הערכה מדויקות בהתאם לרמות חשיבה, מטרות ויישומים מקצועיים.
-                    </p>
-                </a>
+        <div class="filter-bar">
+            <input type="text" id="generator-search" class="search-input" placeholder="חיפוש מחולל...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">הכל</button>
+                <button class="filter-btn" data-category="learning">למידה והדרכה</button>
+                <button class="filter-btn" data-category="guidance">הנחיה ותרגול</button>
+                <button class="filter-btn" data-category="visual">יצירה ויזואלית</button>
             </div>
-
-            <h3 class="category-title">👥 הנחיה ותרגול</h3>
-            <div class="cards-container">
-                <a href="icebreakers.html" class="generator-card">
-                    <span class="generator-icon">🎉</span>
-                    <h3 class="generator-title">מחולל Icebreakers</h3>
-                    <p class="generator-description">
-                        מפיק פעילויות פתיחה מותאמות לקבוצות ולמטרת המפגש — פשוטות, אפקטיביות ומדויקות.
-                    </p>
-                </a>
-
-                <a href="guiding-questions.html" class="generator-card">
-                    <span class="generator-icon">❓</span>
-                    <h3 class="generator-title">מחולל שאלות מנחות</h3>
-                    <p class="generator-description">
-                        יוצר שאלות לפתיחה, סיכום, רפלקציה ודיון משמעותי.
-                    </p>
-                </a>
-
-                <a href="simulation.html" class="generator-card">
-                    <span class="generator-icon">🎭</span>
-                    <h3 class="generator-title">מחולל תרחישי סימולציה</h3>
-                    <p class="generator-description">
-                        בונה תרחישים הכוללים סצנות, דמויות, דילמות והתפתחויות — ללמידה חווייתית ובטוחה.
-                    </p>
-                </a>
-            </div>
-
-            <h3 class="category-title">🎨 יצירה ויזואלית וכתיבה יצירתית</h3>
-            <div class="cards-container">
-                <a href="visual-attention-generator.html" class="generator-card">
-                    <span class="generator-icon">👁️</span>
-                    <h3 class="generator-title">מחולל מזניקי קשב ויזואליים</h3>
-                    <p class="generator-description">
-                        יוצר תמונות חכמות ומסקרנות שמבליטות רעיון, שוברות שגרה ומכניסות אנרגיה מדויקת למפגש.
-                    </p>
-                </a>
-
-                <a href="image_generator.html" class="generator-card">
-                    <span class="generator-icon">🖼️</span>
-                    <h3 class="generator-title">מחולל יצירת תמונות אחידות</h3>
-                    <p class="generator-description">
-                        מייצר פרומפטים ליצירת סדרת תמונות אחידות בסגנון, צבעוניות ואווירה.
-                    </p>
-                </a>
-
-                <a href="creative-storyboard.html" class="generator-card">
-                    <span class="generator-icon">✨</span>
-                    <h3 class="generator-title">מחולל תסריטים ו-Storyboard</h3>
-                    <p class="generator-description">
-                        הופך רעיון יבש לעלילה בלתי צפויה: טוויסטים, דמויות חדות וסצנות שמייצרות למידה אחרת.
-                    </p>
-                </a>
-            </div>
+            <select id="sort-select" class="sort-select">
+                <option value="default">סדר ברירת מחדל</option>
+                <option value="alpha">א–ת</option>
+            </select>
         </div>
 
+        <div id="generators-grid"></div>
+
         <div class="cta-section" id="contact">
-            <h2>💡 רעיון למחולל חדש?</h2>
+            <h2>רעיון למחולל חדש?</h2>
             <p>יש לכם רעיון למחולל חדש? אחד המחוללים לא עבד כמו שציפיתם? נשמח לשמוע הצעות שיעזרו לשפר ולחדש את תהליכי הלמידה בארגון.</p>
             <a href="mailto:ruthy.salomon@gmail.com" class="cta-button">צרו קשר</a>
         </div>
     </div>
 
-    <!-- AI Tools Footer -->
-    <footer class="footer" style="
-        text-align: center; 
-        padding: 60px 20px; 
-        color: white; 
-        background: rgba(15, 15, 35, 0.8);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(102, 126, 234, 0.3);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-        margin-top: 50px;
-    ">
-        <div class="footer-ai-links" style="
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 500px;
-            width: 100%;
-        ">
-            <strong style="display: block; margin-bottom: 15px; color: #4facfe; font-size: 1.2em;">קישורים מהירים לכלי AI:</strong>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="https://chat.openai.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">ChatGPT</a>
-                <span style="color: rgba(255,255,255,0.3)">|</span>
-                <a href="https://claude.ai/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Claude</a>
-                <span style="color: rgba(255,255,255,0.3)">|</span>
-                <a href="https://gemini.google.com/" target="_blank" style="color: #fff; text-decoration: none; font-weight: 600;">Gemini</a>
-            </div>
+    <footer class="site-footer">
+        <div class="footer-ai-links">
+            <span>קישורים מהירים לכלי AI:</span>
+            <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+            <span class="sep">|</span>
+            <a href="https://claude.ai/" target="_blank">Claude</a>
+            <span class="sep">|</span>
+            <a href="https://gemini.google.com/" target="_blank">Gemini</a>
         </div>
-        
-        <div style="line-height: 1.8;">
-            <strong style="font-size: 1.3em;">Learning Hero © 2025</strong><br>
-            <span style="color: rgba(255,255,255,0.7);">Created with ❤️ by Ruthy Salomon</span><br>
-            <span style="color: rgba(255,255,255,0.7);">פותח עבור שיפור תהליכי למידה והדרכה</span>
+        <div class="footer-meta">
+            <strong>Learning Hero © 2025</strong><br>
+            Created with ❤️ by Ruthy Salomon<br>
+            פותח עבור שיפור תהליכי למידה והדרכה
         </div>
     </footer>
 
+    <script src="promptmasterjs.js"></script>
     <script>
-        // Create floating particles
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 50;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 20 + 's';
-            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-            particlesContainer.appendChild(particle);
-        }
-
-        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Add scroll-based animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all generator cards
-        document.querySelectorAll('.generator-card').forEach(card => {
-            card.style.animationPlayState = 'paused';
-            observer.observe(card);
-        });
-
-        // (Removed unfinished hover-sound code to prevent JS errors.)
+        initGeneratorsPage();
     </script>
 </body>
 </html>
-    
