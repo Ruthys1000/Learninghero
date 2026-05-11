@@ -910,7 +910,6 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
 .result {
   display: none;
   margin: 14px 40px 44px;
-  animation: resultSlideIn 0.3s ease-out;
 }
 
 @keyframes resultSlideIn {
@@ -918,7 +917,10 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.result.show { display: block !important; }
+.result.show {
+  display: block !important;
+  animation: resultSlideIn 0.3s ease-out forwards;
+}
 
 .result-header {
   background: var(--text-primary);
