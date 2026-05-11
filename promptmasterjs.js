@@ -182,9 +182,6 @@ function initSelectBehavior() {
  * @param {Object} options - אופציות נוספות (footerLinks, etc.)
  */
 function showResult(prompt, options = {}) {
-    console.log('📤 showResult called');
-    console.log('Prompt length:', prompt.length);
-    
     const defaultFooter = `
 
 
@@ -192,34 +189,22 @@ function showResult(prompt, options = {}) {
 
     const footer = options.customFooter || defaultFooter;
     const output = document.getElementById("promptOutput");
-    
-    if (!output) {
-        console.error('❌ Element #promptOutput not found');
-        return;
-    }
+    if (!output) return;
 
     output.textContent = prompt + footer;
-    console.log('✅ Prompt text set');
 
     const resultSection = document.getElementById("result");
-    if (!resultSection) {
-        console.error('❌ Element #result not found');
-        return;
-    }
+    if (!resultSection) return;
 
-    console.log('Current result classes:', resultSection.className);
     resultSection.classList.add("show");
-    console.log('After adding show:', resultSection.className);
-    console.log('Result display style:', window.getComputedStyle(resultSection).display);
-    
+
     // גלילה חלקה לתוצאות
     setTimeout(() => {
-        resultSection.scrollIntoView({ 
-            behavior: 'smooth', 
+        resultSection.scrollIntoView({
+            behavior: 'smooth',
             block: 'start',
             inline: 'nearest'
         });
-        console.log('✅ Scrolled to results');
     }, 100);
 }
 
