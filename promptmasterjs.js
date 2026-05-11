@@ -455,8 +455,8 @@ function buildGlobalNavbarHtml() {
     // בדף הבית (index) מוצג קישור "אודות".
     // בכל שאר הדפים (כולל about) מוצג קישור "המחוללים" שמחזיר ל-index#generators.
     const primaryLinkHtml = isHomePage()
-        ? `<li><a href="about.html" style="color: white; text-decoration: none; font-weight: 600;">אודות</a></li>`
-        : `<li><a href="index.html#generators" style="color: white; text-decoration: none; font-weight: 600;">המחוללים</a></li>`;
+        ? `<li><a href="about.html" style="color: #64748b; text-decoration: none; font-weight: 500; font-size: 0.95em;">אודות</a></li>`
+        : `<li><a href="index.html#generators" style="color: #64748b; text-decoration: none; font-weight: 500; font-size: 0.95em;">המחוללים</a></li>`;
 
     const contactHref = isHomePage() ? '#contact' : 'index.html#contact';
 

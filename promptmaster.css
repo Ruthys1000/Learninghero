@@ -112,16 +112,6 @@ body::before {
     border: 1px solid #e2e8f0;
 }
 
-@keyframes containerEntry {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* ---------------------------------------------------------
    4. Enhanced Header
@@ -305,7 +295,7 @@ body::before {
     font-size: 1.2em;
     font-weight: 800;
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 @keyframes pulse {
