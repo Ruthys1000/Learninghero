@@ -12,137 +12,37 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-CFJ2PMQPKX');
     </script>
 
-    <link rel="stylesheet" href="promptmaster.css">
-
+    <link rel="stylesheet" href="promptmaster.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            background: #f1f5f9;
-            color: #1e293b;
-        }
-
-        .container {
-            max-width: 900px !important;
-            margin: 80px auto 35px !important;
-            padding: 0 20px 50px !important;
-            position: relative;
-            z-index: 1;
-            background: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        .about-header { text-align: center; padding: 40px 20px; }
-        .about-header h1 {
-            font-size: 3em;
-            color: #1e293b;
-            margin-bottom: 16px;
-            font-weight: 900;
-        }
-        .about-header p { font-size: 1.15em; color: #64748b; }
-
-        .about-content {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-top: 50px; 
-            margin-bottom: 40px;
-            color: #1f2937;
-        }
-
-        .about-section { margin-bottom: 50px; }
-        .about-section h2 {
-            font-size: 2.2em;
-            color: #1f2937;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4facfe;
-            display: inline-block;
-        }
-        .about-section p { font-size: 1.2em; color: #4b5563; }
-
-        .timeline { position: relative; padding-right: 40px; margin: 30px 0; }
-        .timeline::before {
-            content: ''; position: absolute; right: 10px; top: 0; bottom: 0;
-            width: 3px; background: linear-gradient(180deg, #4facfe, #667eea);
-        }
-        .timeline-item { position: relative; margin-bottom: 35px; padding-right: 30px; }
-        .timeline-item::before {
-            content: ''; position: absolute; right: -5px; top: 8px; width: 20px; height: 20px;
-            border-radius: 50%; background: #4facfe; border: 4px solid #fff;
-        }
-        .timeline-year { font-weight: bold; color: #667eea; font-size: 1.1em; }
-        .timeline-title { font-weight: 700; color: #1f2937; font-size: 1.25em; margin: 5px 0; }
-        .timeline-desc { color: #6b7280; font-size: 1.1em; }
-
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .skill-card {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(102, 126, 234, 0.1));
-            padding: 25px; border-radius: 20px; border: 2px solid rgba(79, 172, 254, 0.2);
-        }
-        .skill-card h3 { color: #1f2937; margin-bottom: 10px; font-size: 1.3em; }
-        .skill-card p { color: #6b7280 !important; font-size: 1em; line-height: 1.5; }
-
-        .vision-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white; padding: 50px 40px; border-radius: 30px; text-align: center; margin: 60px 0;
-        }
-        .vision-box h2 { font-size: 2.5em; margin-bottom: 20px; color: white !important; }
-
-        /* תיקון צבעים בתיבת צור קשר (שחור על לבן) */
-        .contact-cta { 
-            text-align: center; padding: 60px 20px; background: rgba(255, 255, 255, 0.98); 
-            border-radius: 30px; margin-top: 40px; display: flex; flex-direction: column; align-items: center; 
-        }
-        .contact-cta h2 { color: #1f2937 !important; margin-bottom: 20px; font-size: 2.5em; font-weight: 800; }
-        .contact-cta p { color: #4b5563 !important; font-size: 1.2em; margin-bottom: 30px; }
-        
-        .contact-links { display: flex; justify-content: center; width: 100%; }
-        .contact-link {
-            display: inline-flex; align-items: center; gap: 12px; padding: 18px 35px;
-            background: linear-gradient(135deg, #4facfe, #667eea); color: white !important;
-            text-decoration: none !important; border-radius: 50px; font-weight: 700;
-            font-size: 1.2em; box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .container { margin-top: 100px !important; }
-            .about-header h1 { font-size: 2.2em; }
-            .about-content { padding: 30px 20px; }
-        }
-    </style>
 </head>
 
 <body>
     <div id="global-navbar-container"></div>
 
-    <div class="container">
+    <div class="container-page">
         <div class="about-header">
-            <h1>👋 היי, אני רותי</h1>
+            <h1>היי, אני רותי</h1>
             <p>אחרי למעלה מ-25 שנה בתחומי טכנולוגיות הלמידה והטרנספורמציה הדיגיטלית, החלטתי להפוך את הניסיון שלי לכלים שיעזרו לכם לעבוד חכם יותר.</p>
         </div>
 
         <div class="about-content">
             <div class="about-section">
-                <h2>🌱 הסיפור של Learning Hero</h2>
+                <h2>הסיפור של Learning Hero</h2>
                 <p><strong>זה התחיל מרצון לייעל.</strong> לאורך השנים, בניהול פרויקטי למידה במגזר הביטחוני, הציבורי והאקדמי, ראיתי כמה זמן יקר מושקע במשימות טכניות וחוזרות.</p>
                 <p>עם כניסת ה-AI, זיהיתי הזדמנות לשדרג את העבודה שלנו. יצרתי את המחוללים האלו כדי שישמשו <strong>גשר מעשי</strong>: כלים שמטרתם לסייע במתן מענה דידקטי על ידי בניית מבנה פרומפט מקצועי וממוקד.</p>
                 <p>Learning Hero הוא פרי פיתוח אישי המבוסס על הניסיון שלי, והוא מוצע כאן באהבה לקהילת הלמידה.</p>
-                <p style="background: rgba(79, 172, 254, 0.1); padding: 15px; border-radius: 10px; border-right: 4px solid #4facfe; color: #1f2937;">
+                <p class="about-note">
                     <strong>חשוב לי לציין:</strong> המחוללים הם הצעה לדרך עבודה יעילה יותר. אני משפרת אותם כל הזמן, ואשמח מאוד לשמוע מכם – מה עבד לכם ואיפה אפשר להשתפר.
                 </p>
             </div>
 
             <div class="about-section">
-                <h2>📚 הניסיון שלי</h2>
+                <h2>הניסיון שלי</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-year">2021 - היום</div>
@@ -168,31 +68,49 @@
             </div>
 
             <div class="about-section">
-                <h2>💡 התמחויות</h2>
+                <h2>התמחויות</h2>
                 <div class="skills-grid">
-                    <div class="skill-card"><h3>🎯 טכנולוגיות למידה</h3><p>25+ שנות ניסיון בתכנון והטמעת מערכות למידה מתקדמות בארגונים מורכבים.</p></div>
-                    <div class="skill-card"><h3>🔄 טרנספורמציה דיגיטלית</h3><p>הובלת תהליכי שינוי אסטרטגיים ואימוץ טכנולוגיות חדשות במגזר הציבורי והפרטי.</p></div>
-                    <div class="skill-card"><h3>🎨 Design Thinking</h3><p>מומחיות בזיהוי צרכים מערכתיים ופיתוח פתרונות חדשניים מבוססי חוויית משתמש.</p></div>
-                    <div class="skill-card"><h3>🤖 AI בלמידה</h3><p>שילוב פרקטי של בינה מלאכותית בתהליכי פיתוח הדרכה וייעול עבודת מנהל הלמידה.</p></div>
-                    <div class="skill-card"><h3>👥 הובלת תהליכי ייעוץ</h3><p>ליווי מנהלים בכירים וארגונים בגיבוש אסטרטגיית למידה וחדשנות פדגוגית.</p></div>
-                    <div class="skill-card"><h3>📊 Learning Analytics</h3><p>בניית מערכות למידה מבוססות נתונים למדידת אפקטיביות ושיפור ביצועים.</p></div>
+                    <div class="skill-card">
+                        <h3>טכנולוגיות למידה</h3>
+                        <p>25+ שנות ניסיון בתכנון והטמעת מערכות למידה מתקדמות בארגונים מורכבים.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>טרנספורמציה דיגיטלית</h3>
+                        <p>הובלת תהליכי שינוי אסטרטגיים ואימוץ טכנולוגיות חדשות במגזר הציבורי והפרטי.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Design Thinking</h3>
+                        <p>מומחיות בזיהוי צרכים מערכתיים ופיתוח פתרונות חדשניים מבוססי חוויית משתמש.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>AI בלמידה</h3>
+                        <p>שילוב פרקטי של בינה מלאכותית בתהליכי פיתוח הדרכה וייעול עבודת מנהל הלמידה.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>הובלת תהליכי ייעוץ</h3>
+                        <p>ליווי מנהלים בכירים וארגונים בגיבוש אסטרטגיית למידה וחדשנות פדגוגית.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Learning Analytics</h3>
+                        <p>בניית מערכות למידה מבוססות נתונים למדידת אפקטיביות ושיפור ביצועים.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="vision-box">
-            <h2>🎯 החזון</h2>
+            <h2>החזון</h2>
             <p>אני מאמינה שהעתיד של הלמידה הוא בשילוב חכם בין המומחיות האנושית לכוח של ה-AI.<br>Learning Hero הוא הדרך שלי להעצים אתכם ולחסוך לכם זמן יקר.</p>
         </div>
 
         <div class="contact-cta" id="contact">
-            <h2>🤝 בואו נדבר</h2>
+            <h2>בואו נדבר</h2>
             <p>
                 יש לכם רעיון למחולל חדש? צריכים התאמה מיוחדת? רוצים לשמוע עוד?<br>
                 אשמח לשמוע מכם!
             </p>
             <div class="contact-links">
-                <a href="mailto:ruthy.salomon@gmail.com" class="contact-link">📧 ruthy.salomon@gmail.com</a>
+                <a href="mailto:ruthy.salomon@gmail.com" class="contact-link">ruthy.salomon@gmail.com</a>
             </div>
         </div>
     </div>
