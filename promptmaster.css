@@ -37,7 +37,7 @@
     box-sizing: border-box;
 }
 
-body, body * {
+body, body *, pre, code {
     font-family: 'Heebo', sans-serif !important;
 }
 
@@ -53,16 +53,7 @@ body {
     overflow-x: hidden;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-primary);
-    z-index: 9999;
-}
+
 
 
 /* ---------------------------------------------------------
