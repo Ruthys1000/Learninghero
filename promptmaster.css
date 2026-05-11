@@ -53,16 +53,6 @@ body {
     overflow-x: hidden;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-primary);
-    z-index: 9999;
-}
 
 /* ---------------------------------------------------------
    2. Enhanced Navbar
