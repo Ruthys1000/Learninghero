@@ -437,7 +437,7 @@ function isHomePage() {
 
 function buildGlobalNavbarHtml() {
     const primaryLinkHtml = isHomePage()
-        ? `<li><a href="about.html">אודות</a></li>`
+        ? `<li><a href="about.html">מדריך פרומפטים</a></li>`
         : `<li><a href="index.html#generators">המחוללים</a></li>`;
 
     const contactHref = isHomePage() ? '#contact' : 'index.html#contact';

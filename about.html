@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אודות - Learning Hero</title>
+    <title>מדריך פרומפטים - Learning Hero</title>
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFJ2PMQPKX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -19,6 +18,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        .guide-before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .ba-box {
+            padding: 20px;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--border);
+        }
+        .ba-box.bad {
+            background: #fef2f2;
+            border-right: 4px solid #fca5a5;
+        }
+        .ba-box.good {
+            background: var(--accent-light);
+            border-right: 4px solid var(--accent);
+        }
+        .ba-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+        .ba-box.bad .ba-label { color: #dc2626; }
+        .ba-box.good .ba-label { color: var(--accent-dark); }
+        .ba-box p { margin: 0; font-size: 0.95rem; line-height: 1.7; }
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .tips-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #f8fafc;
+            border-radius: var(--r-md);
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .tip-num {
+            width: 26px;
+            height: 26px;
+            min-width: 26px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        @media (max-width: 600px) {
+            .guide-before-after { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
@@ -26,97 +92,86 @@
 
     <div class="container-page">
         <div class="about-header">
-            <h1>היי, אני רותי</h1>
-            <p>אחרי למעלה מ-25 שנה בתחומי טכנולוגיות הלמידה והטרנספורמציה הדיגיטלית, החלטתי להפוך את הניסיון שלי לכלים שיעזרו לכם לעבוד חכם יותר.</p>
+            <div class="header-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
+                </svg>
+            </div>
+            <h1>מדריך לכתיבת פרומפטים</h1>
+            <p>כל מה שצריך לדעת כדי לדבר עם AI בצורה חכמה</p>
         </div>
 
         <div class="about-content">
+
             <div class="about-section">
-                <h2>הסיפור של Learning Hero</h2>
-                <p><strong>זה התחיל מרצון לייעל.</strong> לאורך השנים, בניהול פרויקטי למידה במגזר הביטחוני, הציבורי והאקדמי, ראיתי כמה זמן יקר מושקע במשימות טכניות וחוזרות.</p>
-                <p>עם כניסת ה-AI, זיהיתי הזדמנות לשדרג את העבודה שלנו. יצרתי את המחוללים האלו כדי שישמשו <strong>גשר מעשי</strong>: כלים שמטרתם לסייע במתן מענה דידקטי על ידי בניית מבנה פרומפט מקצועי וממוקד.</p>
-                <p>Learning Hero הוא פרי פיתוח אישי המבוסס על הניסיון שלי, והוא מוצע כאן באהבה לקהילת הלמידה.</p>
-                <p class="about-note">
-                    <strong>חשוב לי לציין:</strong> המחוללים הם הצעה לדרך עבודה יעילה יותר. אני משפרת אותם כל הזמן, ואשמח מאוד לשמוע מכם – מה עבד לכם ואיפה אפשר להשתפר.
-                </p>
+                <h2>מה זה פרומפט?</h2>
+                <p>פרומפט הוא ההוראה שאתם נותנים לכלי ה-AI — מה לכתוב, איך לכתוב, ועבור מי. ה-AI לא קורא מחשבות: הוא מייצר תוצאה בדיוק לפי מה שקיבל. <strong>ככל שהפרומפט מדויק ומובנה יותר — הפלט איכותי ורלוונטי יותר.</strong></p>
+                <p>זה בדיוק הרעיון שמאחורי Learning Hero — המחוללים כבר בונים עבורכם פרומפט מקצועי, עם כל המרכיבים הנכונים.</p>
             </div>
 
             <div class="about-section">
-                <h2>הניסיון שלי</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2021 - היום</div>
-                        <div class="timeline-title">מנהלת מוצר בצה"ל</div>
-                        <div class="timeline-desc">הובלת אפיון, הקמה וניהול של מערכת למידה רב-זרועית מורכבת תוך שימוש במתודולוגיות Design Thinking.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2020 - היום</div>
-                        <div class="timeline-title">אסטרטגיה דיגיטלית במגזר הממשלתי</div>
-                        <div class="timeline-desc">ניהול וטרנספורמציה דיגיטלית של מערכי למידה וכתיבת תוכניות אסטרטגיות רב-שנתיות.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2018 - 2025</div>
-                        <div class="timeline-title">מרצה באקדמיה</div>
-                        <div class="timeline-desc">הוראה בתחומי UX, ארכיטקטורת מידע וניהול תוכן במסלולי תואר ראשון ושני.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2000 - 2021</div>
-                        <div class="timeline-title">הובלת חדשנות ופדגוגיה דיגיטלית</div>
-                        <div class="timeline-desc">ניהול צוותי פדגוגיה וליווי מוסדות אקדמיים במעבר לדיגיטל.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-section">
-                <h2>התמחויות</h2>
+                <h2>5 מרכיבי הפרומפט הטוב</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <h3>טכנולוגיות למידה</h3>
-                        <p>25+ שנות ניסיון בתכנון והטמעת מערכות למידה מתקדמות בארגונים מורכבים.</p>
+                        <h3>תפקיד</h3>
+                        <p>הגדירו ל-AI את התפקיד שהוא ממלא. "אתה מומחה להדרכה ארגונית" ייצר תוצאה שונה לחלוטין מ"אתה כותב תוכן".</p>
                     </div>
                     <div class="skill-card">
-                        <h3>טרנספורמציה דיגיטלית</h3>
-                        <p>הובלת תהליכי שינוי אסטרטגיים ואימוץ טכנולוגיות חדשות במגזר הציבורי והפרטי.</p>
+                        <h3>הקשר</h3>
+                        <p>מי הקהל? מה הרקע? מה המטרה? ככל שתספקו יותר הקשר — ה-AI יוכל להתאים את הפלט בצורה מדויקת יותר.</p>
                     </div>
                     <div class="skill-card">
-                        <h3>Design Thinking</h3>
-                        <p>מומחיות בזיהוי צרכים מערכתיים ופיתוח פתרונות חדשניים מבוססי חוויית משתמש.</p>
+                        <h3>משימה</h3>
+                        <p>בדיוק מה אתם רוצים לקבל. "צור", "נתח", "סכם", "כתוב" — פועל ברור + תוצר ברור = תוצאה טובה.</p>
                     </div>
                     <div class="skill-card">
-                        <h3>AI בלמידה</h3>
-                        <p>שילוב פרקטי של בינה מלאכותית בתהליכי פיתוח הדרכה וייעול עבודת מנהל הלמידה.</p>
+                        <h3>פורמט</h3>
+                        <p>איך להציג את הפלט — רשימה ממוספרת, טבלה, פסקאות, כותרות. פורמט מוגדר חוסך עריכה ידנית.</p>
                     </div>
                     <div class="skill-card">
-                        <h3>הובלת תהליכי ייעוץ</h3>
-                        <p>ליווי מנהלים בכירים וארגונים בגיבוש אסטרטגיית למידה וחדשנות פדגוגית.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Learning Analytics</h3>
-                        <p>בניית מערכות למידה מבוססות נתונים למדידת אפקטיביות ושיפור ביצועים.</p>
+                        <h3>אילוצים</h3>
+                        <p>מה לא לכלול, אורך מקסימלי, שפה, טון (רשמי / ידידותי), ורמת מורכבות. גבולות ברורים = פלט ממוקד.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="about-section">
+                <h2>לפני ואחרי — הבדל של עולם</h2>
+                <div class="guide-before-after">
+                    <div class="ba-box bad">
+                        <div class="ba-label">פרומפט חלש</div>
+                        <p>תכתוב שיעור על בטיחות</p>
+                    </div>
+                    <div class="ba-box good">
+                        <div class="ba-label">פרומפט חזק</div>
+                        <p>אתה מעצב הדרכה מנוסה. צור תכנית שיעור בת 45 דקות על בטיחות בסייבר לעובדים חדשים ללא רקע טכני. כלול מטרות למידה, 3 פעילויות מעשיות ושאלות סיכום. הצג בפורמט מובנה עם כותרות.</p>
+                    </div>
+                </div>
+                <p>ההבדל? תפקיד + קהל + אורך + תוכן נדרש + פורמט. חמישה מרכיבים שהופכים פרומפט רפה לכלי עבודה אמיתי.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>טיפים מהירים</h2>
+                <ul class="tips-list">
+                    <li><span class="tip-num">1</span><span>היו ספציפיים — <strong>"5 שאלות הבנה"</strong> עדיף על <strong>"כמה שאלות"</strong></span></li>
+                    <li><span class="tip-num">2</span><span>ציינו את הקהל — גיל, רמה, רקע מקצועי, שפה</span></li>
+                    <li><span class="tip-num">3</span><span>בקשו פורמט מסוים — טבלה, רשימה, כותרות, Markdown</span></li>
+                    <li><span class="tip-num">4</span><span>לא מרוצים? אל תתחילו מחדש — הוסיפו הנחיה ובקשו לשפר</span></li>
+                    <li><span class="tip-num">5</span><span>המחוללים של Learning Hero כבר מכילים את כל המרכיבים האלה — השתמשו בהם כנקודת פתיחה</span></li>
+                </ul>
+            </div>
+
         </div>
 
         <div class="vision-box">
-            <h2>החזון</h2>
-            <p>אני מאמינה שהעתיד של הלמידה הוא בשילוב חכם בין המומחיות האנושית לכוח של ה-AI.<br>Learning Hero הוא הדרך שלי להעצים אתכם ולחסוך לכם זמן יקר.</p>
+            <h2>רוצים לראות את זה בפעולה?</h2>
+            <p>המחוללים של Learning Hero בנויים בדיוק לפי המבנה הזה — תפקיד, הקשר, משימה, פורמט ואילוצים — מוכנים לשימוש מיידי.</p>
+            <a href="index.html#generators" class="submit-button" style="display:inline-block; text-decoration:none; margin-top:8px;">לכל המחוללים</a>
         </div>
 
-        <div class="contact-cta" id="contact">
-            <h2>בואו נדבר</h2>
-            <p>
-                יש לכם רעיון למחולל חדש? צריכים התאמה מיוחדת? רוצים לשמוע עוד?<br>
-                אשמח לשמוע מכם!
-            </p>
-            <div class="contact-links">
-                <a href="mailto:ruthy.salomon@gmail.com" class="contact-link">ruthy.salomon@gmail.com</a>
-            </div>
-        </div>
     </div>
 
     <div id="global-footer"></div>
-
     <script src="promptmasterjs.js"></script>
 </body>
 </html>
