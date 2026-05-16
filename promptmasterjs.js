@@ -660,14 +660,14 @@ function updatePaletteUI(globalPaletteArray) {
 ============================================ */
 
 const _ADD_CARD_HTML = `
-<a href="generator-builder.html" class="generator-card generator-card--add">
+<a href="add-generator.html" class="generator-card generator-card--add">
     <div class="card-icon card-icon--add">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
         </svg>
     </div>
-    <h3 class="generator-title">הוסף מחולל חדש</h3>
-    <p class="generator-description">צור מחולל פרומפטים מותאם אישית — בלי לגעת בקוד</p>
+    <h3 class="generator-title">בקשו מחולל חדש</h3>
+    <p class="generator-description">תארו מה אתם צריכים — אנחנו נדאג לשאר</p>
 </a>`;
 
 function renderGeneratorsGrid(data) {
