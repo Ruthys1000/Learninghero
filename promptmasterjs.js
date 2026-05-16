@@ -659,25 +659,35 @@ function updatePaletteUI(globalPaletteArray) {
    HOME PAGE LOGIC — data lives in generators-config.js
 ============================================ */
 
+const _ADD_CARD_HTML = `
+<a href="generator-builder.html" class="generator-card generator-card--add">
+    <div class="card-icon card-icon--add">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+        </svg>
+    </div>
+    <h3 class="generator-title">הוסף מחולל חדש</h3>
+    <p class="generator-description">צור מחולל פרומפטים מותאם אישית — בלי לגעת בקוד</p>
+</a>`;
+
 function renderGeneratorsGrid(data) {
     const grid = document.getElementById('generators-grid');
     if (!grid) return;
 
-    if (data.length === 0) {
-        grid.innerHTML = '<p class="no-results">לא נמצאו מחוללים התואמים לחיפוש.</p>';
-        return;
-    }
-
-    grid.innerHTML = data.map(g => {
-        const label = (typeof CATEGORY_LABELS !== 'undefined' && CATEGORY_LABELS[g.category]) || g.category;
-        return `
+    const cardsHTML = data.length === 0
+        ? '<p class="no-results">לא נמצאו מחוללים התואמים לחיפוש.</p>'
+        : data.map(g => {
+            const label = (typeof CATEGORY_LABELS !== 'undefined' && CATEGORY_LABELS[g.category]) || g.category;
+            return `
         <a href="${g.link}" class="generator-card" data-category="${g.category}">
             <div class="card-icon">${g.icon}</div>
             <span class="category-tag category-${g.category}">${label}</span>
             <h3 class="generator-title">${g.title}</h3>
             <p class="generator-description">${g.description}</p>
         </a>`;
-    }).join('');
+        }).join('');
+
+    grid.innerHTML = cardsHTML + _ADD_CARD_HTML;
 }
 
 function initGeneratorsPage() {
