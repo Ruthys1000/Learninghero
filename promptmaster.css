@@ -241,15 +241,18 @@ body {
 .site-hero {
   padding: 80px 32px 72px;
   text-align: center;
-  background: linear-gradient(160deg, #1e293b 0%, #334155 55%, #475569 100%);
+  background:
+    radial-gradient(ellipse at 15% 55%, rgba(244,63,94,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 30%, rgba(244,63,94,0.10) 0%, transparent 45%),
+    linear-gradient(160deg, #1e293b 0%, #334155 55%, #475569 100%);
   margin-top: 64px; /* offset fixed navbar */
 }
 
 .hero-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.9);
+  background: rgba(244, 63, 94, 0.2);
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  color: #fda4af;
   font-size: 0.8em;
   font-weight: 600;
   letter-spacing: 0.8px;
@@ -302,7 +305,7 @@ body {
 .hero-step-num {
   width: 26px;
   height: 26px;
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(244, 63, 94, 0.35);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -318,7 +321,7 @@ body {
 }
 
 .hero-step-arrow {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(244, 63, 94, 0.6);
   font-size: 1.3em;
   line-height: 1;
 }
