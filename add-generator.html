@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בקשו מחולל חדש | Learning Hero</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFJ2PMQPKX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CFJ2PMQPKX');
+    </script>
+
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="global-navbar-container"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>בקשו מחולל חדש</h1>
+            <p>תארו מה אתם צריכים — אנחנו נדאג לשאר</p>
+        </div>
+
+        <div class="generator-info-box">
+            <h3>איך זה עובד?</h3>
+            <p>מלאו את הטופס הקצר — ונחזור אליכם עם המחולל החדש בהקדם.<br>
+            אין צורך בפרטים טכניים, תיאור בשפה חופשית מספיק לגמרי.</p>
+        </div>
+
+        <form id="requestForm" class="form-content" onsubmit="sendRequest(event)">
+
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">1</span>המחולל שאני מדמיין</h2>
+
+                <div class="input-group">
+                    <label class="label" for="gen-name"><strong>שם המחולל</strong></label>
+                    <input type="text" id="gen-name" placeholder="לדוגמה: מחולל חידונים, מחולל מטלות בית, מחולל נרטיב פתיחה..." required>
+                </div>
+
+                <div class="input-group">
+                    <label class="label" for="gen-purpose"><strong>מה הוא אמור לייצר?</strong></label>
+                    <textarea id="gen-purpose" rows="4"
+                        placeholder="תארו את הפרומפט שתקבלו בסוף — מה הוא יכלול, לאיזה שימוש הוא מיועד, מה הפלט הרצוי..."
+                        required></textarea>
+                    <div class="helper-text">ככל שתתארו יותר, כך המחולל יהיה מדויק יותר לצרכיכם</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">2</span>מה צריך למלא?</h2>
+
+                <div class="input-group">
+                    <label class="label" for="gen-fields"><strong>אילו פרטים המשתמש יזין?</strong> <span style="font-weight:400">(אופציונלי)</span></label>
+                    <textarea id="gen-fields" rows="4"
+                        placeholder="לדוגמה: נושא, רמת קושי, גיל הקהל, כמות שאלות, פורמט מועדף...&#10;תיאור חופשי — ללא צורך בפרטים טכניים"></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">3</span>פרטי התקשרות</h2>
+
+                <div class="input-group">
+                    <label class="label" for="req-name"><strong>שם</strong> <span style="font-weight:400">(אופציונלי)</span></label>
+                    <input type="text" id="req-name" placeholder="השם שלכם">
+                </div>
+
+                <div class="input-group">
+                    <label class="label" for="req-email"><strong>אימייל לחזרה</strong> <span style="font-weight:400">(אופציונלי)</span></label>
+                    <input type="email" id="req-email" placeholder="your@email.com">
+                    <div class="helper-text">אם תרצו שנחזור אליכם כשהמחולל מוכן</div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">שלחו את הבקשה</button>
+        </form>
+    </div>
+
+    <div id="global-footer"></div>
+    <script src="promptmasterjs.js"></script>
+    <script>
+        function sendRequest(e) {
+            e.preventDefault();
+
+            const name    = document.getElementById('req-name').value.trim();
+            const email   = document.getElementById('req-email').value.trim();
+            const genName = document.getElementById('gen-name').value.trim();
+            const purpose = document.getElementById('gen-purpose').value.trim();
+            const fields  = document.getElementById('gen-fields').value.trim();
+
+            const subject = `בקשה למחולל חדש: ${genName}`;
+
+            const bodyLines = [
+                `שם המחולל: ${genName}`,
+                '',
+                'מה הוא אמור לייצר:',
+                purpose,
+            ];
+
+            if (fields) {
+                bodyLines.push('', 'שדות קלט נחוצים:', fields);
+            }
+
+            if (name || email) {
+                bodyLines.push('', '---', `שולח/ת: ${name || '—'}`, `אימייל: ${email || '—'}`);
+            }
+
+            const mailto = `mailto:ruthy.salomon@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+            window.location.href = mailto;
+
+            showNotification('✅ נפתחת תוכנת המייל — שלחו את ההודעה ונחזור אליכם בהקדם!', 'success');
+        }
+    </script>
+</body>
+</html>
