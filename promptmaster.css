@@ -474,6 +474,176 @@ body {
 }
 
 /* ---------------------------------------------------------
+   11b. Add-Generator Card
+   --------------------------------------------------------- */
+.generator-card--add {
+  border-style: dashed;
+  border-color: #cbd5e1;
+  background: var(--surface-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 180px;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  transition: opacity 0.2s, border-color 0.2s, background 0.2s;
+}
+.generator-card--add:hover {
+  opacity: 1;
+  border-color: var(--accent);
+  background: var(--accent-light);
+  transform: translateY(-3px);
+}
+.generator-card--add .card-icon--add {
+  background: transparent;
+  border: none;
+  margin-bottom: 10px;
+}
+.generator-card--add .card-icon--add svg {
+  color: var(--accent);
+  width: 32px;
+  height: 32px;
+}
+.generator-card--add .generator-title {
+  color: var(--accent);
+  font-size: 0.95em;
+}
+
+/* ---------------------------------------------------------
+   11c. Builder Page (generator-builder.html)
+   --------------------------------------------------------- */
+.builder-section-card {
+  border: 2px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 20px;
+  margin-bottom: 16px;
+  background: var(--surface);
+}
+.builder-field-card {
+  border: 1px solid #e2e8f0;
+  border-radius: var(--r-lg);
+  padding: 16px;
+  margin: 10px 0;
+  background: var(--surface-2);
+}
+.builder-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.builder-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.builder-label {
+  display: block;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+.builder-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+.builder-header-row input {
+  flex: 1;
+  font-weight: 600;
+}
+.btn-remove {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  border-radius: var(--r-md);
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 0.85em;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.btn-remove:hover { background: #fecaca; }
+.btn-add-secondary {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--r-md);
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.85em;
+  margin-top: 8px;
+  transition: background 0.15s;
+}
+.btn-add-secondary:hover { background: #dcfce7; }
+.btn-add-section {
+  width: 100%;
+  padding: 12px;
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--r-xl);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: border-color 0.15s, color 0.15s;
+  margin-top: 8px;
+}
+.btn-add-section:hover { border-color: var(--accent); color: var(--accent); }
+.option-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.option-row input { flex: 1; min-width: 0; }
+.data-keys-preview {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--r-lg);
+  padding: 12px 16px;
+  font-size: 0.85em;
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+.data-keys-preview code {
+  background: #dcfce7;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #15803d;
+  margin: 0 2px;
+}
+.code-output {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 24px;
+  border-radius: var(--r-xl);
+  font-family: monospace;
+  font-size: 13px;
+  white-space: pre;
+  overflow-x: auto;
+  direction: ltr;
+  text-align: left;
+  max-height: 500px;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+.builder-textarea-code {
+  font-family: monospace;
+  font-size: 13px;
+  direction: ltr;
+  text-align: left;
+}
+@media (max-width: 600px) {
+  .builder-row, .builder-row-3 { grid-template-columns: 1fr; }
+  .option-row { flex-wrap: wrap; }
+}
+
+/* ---------------------------------------------------------
    12. Home CTA Section
    --------------------------------------------------------- */
 .cta-section-home {

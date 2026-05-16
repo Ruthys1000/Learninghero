@@ -659,25 +659,35 @@ function updatePaletteUI(globalPaletteArray) {
    HOME PAGE LOGIC — data lives in generators-config.js
 ============================================ */
 
+const _ADD_CARD_HTML = `
+<a href="generator-builder.html" class="generator-card generator-card--add">
+    <div class="card-icon card-icon--add">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+        </svg>
+    </div>
+    <h3 class="generator-title">הוסף מחולל חדש</h3>
+    <p class="generator-description">צור מחולל פרומפטים מותאם אישית — בלי לגעת בקוד</p>
+</a>`;
+
 function renderGeneratorsGrid(data) {
     const grid = document.getElementById('generators-grid');
     if (!grid) return;
 
-    if (data.length === 0) {
-        grid.innerHTML = '<p class="no-results">לא נמצאו מחוללים התואמים לחיפוש.</p>';
-        return;
-    }
-
-    grid.innerHTML = data.map(g => {
-        const label = (typeof CATEGORY_LABELS !== 'undefined' && CATEGORY_LABELS[g.category]) || g.category;
-        return `
+    const cardsHTML = data.length === 0
+        ? '<p class="no-results">לא נמצאו מחוללים התואמים לחיפוש.</p>'
+        : data.map(g => {
+            const label = (typeof CATEGORY_LABELS !== 'undefined' && CATEGORY_LABELS[g.category]) || g.category;
+            return `
         <a href="${g.link}" class="generator-card" data-category="${g.category}">
             <div class="card-icon">${g.icon}</div>
             <span class="category-tag category-${g.category}">${label}</span>
             <h3 class="generator-title">${g.title}</h3>
             <p class="generator-description">${g.description}</p>
         </a>`;
-    }).join('');
+        }).join('');
+
+    grid.innerHTML = cardsHTML + _ADD_CARD_HTML;
 }
 
 function initGeneratorsPage() {
@@ -735,4 +745,207 @@ function initGeneratorsPage() {
             applyFiltersAndSort();
         });
     }
+}
+
+/* ============================================
+   DYNAMIC GENERATOR — רינדור מחולל מהגדרות
+   ============================================
+   מאפשר הוספת מחולל חדש ב-generators-config.js
+   ללא יצירת קובץ HTML נפרד.
+
+   כל מחולל חדש מגדיר:
+     fields      — מבנה שדות הטופס (ראה תיעוד למטה)
+     buildPrompt — פונקציה שמקבלת data ומחזירה פרומפט
+     info        — טקסט תיבת "איך זה עובד?"  (אופציונלי)
+     tagline     — כותרת משנה (אופציונלי, ברירת מחדל: description)
+     submitLabel — טקסט כפתור השליחה (אופציונלי)
+     methodology — HTML עבור סקשן "הפרומפט מבפנים" (אופציונלי)
+============================================ */
+
+/**
+ * רינדור HTML לשדה בודד.
+ * סוגי שדות נתמכים: text | textarea | number | select | radio | checkbox | inline
+ * @param {Object} field - הגדרת השדה
+ * @returns {string} HTML
+ */
+function _renderInput(field) {
+    const tooltip = field.tooltip
+        ? `<span class="tooltip"><span class="tooltiptext">${field.tooltip}</span></span>`
+        : '';
+
+    const multiNote = (field.type === 'checkbox' && field.multiSelectNote !== false)
+        ? ' <span style="font-weight:400">(ניתן לבחור יותר מאחת)</span>'
+        : '';
+
+    const labelFor = (field.type === 'radio' || field.type === 'checkbox' || field.type === 'inline')
+        ? '' : `for="${field.id}"`;
+
+    const label = field.label
+        ? `<label class="label" ${labelFor}><strong>${field.label}</strong>${tooltip}${multiNote}</label>`
+        : '';
+
+    const helper = field.helperText
+        ? `<div class="helper-text">${field.helperText}</div>`
+        : '';
+
+    let inputHTML = '';
+
+    switch (field.type) {
+        case 'text':
+            inputHTML = `<input type="text" id="${field.id}" name="${field.id}"${field.placeholder ? ` placeholder="${field.placeholder}"` : ''}${field.required ? ' required' : ''}>`;
+            break;
+
+        case 'textarea':
+            inputHTML = `<textarea id="${field.id}" name="${field.id}" rows="${field.rows || 4}"${field.placeholder ? ` placeholder="${field.placeholder}"` : ''}${field.required ? ' required' : ''}></textarea>`;
+            break;
+
+        case 'number':
+            inputHTML = `<input type="number" id="${field.id}" name="${field.id}"${field.min !== undefined ? ` min="${field.min}"` : ''}${field.max !== undefined ? ` max="${field.max}"` : ''}${field.step ? ` step="${field.step}"` : ''}${field.defaultValue !== undefined ? ` value="${field.defaultValue}"` : ''}${field.required ? ' required' : ''}>`;
+            break;
+
+        case 'select': {
+            const opts = (field.options || []).map(o =>
+                `<option value="${o.value}"${o.selected ? ' selected' : ''}>${o.label}</option>`
+            ).join('');
+            inputHTML = `<select id="${field.id}" name="${field.id}">${opts}</select>`;
+            break;
+        }
+
+        case 'radio': {
+            const layout = field.layout || '2col';
+            const items = (field.options || []).map(o =>
+                `<div class="radio-option">
+                    <input type="radio" id="${o.id}" name="${field.name}" value="${o.value}">
+                    <label for="${o.id}"><span>${o.label}</span></label>
+                </div>`
+            ).join('');
+            inputHTML = `<div class="radio-group-${layout}">${items}</div>`;
+            break;
+        }
+
+        case 'checkbox': {
+            const layout = field.layout || '2col';
+            const items = (field.options || []).map(o =>
+                `<div class="checkbox-option">
+                    <input type="checkbox" id="${o.id}" name="${field.name}" value="${o.value}">
+                    <label for="${o.id}">${o.label}</label>
+                </div>`
+            ).join('');
+            inputHTML = `<div class="checkbox-group-${layout}">${items}</div>`;
+            break;
+        }
+
+        case 'inline': {
+            // מספר שדות זה לצד זה בתוך .time-inputs
+            const inlineHTML = (field.inputs || []).map(sub => {
+                const subHelper = sub.helperText ? `<div class="helper-text">${sub.helperText}</div>` : '';
+                return `<div>${_renderRawInput(sub)}${subHelper}</div>`;
+            }).join('');
+            return `<div class="input-group">${label}<div class="time-inputs">${inlineHTML}</div>${helper}</div>`;
+        }
+
+        default:
+            return '';
+    }
+
+    return `<div class="input-group">${label}${inputHTML}${helper}</div>`;
+}
+
+/**
+ * רינדור שדה גולמי (ללא wrapper) — לשימוש בתוך inline.
+ * @param {Object} field
+ * @returns {string} HTML
+ */
+function _renderRawInput(field) {
+    switch (field.type) {
+        case 'number':
+            return `<input type="number" id="${field.id}" name="${field.id}"${field.min !== undefined ? ` min="${field.min}"` : ''}${field.max !== undefined ? ` max="${field.max}"` : ''}${field.step ? ` step="${field.step}"` : ''}${field.defaultValue !== undefined ? ` value="${field.defaultValue}"` : ''}>`;
+        case 'select': {
+            const opts = (field.options || []).map(o =>
+                `<option value="${o.value}"${o.selected ? ' selected' : ''}>${o.label}</option>`
+            ).join('');
+            return `<select id="${field.id}" name="${field.id}">${opts}</select>`;
+        }
+        default:
+            return `<input type="${field.type || 'text'}" id="${field.id}" name="${field.id}"${field.placeholder ? ` placeholder="${field.placeholder}"` : ''}>`;
+    }
+}
+
+/**
+ * איסוף אוטומטי של נתוני הטופס ממבנה ה-fields.
+ * מחזיר אובייקט data שניתן להעביר ל-buildPrompt.
+ * @param {Array} fields - מבנה שדות (זהה ל-config.fields)
+ * @returns {Object} data
+ */
+function autoCollectData(fields) {
+    const data = {};
+    (fields || []).forEach(section => {
+        (section.inputs || []).forEach(field => {
+            if (field.type === 'radio') {
+                data[field.name] = getRadioValue(field.name);
+            } else if (field.type === 'checkbox') {
+                data[field.name] = getCheckedValues(`input[name="${field.name}"]`);
+            } else if (field.type === 'inline') {
+                (field.inputs || []).forEach(sub => {
+                    if (sub.id) data[sub.id] = getFieldValue(sub.id);
+                });
+            } else if (field.id) {
+                data[field.id] = getFieldValue(field.id);
+            }
+        });
+    });
+    return data;
+}
+
+/**
+ * טוען מחולל דינמי לתוך עמוד generator.html ממבנה config.
+ * מופעל אוטומטית מ-generator.html.
+ * @param {Object} config - אובייקט הגדרת המחולל מ-GENERATORS
+ */
+function loadGeneratorPage(config) {
+    document.title = `${config.title} | Learning Hero`;
+
+    const headerEl = document.getElementById('generator-header');
+    if (headerEl) {
+        headerEl.innerHTML = `<h1>${config.title}</h1><p>${config.tagline || config.description}</p>`;
+    }
+
+    if (config.info) {
+        const infoEl = document.getElementById('generator-info');
+        if (infoEl) {
+            infoEl.innerHTML = `<h3>איך זה עובד?</h3><p>${config.info}</p>`;
+            infoEl.style.display = '';
+        }
+    }
+
+    if (config.methodology) {
+        const methEl = document.getElementById('generator-methodology');
+        const bodyEl = document.getElementById('methodology-body');
+        if (methEl && bodyEl) {
+            bodyEl.innerHTML = config.methodology;
+            methEl.style.display = '';
+        }
+    }
+
+    const fieldsEl = document.getElementById('generator-fields');
+    if (fieldsEl && config.fields) {
+        fieldsEl.innerHTML = config.fields.map((section, i) => {
+            const fieldsHTML = (section.inputs || []).map(_renderInput).join('');
+            return `<div class="section">
+    <h2 class="section-title"><span class="section-number">${i + 1}</span>${section.section}</h2>
+    ${fieldsHTML}
+</div>`;
+        }).join('');
+    }
+
+    const submitBtn = document.getElementById('generator-submit-btn');
+    if (submitBtn && config.submitLabel) {
+        submitBtn.textContent = config.submitLabel;
+    }
+
+    initPromptGenerator({
+        formId: 'generatorForm',
+        collectData: () => autoCollectData(config.fields),
+        buildPrompt: config.buildPrompt
+    });
 }

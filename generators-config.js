@@ -116,5 +116,164 @@ const GENERATORS = [
         category: 'visual',
         icon: ICONS.film
     },
+    /* =========================================================
+       מחוללים חדשים — גישה דינמית (ללא קובץ HTML נפרד)
+       =========================================================
+       כל מחולל חדש מכיל:
+         link        → 'generator.html?g=<id>'
+         fields      → מבנה שדות הטופס (ראה סוגים למטה)
+         buildPrompt → פונקציה(data) שמחזירה פרומפט
+
+       סוגי שדות זמינים ב-fields:
+         { type:'text',     id, label, placeholder, required, helperText, tooltip }
+         { type:'textarea', id, label, placeholder, required, helperText, rows }
+         { type:'number',   id, label, min, max, step, defaultValue, helperText }
+         { type:'select',   id, label, options:[{value,label,selected}], helperText }
+         { type:'radio',    name, label, layout:'2col'|'3col', options:[{id,value,label}] }
+         { type:'checkbox', name, label, layout:'2col'|'3col', options:[{id,value,label}] }
+         { type:'inline',   label, helperText, inputs:[...שדות גולמיים...] }
+
+       ב-buildPrompt, data מכיל:
+         - שדה text/textarea/number/select → data[id]
+         - שדה radio → data[name]  (מחרוזת)
+         - שדה checkbox → data[name]  (מערך)
+         - שדה inline → data[id] לכל שדה פנימי
+       ========================================================= */
+
+    {
+        id: 'flashcards',
+        title: 'מחולל כרטיסיות לימוד',
+        description: 'יוצר סטים של כרטיסיות ממוקדות ללמידה ושינון — מושגים, הגדרות, שאלות ותשובות.',
+        link: 'generator.html?g=flashcards',
+        category: 'learning',
+        icon: ICONS.clipboard,
+        tagline: 'צור כרטיסיות לימוד ממוקדות בשניות',
+        submitLabel: 'צור כרטיסיות',
+        info: `המחולל יוצר פרומפט לסט כרטיסיות לימוד מותאמות לנושא ולקהל שלך.
+הכרטיסיות מתאימות לשינון, לחזרה מהירה ולתרגול עצמאי.
+<strong>הדבק את הפרומפט בכלי ה-AI לקבל סט מוכן לשימוש.</strong>`,
+        fields: [
+            {
+                section: 'נושא וכמות',
+                inputs: [
+                    {
+                        type: 'text',
+                        id: 'topic',
+                        label: 'נושא הכרטיסיות',
+                        placeholder: 'לדוגמה: מושגי יסוד בניהול פרויקטים',
+                        required: true
+                    },
+                    {
+                        type: 'inline',
+                        label: 'כמות ורמת קושי',
+                        inputs: [
+                            {
+                                type: 'number',
+                                id: 'count',
+                                min: 5,
+                                max: 50,
+                                step: 5,
+                                defaultValue: 15,
+                                helperText: 'מספר כרטיסיות'
+                            },
+                            {
+                                type: 'select',
+                                id: 'difficulty',
+                                options: [
+                                    { value: 'בסיסית', label: 'בסיסית' },
+                                    { value: 'בינונית', label: 'בינונית', selected: true },
+                                    { value: 'מתקדמת', label: 'מתקדמת' },
+                                    { value: 'מעורבת', label: 'מעורבת' }
+                                ],
+                                helperText: 'רמת קושי'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                section: 'פורמט הכרטיסיות',
+                inputs: [
+                    {
+                        type: 'radio',
+                        name: 'cardType',
+                        label: 'סוג הכרטיסיות',
+                        layout: '2col',
+                        options: [
+                            { id: 'card-qa',      value: 'שאלה ותשובה',  label: 'שאלה ותשובה' },
+                            { id: 'card-term',    value: 'מושג והגדרה',  label: 'מושג והגדרה' },
+                            { id: 'card-example', value: 'עיקרון ודוגמה', label: 'עיקרון ודוגמה' },
+                            { id: 'card-fill',    value: 'השלמת משפט',   label: 'השלמת משפט' }
+                        ]
+                    }
+                ]
+            },
+            {
+                section: 'קהל יעד',
+                inputs: [
+                    {
+                        type: 'radio',
+                        name: 'audience',
+                        label: 'רמת הלומדים',
+                        layout: '2col',
+                        options: [
+                            { id: 'aud-beginner',     value: 'מתחילים', label: 'מתחילים' },
+                            { id: 'aud-intermediate', value: 'בינוניים', label: 'בינוניים' },
+                            { id: 'aud-advanced',     value: 'מתקדמים', label: 'מתקדמים' },
+                            { id: 'aud-mixed',        value: 'מעורב',   label: 'מעורב' }
+                        ]
+                    }
+                ]
+            },
+            {
+                section: 'מידע נוסף',
+                inputs: [
+                    {
+                        type: 'textarea',
+                        id: 'context',
+                        label: 'תוכן מקור או הקשר',
+                        placeholder: 'הדבק כאן את החומר הלימודי, רשימת מושגים, או כל הקשר שיעזור ליצור כרטיסיות מדויקות יותר...',
+                        rows: 5,
+                        helperText: 'אופציונלי — ככל שתספק יותר מידע, הכרטיסיות יהיו ממוקדות יותר'
+                    }
+                ]
+            }
+        ],
+        buildPrompt: function(data) {
+            const cardType = data.cardType || 'שאלה ותשובה';
+            const audience = data.audience || 'כללי';
+            const count = data.count || 15;
+            return `# בקשה ליצירת סט כרטיסיות לימוד
+
+## פרטי הסט
+**נושא:** ${data.topic}
+**מספר כרטיסיות:** ${count}
+**רמת קושי:** ${data.difficulty}
+**פורמט:** ${cardType}
+**רמת לומדים:** ${audience}
+${data.context ? `\n## חומר מקור / הקשר\n${data.context}` : ''}
+
+---
+
+## הנחיות ליצירת הכרטיסיות:
+
+אתה מומחה לפדגוגיה ולעיצוב כלי למידה.
+
+צור סט של ${count} כרטיסיות לימוד בנושא "${data.topic}" ברמת קושי ${data.difficulty}.
+
+### פורמט כל כרטיסייה (${cardType}):
+**צד א׳:** [${cardType.split('ו')[0].trim()}]
+**צד ב׳:** [${cardType.split('ו')[1]?.trim() || 'תשובה'}]
+
+### דגשים:
+- כל כרטיסייה תהיה ברורה ועצמאית
+- שפה מותאמת ללומדים ${audience}
+- גיוון בנושאים כדי לכסות את הנושא בצורה מקיפה
+- כרטיסיות ממוקדות — לא יותר מ-2-3 משפטים בכל צד
+
+**צור עכשיו ${count} כרטיסיות מלאות ומוכנות לשימוש!**`;
+        }
+    },
+
     /* ← הוסיפו מחוללים חדשים כאן ↑ */
 ];
