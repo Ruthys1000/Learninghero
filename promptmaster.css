@@ -654,24 +654,24 @@ body {
    --------------------------------------------------------- */
 .header {
   background: #334155;
-  padding: 36px 40px 28px;
+  padding: 52px 40px 44px;
   text-align: center;
   border-radius: 0;
 }
 
 .header-icon {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   background: rgba(244,63,94,0.18);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-xl);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 18px;
+  margin: 0 auto 22px;
   border: 1px solid rgba(244,63,94,0.35);
 }
 
-.header-icon svg { width: 28px; height: 28px; color: #fda4af; }
+.header-icon svg { width: 36px; height: 36px; color: #fda4af; }
 
 .header-content { position: relative; }
 
