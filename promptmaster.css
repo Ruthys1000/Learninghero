@@ -752,10 +752,11 @@ body {
 
 .prompt-methodology summary::after {
   content: '▾';
-  font-size: 1em;
-  color: var(--text-muted);
-  transition: transform 0.2s;
+  font-size: 1.4em;
+  color: var(--accent);
+  transition: transform 0.25s;
   flex-shrink: 0;
+  line-height: 1;
 }
 
 .prompt-methodology[open] > summary::after { transform: rotate(180deg); }
