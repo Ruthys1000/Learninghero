@@ -516,9 +516,9 @@ body {
   letter-spacing: 0.2px;
 }
 
-.category-learning  { background: #ccfbf1; color: #0f766e; }
-.category-guidance  { background: #dcfce7; color: #15803d; }
-.category-visual    { background: #fef9c3; color: #92400e; }
+.category-learning  { background: #f1f5f9; color: #475569; }
+.category-guidance  { background: #f1f5f9; color: #475569; }
+.category-visual    { background: #fff1f2; color: #be123c; }
 
 .generator-title {
   font-size: 1.05em;
