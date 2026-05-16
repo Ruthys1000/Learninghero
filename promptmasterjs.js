@@ -695,7 +695,7 @@ function initGeneratorsPage() {
 
     let activeCategory = 'all';
     let searchQuery = '';
-    let sortOrder = 'default';
+    let sortOrder = 'alpha';
 
     function applyFiltersAndSort() {
         let result = GENERATORS.filter(g => {
@@ -715,7 +715,7 @@ function initGeneratorsPage() {
         renderGeneratorsGrid(result);
     }
 
-    renderGeneratorsGrid(GENERATORS);
+    applyFiltersAndSort();
 
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
