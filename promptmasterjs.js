@@ -907,7 +907,8 @@ function loadGeneratorPage(config) {
 
     const headerEl = document.getElementById('generator-header');
     if (headerEl) {
-        headerEl.innerHTML = `<h1>${config.title}</h1><p>${config.tagline || config.description}</p>`;
+        const iconHtml = config.icon ? `<div class="header-icon">${config.icon}</div>` : '';
+        headerEl.innerHTML = `${iconHtml}<h1>${config.title}</h1><p>${config.tagline || config.description}</p>`;
     }
 
     if (config.info) {
