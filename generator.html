@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל | Learning Hero</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFJ2PMQPKX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CFJ2PMQPKX');
+    </script>
+
+    <link rel="stylesheet" href="promptmaster.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="global-navbar-container"></div>
+
+    <div class="container">
+        <div id="generator-header" class="header"></div>
+
+        <div id="generator-info" class="generator-info-box" style="display:none"></div>
+
+        <details id="generator-methodology" class="prompt-methodology" style="display:none">
+            <summary>הפרומפט מבפנים — איך הוא בנוי?</summary>
+            <div class="methodology-body" id="methodology-body"></div>
+        </details>
+
+        <form id="generatorForm" class="form-content">
+            <div id="generator-fields"></div>
+            <button type="submit" class="submit-button" id="generator-submit-btn">צור פרומפט</button>
+        </form>
+
+        <div id="result" class="result">
+            <div class="result-header">
+                <h2 class="result-title">הפרומפט שלך מוכן!</h2>
+                <button onclick="copyPrompt()" class="copy-button">העתק פרומפט</button>
+            </div>
+            <pre id="promptOutput" class="prompt-output"></pre>
+        </div>
+    </div>
+
+    <div id="global-footer"></div>
+
+    <script src="promptmasterjs.js"></script>
+    <script src="generators-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const genId = new URLSearchParams(window.location.search).get('g');
+            const config = (typeof GENERATORS !== 'undefined') && GENERATORS.find(g => g.id === genId);
+
+            if (!config || !config.fields) {
+                document.querySelector('.container').innerHTML =
+                    '<p style="text-align:center;padding:60px 20px;">מחולל לא נמצא. <a href="index.html">חזרה לדף הבית</a></p>';
+                return;
+            }
+
+            loadGeneratorPage(config);
+        });
+    </script>
+</body>
+</html>
