@@ -159,7 +159,7 @@ body {
    --------------------------------------------------------- */
 .footer,
 .site-footer {
-  background: #0f172a;
+  background: #1e293b;
   border-top: none;
   padding: 36px 20px;
   text-align: center;
@@ -241,7 +241,7 @@ body {
 .site-hero {
   padding: 80px 32px 72px;
   text-align: center;
-  background: linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #334155 100%);
+  background: linear-gradient(160deg, #1e293b 0%, #334155 55%, #475569 100%);
   margin-top: 64px; /* offset fixed navbar */
 }
 
@@ -553,8 +553,8 @@ body {
 }
 .generator-card--add:hover {
   opacity: 1;
-  border-color: var(--accent);
-  background: var(--accent-light);
+  border-color: #64748b;
+  background: #f1f5f9;
   transform: translateY(-3px);
 }
 .generator-card--add .card-icon--add {
@@ -563,12 +563,12 @@ body {
   margin-bottom: 10px;
 }
 .generator-card--add .card-icon--add svg {
-  color: var(--accent);
+  color: #64748b;
   width: 32px;
   height: 32px;
 }
 .generator-card--add .generator-title {
-  color: var(--accent);
+  color: #475569;
   font-size: 0.95em;
 }
 
@@ -650,7 +650,7 @@ body {
    16. Generator Header
    --------------------------------------------------------- */
 .header {
-  background: #1e293b;
+  background: #334155;
   padding: 36px 40px 28px;
   text-align: center;
   border-radius: 0;
@@ -976,7 +976,7 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
   display: block !important;
   margin: 28px auto !important;
   padding: 14px !important;
-  background: var(--accent) !important;
+  background: #334155 !important;
   color: white !important;
   border: none;
   border-radius: var(--r-md);
@@ -985,11 +985,11 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
   text-align: center !important;
   cursor: pointer;
   transition: background 0.15s;
-  box-shadow: 0 2px 8px rgba(244,63,94,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.submit-button:hover  { background: var(--accent-dark) !important; }
-.submit-button:active { background: #9f1239 !important; }
+.submit-button:hover  { background: #475569 !important; }
+.submit-button:active { background: #1e293b !important; }
 
 .copy-button {
   padding: 9px 18px;
@@ -1036,7 +1036,7 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
 }
 
 .result-header {
-  background: var(--accent-dark);
+  background: #334155;
   padding: 16px 24px;
   border-radius: var(--r-lg) var(--r-lg) 0 0;
   display: flex;
@@ -1082,7 +1082,7 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   text-align: center;
-  border-top: 3px solid var(--accent);
+  border-top: 3px solid #334155;
 }
 
 .ai-links h3 { font-size: 1.2em; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; }
@@ -1092,7 +1092,7 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
   display: inline-block;
   margin: 5px;
   padding: 10px 24px;
-  background: var(--accent);
+  background: #334155;
   color: white;
   text-decoration: none;
   border-radius: var(--r-md);
@@ -1101,7 +1101,7 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
   transition: background 0.15s;
 }
 
-.ai-link-button:hover { background: var(--accent-dark); }
+.ai-link-button:hover { background: #475569; }
 
 /* ---------------------------------------------------------
    25. Color Picker (image generator)
@@ -1418,17 +1418,17 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
   align-items: center;
   gap: 10px;
   padding: 14px 32px;
-  background: var(--accent);
+  background: #334155;
   color: white !important;
   text-decoration: none !important;
   border-radius: var(--r-md);
   font-weight: 700;
   font-size: 1em;
   transition: background 0.15s;
-  box-shadow: 0 2px 8px rgba(244,63,94,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.contact-link:hover { background: var(--accent-dark); }
+.contact-link:hover { background: #475569; }
 
 /* ==========================================================
    34–37. SHARED / UTILITIES
@@ -1453,7 +1453,7 @@ input[type="checkbox"]:checked + * { font-weight: 600; }
 
 .notification.success { background: #10b981; color: white; }
 .notification.error   { background: #ef4444; color: white; }
-.notification.info    { background: var(--accent); color: white; }
+.notification.info    { background: #334155; color: white; }
 
 [data-tooltip] { position: relative; cursor: help; }
 
