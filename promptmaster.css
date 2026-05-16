@@ -159,8 +159,8 @@ body {
    --------------------------------------------------------- */
 .footer,
 .site-footer {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
+  background: #0d2b26;
+  border-top: none;
   padding: 36px 20px;
   text-align: center;
   display: flex;
@@ -207,26 +207,26 @@ body {
   font-size: 0.9em;
 }
 
-.footer-ai-links span { color: var(--text-muted); font-weight: 500; }
+.footer-ai-links span { color: rgba(255,255,255,0.6); font-weight: 500; }
 .footer-ai-links a {
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.15s;
 }
-.footer-ai-links a:hover { color: var(--text-primary); }
-.footer-ai-links .sep { color: var(--border); }
+.footer-ai-links a:hover { color: #ffffff; }
+.footer-ai-links .sep { color: rgba(255,255,255,0.25); }
 
 .footer-meta {
   font-size: 0.85em;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.6);
   line-height: 1.8;
   text-align: center;
 }
 
 .footer-meta strong {
   font-size: 1em;
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.85);
   font-weight: 700;
   display: inline;
 }
@@ -241,7 +241,7 @@ body {
 .site-hero {
   padding: 80px 32px 72px;
   text-align: center;
-  background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
+  background: linear-gradient(160deg, #0d2b26 0%, #0f4c44 55%, #0d8a78 100%);
   margin-top: 64px; /* offset fixed navbar */
 }
 
@@ -281,7 +281,6 @@ body {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
-  direction: ltr;
 }
 
 .hero-step {
