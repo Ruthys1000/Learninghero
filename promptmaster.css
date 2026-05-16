@@ -182,20 +182,20 @@ body {
 }
 
 .footer-links-label {
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.5);
   font-weight: 500;
 }
 
 .footer-links a {
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.9);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.15s;
 }
 
-.footer-links a:hover { color: var(--text-primary); }
+.footer-links a:hover { color: #ffffff; }
 
-.footer-links .sep { color: var(--border); }
+.footer-links .sep { color: rgba(255,255,255,0.2); }
 
 /* Homepage static footer */
 .footer-ai-links {
